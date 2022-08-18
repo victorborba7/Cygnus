@@ -1,19 +1,6 @@
 version: '3.10.5'
 
 services:
-    api:
-        image: api:latest
-        command: sh -c "uvicorn main:app --host 0.0.0.0 --port 3000"
-        build:
-            context: ./api
-            dockerfile: Dockerfile
-        ports:
-          - 3000:3000
-        volumes:
-          - ./html:/home/html
-        depends_on:
-        - front
-
     front:
         image: front:latest
         build:
