@@ -1,9 +1,6 @@
-FROM python:3.10
+FROM python:3.10-ubuntu
 
 WORKDIR /api
-
-RUN yum -y install epel-release && yum clean all
-RUN yum -y install python-pip-3.10 && yum clean all
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONBUFFERED 1
