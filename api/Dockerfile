@@ -11,3 +11,5 @@ COPY requirements.txt .
 #RUN pip3 install --no-cache-dir -r requirements.txt --proxy="192.168.0.251:808"
 
 COPY . .
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "3000"]
