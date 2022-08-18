@@ -10,6 +10,9 @@ services:
         build:
             context: ./api
             dockerfile: Dockerfile
+            args:
+                HTTP_PROXY: http://xx.xx.xx.xx:xx
+                HTTPS_PROXY: http://xx.xx.xx.xx:xx
         ports:
           - 3000:3000
         volumes:
