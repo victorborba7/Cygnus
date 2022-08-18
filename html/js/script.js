@@ -3,7 +3,8 @@ var geocoder = new google.maps.Geocoder();
 const queryString = window.location.search;
 let company = window.location.pathname.replace("/", "");
 let company_id;
-let api = "http://localhost:3000"
+//let api = "http://localhost:3000";
+let api = "http://162.240.67.88:3000";
 
 var mapOptions = {
 	center: latlng,
