@@ -1,0 +1,463 @@
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <nav id="sidebar">
+        <div class="d-flex flex-column justify-content-around align-items-center">
+            <div class="sidebar-header">
+                <h3>Logo</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p class="pl-3" id="nome_user">Nome do Usuário</p>
+                <li class="pl-5 py-3">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="active pl-5 py-3">
+                    <a href="avioes.html">Aviões</a>
+                </li>
+                <li class="pl-5 py-3">
+                    <a href="usuarios.html">Usuários</a>
+                </li>
+                <li class="pl-5 py-3">
+                    <a href="marcas.html">Marcas</a>
+                </li>
+            </ul>
+            <button id="logout" class="px-3 py-2">Sair</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Tabela e Cadastro de Aviões</h1>
+
+        <h2>Tabela de Aviões</h2>
+        <div class="row">
+            <div class="col-12">
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Série</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTable"></tbody>
+                </table>
+            </div>
+        </div>
+        <h2>Cadastro de Aviões</h2>
+        <form class="d-flex flex-column justify-content-between align-items-center p-5">
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="model">Modelo</label>
+                    <input class="col-md-12" type="text" id="model" />
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="series">Série</label><br />
+                    <input class="col-md-12" type="text" id="series" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="company">Marca</label>
+                    <select class="col-md-12" id="company" class="col-md-6">
+                        <option value="0" disabled selected>Marcas...</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="engine">Motorização</label><br />
+                    <input class="col-md-12" type="text" id="engine" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="max_takeoff_weight">Peso máximo de decolagem</label>
+                    <input class="col-md-12" type="text" id="max_takeoff_weight" />
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="first_year_production">Ano de primeira produção</label><br />
+                    <input class="col-md-12" type="text" id="first_year_production" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="tbo">TBO (horas totais motor)</label>
+                    <input class="col-md-12" type="text" id="tbo" />
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="max_capacity">Nº máximo de ocupantes</label><br />
+                    <input class="col-md-12" type="text" id="max_capacity" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="max_cruise_speed">Velocidade de cruzeiro *</label>
+                    <input class="col-md-12" type="text" id="max_cruise_speed" />
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="max_range">Alcance máximo</label><br />
+                    <input class="col-md-12" type="text" id="max_range" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="max_operating_altitude">Altitude máxima de operações</label>
+                    <input class="col-md-12" type="text" id="max_operating_altitude" />
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="wingspan">Envergadura (ponta de uma asa a outra)</label><br />
+                    <input class="col-md-12" type="text" id="wingspan" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="length">Comprimento</label>
+                    <input class="col-md-12" type="text" id="length" />
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="max_tail_height">Altura máxima da cauda</label><br />
+                    <input class="col-md-12" type="text" id="max_tail_height" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="min_takeoff_distance">Distância para a decolagem</label>
+                    <input class="col-md-12" type="text" id="min_takeoff_distance" />
+                </div>
+                <div class="col-md-3 col-6 d-flex align-items-center justify-content-around">
+                    <label for="available">Está disponível</label>
+                    <input type="checkbox" id="available" />
+                </div>
+                <div class="col-md-3 col-6 d-flex align-items-center justify-content-around">
+                    <label for="first_seen">Prioridade</label>
+                    <input type="checkbox" id="first_seen" />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="int_photos">Fotos internas</label>
+                    <input class="col-md-12" type="file" id="int_photos" multiple />
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="ex_photos">Fotos externas</label><br />
+                    <input class="col-md-12" type="file" id="ex_photos" multiple />
+                </div>
+            </div>
+            <div class="row fields">
+                <div class="col-md-12 col-12">
+                    <label for="description">Descrição</label>
+                    <input class="col-md-12" type="textarea" id="description" />
+                </div>
+            </div>
+            <button id="save" class="btn-cadastro">Salvar avião</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
+        integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="js/paging.js"></script>
+
+</body>
+
+</html>
+
+<style>
+    h2 {
+        margin-top: 100px;
+    }
+
+    table {
+        border-radius: 50px 50px 0 0;
+        box-shadow: 3px 3px 3px 1px #cccccc;
+        border: none;
+        background-color: #FFFFFF;
+    }
+
+    thead {
+        border-radius: 50px 50px 0 0;
+        background-color: #A5132F;
+        border: none;
+        color: #EDEDED;
+    }
+
+    td,
+    th {
+        vertical-align: middle;
+    }
+
+    form {
+        background-color: #FFFFFF;
+        width: 100%;
+    }
+
+    .fields {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    .fields input {
+        border-radius: 5px;
+        padding: 5px;
+        border: 1px solid #bb1c35;
+    }
+
+    .btn-cadastro {
+        background-color: #CE3E5A;
+        color: #EDEDED;
+        padding: 5px;
+        font-size: 1.2rem;
+        width: 200px;
+        margin-top: 10px;
+    }
+</style>
+
+<script>
+    let url = "http://localhost:3000";
+    let loaded = false;
+    let id;
+    $("document").ready(function () {
+        const user = sessionStorage.getItem("user");
+        if (user == undefined) {
+            window.location.href = "login.html"
+            return false;
+        }
+        user_data = JSON.parse(user)
+        $('.name').text(user_data.name)
+        
+        function getCompanies() {
+            $.ajax({
+                method: "GET",
+                url: url + "/company/list",
+                success: function (data) {
+                    data.forEach(el => {
+                        $("#company").append(`<option value="${el.id}">${el.name}</option>`)
+                    });
+                }
+            })
+        }
+
+        function getAircrafts() {
+            $.ajax({
+                method: "GET",
+                url: url + "/aircraft/list?company_id=0",
+                success: function (data) {
+                    $("#dataTable").empty();
+                    data.forEach(el => {
+                        console.info(el)
+                        $("#dataTable").append(`
+                        <tr>
+                            <td>
+                                ${el.model}
+                            </td>
+                            <td>
+                                ${el.company_name}
+                            </td>
+                            <td>
+                                ${el.series}
+                            </td>
+                            <td>
+                                <button data-id="${el.id}" type="button" class="btn btn-success edit">Editar</button>
+                                <button data-id="${el.id}" type="button" class="btn btn-danger delete">Excluir</button>
+                            </td>
+                        </tr>`)
+                    });
+                    
+                    $("#table").paging({
+                        limit: 5,
+                        rowDisplayStyle: 'block',
+                        activePage: 0,
+                        rows: []
+
+                    });
+                }
+            })
+
+            $(".edit").off()
+            $(".delete").off()
+
+            $(document).on('click', '.edit', function (e) {
+                e.preventDefault()
+                id = $(this).data("id");
+                getAircraft();
+            });
+
+            $(document).on('click', '.delete', function (e) {
+                e.preventDefault()
+                id = $(this).data("id");
+                removeAircraft();
+            });
+        }
+
+        function getAircraft() {
+            $.ajax({
+                method: "GET",
+                url: url + "/aircraft/get?id=" + id,
+                success: function (data) {
+                    $("#model").val(data.model)
+                    $("#series").val(data.series)
+                    $("#company").val(data.company_id)
+                    $("#engine").val(data.engine)
+                    $("#max_takeoff_weight").val(data.max_takeoff_weight)
+                    $("#first_year_production").val(data.first_year_production)
+                    $("#tbo").val(data.tbo)
+                    $("#max_capacity").val(data.max_capacity)
+                    $("#max_cruise_speed").val(data.max_cruise_speed)
+                    $("#max_range").val(data.max_range)
+                    $("#max_operating_altitude").val(data.max_operating_altitude)
+                    $("#wingspan").val(data.wingspan)
+                    $("#length").val(data.length)
+                    $("#max_tail_height").val(data.max_tail_height)
+                    $("#min_takeoff_distance").val(data.min_takeoff_distance)
+                    $("#description").val(data.description)
+                    $("#available").prop('checked', data.available)
+                    $("#first_seen").prop('checked', data.first_seen)
+                    loaded = true;
+                }
+            })
+        }
+        function addAircraft() {
+            obj = JSON.stringify({
+                model: $("#model").val(),
+                series: $("#series").val(),
+                company_id: $("#company").val(),
+                company_name: $("#company option:selected").text(),
+                engine: $("#engine").val(),
+                max_takeoff_weight: $("#max_takeoff_weight").val(),
+                first_year_production: $("#first_year_production").val(),
+                tbo: $("#tbo").val(),
+                max_capacity: $("#max_capacity").val(),
+                max_cruise_speed: $("#max_cruise_speed").val(),
+                max_range: $("#max_range").val(),
+                max_operating_altitude: $("#max_operating_altitude").val(),
+                wingspan: $("#wingspan").val(),
+                length: $("#length").val(),
+                max_tail_height: $("#max_tail_height").val(),
+                min_takeoff_distance: $("#min_takeoff_distance").val(),
+                description: $("#description").val(),
+                available: Boolean($("#available").is(":checked")),
+                first_seen: Boolean($("#first_seen").is(":checked"))
+            })
+
+            
+            data = new FormData();
+            data.append("request", obj)
+            Array.from($('#int_photos').prop('files')).forEach(file => {
+                data.append("internos", file)
+            });
+            Array.from($('#ex_photos').prop('files')).forEach(file => {
+                data.append("externos", file)
+            });
+            $.ajax({
+                method: "POST",
+                url: url + "/aircraft/add",
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.success) getAircrafts()
+                    clearFiedls();
+                }
+            })
+        }
+
+        function editAircraft() {
+            obj = JSON.stringify({
+                id: id,
+                model: $("#model").val(),
+                series: $("#series").val(),
+                company_id: $("#company").val(),
+                engine: $("#engine").val(),
+                max_takeoff_weight: $("#max_takeoff_weight").val(),
+                first_year_production: $("#first_year_production").val(),
+                tbo: $("#tbo").val(),
+                max_capacity: $("#max_capacity").val(),
+                max_cruise_speed: $("#max_cruise_speed").val(),
+                max_range: $("#max_range").val(),
+                max_operating_altitude: $("#max_operating_altitude").val(),
+                wingspan: $("#wingspan").val(),
+                length: $("#length").val(),
+                max_tail_height: $("#max_tail_height").val(),
+                min_takeoff_distance: $("#min_takeoff_distance").val(),
+                description: $("#description").val(),
+                available: Boolean($("#available").is(":checked")),
+                first_seen: Boolean($("#first_seen").is(":checked"))
+            })
+
+            data = new FormData();
+            data.append("request", obj)
+
+            $.ajax({
+                method: "POST",
+                url: url + "/aircraft/update",
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.success) getAircrafts()
+                    loaded = false;
+                    clearFiedls();
+                }
+            })
+        }
+
+        function removeAircraft() {
+            obj = JSON.stringify({
+                id: id
+            })
+            data = new FormData();
+            data.append("request", obj)
+
+            $.ajax({
+                method: "POST",
+                url: url + "/aircraft/delete/",
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.success) getAircrafts()
+                }
+            })
+        }
+
+        function clearFiedls() {
+            $("#model").val("")
+            $("#series").val("")
+            $("#company").val("")
+            $("#engine").val("")
+            $("#max_takeoff_weight").val("")
+            $("#first_year_production").val("")
+            $("#tbo").val("")
+            $("#max_capacity").val("")
+            $("#max_cruise_speed").val("")
+            $("#max_range").val("")
+            $("#max_operating_altitude").val("")
+            $("#wingspan").val("")
+            $("#length").val("")
+            $("#max_tail_height").val("")
+            $("#min_takeoff_distance").val("")
+            $("#description").val("")
+            $("#available").prop('checked', false)
+            $("#first_seen").prop('checked', false)
+        }
+
+        $("#save").click(function (e) {
+            e.preventDefault()
+            if (!loaded) addAircraft()
+            else editAircraft()
+        });
+        getAircrafts();
+        getCompanies();
+    })
+</script>

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body {
+    background-color: #EDEDED;
+}
+
+body * {
+    font-family: "Lato";
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: #bb1c35;
+    color: #EDEDED;
+}
+
+ul,
+li {
+    width: 100%;
+}
+
+.active {
+    background-color: #CE3E5A;
+    font-weight: bold;
+}
+
+li:hover {
+    background-color: #CE3E5A;
+}
+
+li a:hover {
+    color: #EDEDED;
+    text-decoration: none;
+}
+
+li a {
+    display: block;
+    width: 100%;
+    color: #EDEDED;
+}
+
+button {
+    background-color: #A5132F;
+    border: none;
+    color: #EDEDED;
+}
+
+.container {
+    margin-left: 250px;
+    padding: 50px;
+}
+
+.paging-nav {
+    text-align: right;
+    padding-top: 2px;
+}
+
+.paging-nav a {
+    margin: auto 1px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1px 7px;
+    background: #91b9e6;
+    color: white;
+    border-radius: 3px;
+}
+
+.paging-nav .selected-page {
+    background: #187ed5;
+    font-weight: bold;
+}

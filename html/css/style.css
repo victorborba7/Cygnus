@@ -1,0 +1,1102 @@
+/*ALL-PADRÃO*/
+*{
+    font-family: 'lato';
+    transition: .7s;
+}
+
+html {
+    scroll-behavior: 'smooth';
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative
+}
+
+/*HOME*/
+
+.home-esquerda{
+    background: grey;
+}
+
+.logo-jett-aviao{
+    position: absolute;
+    width: 150px;
+    margin-left: 35px;
+    margin-top: 45px;
+    z-index: 1;
+}
+
+.slick-dotted.slick-slider {
+    margin-bottom: 0px !important;
+}
+
+.menu-slick {
+    position: absolute;
+    width: 100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    bottom: 0;
+}
+
+.estrelas{
+    display: inline-block;
+    margin-left: 220px;
+}
+
+.estrelas img{
+    width: 50px;
+    margin-top: 0px;
+    margin-left: 100px;
+}
+
+.avioes img {
+    height: 1000px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
+.texto-video{
+    margin-left: 250px;
+    margin-bottom: 25px; margin-top: 15px;
+}
+
+.texto-video h1{
+    display: inline-block;
+    margin-left: 55px; margin-top: 20px;
+    font-size: 16px;
+    color: white;
+}
+
+.home-direita h2{
+    font-size: 25px;
+    margin-top: 45px;
+    color: dimgrey;
+}
+
+.home-direita h1 {
+    font-size: 100px;
+    font-weight: 1000;
+    margin-top: 5px;
+    padding: 20px 30px 20px 0px;
+}
+
+.home-direita h3{
+    font-size: 18px; color: dimgrey;
+    margin-bottom: 60px;
+    margin-top: 25px;
+    padding: 0px 280px 0px 0px;
+    font-weight: 500;
+}
+
+.pt-icones{
+    margin-top: 10px;
+    padding: 20px 20px 20px 0px;
+}
+
+.PT-EN{
+    font-size: 25px;
+}
+
+.idioma{
+    color: black;
+}
+
+.icones-sociais{
+    display: inline-block;
+    margin-left: 130px;
+}
+
+.icones-sociais img{
+    width: 25px;
+    margin-left: 2px;
+}
+
+.btn-homefaleconosco{
+    color: white;
+    background: black;
+    padding: 15px 35px 15px 35px;
+    border-radius:3px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.botoes-home{
+    color: white;
+    margin-bottom: 45px;
+    padding: 0px 334px 0px 0px;
+}
+
+.btn-saibamais{
+    background: #dedee2;
+    padding: 15px 50px 15px 50px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-saibamaisA{
+    color:black;
+}
+
+.fundo-branco-home{
+    background: white;
+    height: 1080px;
+    width: 400px;
+    position: absolute;
+    top: 0;
+    transform: skewX(-5deg);
+    right: 30%;
+    z-index: 1;
+}
+
+.home-direita{
+    z-index: 2;
+    
+}
+
+/*ICONES DE STATUS*/
+
+.status-row{
+    background: rgb(187,28,53);
+    background: linear-gradient(90deg, rgba(187,28,53,1) 0%, rgba(37,0,6,1) 15%, rgba(0,0,0,1) 30%, rgba(19,3,5,1) 70%, rgba(37,0,6,1) 85%, rgba(187,28,53,1) 100%);
+    z-index: 2;
+    position: relative;
+}
+
+.icones-status{
+    margin: 15px auto;
+    color: white;
+    text-align: center;
+}
+
+.icones-status h1{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.icones-status img{
+    width: 60px;
+}
+
+.icones-status h2{
+    font-size: 21px;
+    margin-top: 10px;
+}
+
+/*FOTO AVIAO NO AR*/
+
+
+.aviaonoar-row{
+    padding: 0;
+}
+
+.aviaonoar-row img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.aviaonoar-row div{
+    padding: 0;
+}
+
+/*MOTOR HÉLICE E AVIÃO ESTACIONADO*/
+
+.motor-helice-row {
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+.motor-helice-row h1 {
+    color: white;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    font-weight: 700;
+}
+
+.motor-helice-row div{
+    padding: 0;
+    margin: 0;
+}
+
+.motor-helice-row h2{
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 90px;
+    font-weight: 10;
+}
+
+.motor-helice-row h3{
+    font-size: 22px;
+    margin-bottom: 10px;
+    margin-top: 45px;
+    font-weight: 700;
+}
+
+.heliceimg{
+    width: 120px;
+}
+
+.motorimg{
+    width: 120px;
+}
+
+.aviaoestacionado-row img {
+    width: 100%;
+    height: 545px;
+    position: relative;
+    right: 0;
+    object-fit: cover !important;
+}
+
+.fadetitulo{
+    background: rgb(187,28,53);
+    background: linear-gradient(90deg, rgba(187,28,53,1) 0%, rgba(37,0,6,1) 59%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%);
+    text-align: left;
+}
+
+.fadetitulo h1{
+    margin-left: 100px;
+}
+
+#logo {
+    margin-top: 50px;
+    width: 200px;
+}
+
+.informacoes{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px !important;
+    place-items: center start;
+    color: #000000;
+    background-color: #FFFFFF;
+    height: 100%;
+}
+
+
+/*FOTOS DE AVIAO*/
+
+.fotosdeaviao{
+    margin: 0;
+}
+
+.fotosdeaviao img{
+    width: 300px;
+}
+
+
+/*BAGAGEIRO RAIOX*/
+.aviaoraiox{
+    width: 1000px
+}
+
+.raiox-bagageiro h1{
+    font-size: 60px;
+    font-weight: 700;
+    margin-left: 150px;
+    margin-top: 90px;
+}
+
+.raiox-bagageiro h2{
+    font-size: 35px;
+    margin-top: 65px;
+    font-weight: 1000;
+    margin-left: 85px;
+}
+
+.raiox-bagageiro h3{
+    font-size: 20px;
+    margin-left: 150px;
+    margin-top: 35px;
+    margin-bottom: 45px;
+    color: dimgrey;
+}
+
+.raiox-bagageirox img{
+    width: 110px;
+    margin-left: 150px;
+    margin-top: 65px;
+}
+
+.btn-faleconosco{
+    color: white;
+    background: black;
+    padding: 15px 35px 15px 35px;
+    border-radius:12px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 380px;
+    margin-top: 150px;
+}
+
+/*RANGE AVIÕES*/
+#map {
+    margin-top: 30px;
+    height: 600px;
+    width: 100%
+}
+
+.selects-planes{
+    margin-top: 20px;
+}
+
+.selects-planes label{
+    margin-top: 10px;
+}
+
+.selects-planes select, input{
+    padding: 10px;
+}
+
+.selectize-control{
+    padding: 0 !important;
+}
+
+.selectize-input {
+    padding: 0px !important;
+}
+
+#airports-selectized {
+    width: 100% !important;
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+    left: 0px !important;
+}
+
+.item {
+    cursor: pointer !important;
+    padding: 10px !important;
+    border: 1px solid black;
+}
+
+.selectize-dropdown {
+    top: 10px !important;
+    border: 1px solid black;
+}
+
+.option{
+    cursor: pointer;
+}
+
+/*AERONAVES DISPONÍVEIS*/
+
+.aeronaves-disponiveis .slick-prev:before, .aeronaves-disponiveis .slick-next:before {
+    color: #000000!important;
+}
+
+.aeronaves-disponiveis .slick-slide {
+	margin: 0 26px;
+}
+
+.aeronaves-disponiveis{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.aeronaves-disponiveis h1{
+    color: rgb(187,28,53);
+    margin-bottom: 20px;
+    font-size: 1.9rem;
+    font-weight: bold;
+}
+
+.card-disponiveis {
+    border-radius: 10px;
+}
+
+.card-disponiveis img {
+    width: 100%;
+}
+
+/*FORMULARIO-CONTATO*/
+
+
+/*SOBRE NÓS*/
+.sobre-nos{
+    text-align: left;
+    margin-bottom: 50px;
+    
+}
+
+.sobre-nos h1{
+    font-size: 20px;
+    margin-top: 65px;
+    font-weight: 700;
+}
+
+.sobre-nos h2{
+    font-size: 18px;
+    color: dimgrey;
+
+}
+
+.sobre-contato h1{
+    font-size: 20px;
+    margin-top: 65px;
+    font-weight: 700;    
+}
+
+.sobre-contato p{
+    margin: 0 auto;
+    color: dimgrey;
+
+}
+
+.sobre-newsletter h2{
+    font-size: 18px;
+    color: dimgrey;
+
+}
+
+.sobre-newsletter h1{
+    font-size: 20px;
+    margin-top: 65px;
+    font-weight: 700; 
+}
+
+/*CONTATO*/
+
+.whats-form-icon{
+    filter: grayscale(4) brightness(6);
+    width: 25px;
+    margin-right: 20px;
+}
+.contato-row{
+  background: rgb(187,28,53);
+    background: linear-gradient(90deg, rgba(187,28,53,1) 0%, rgba(37,0,6,1) 20%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 100%);
+  
+    padding: 50px 0;
+    color: white;
+    position: relative;
+   
+   
+}
+.title-row-w{
+    font-weight: 700;
+    color: white;
+}
+label{
+    display: none
+}
+
+.contato-row input, .contato-row textarea{
+    padding: 27px;
+    border-radius: 0px;
+    font-family: 'montserrat';
+    border: 2px solid black
+}
+.contato-row button{
+ background:  rgba(187,28,53,1);
+    color: white;
+    border: 2px solid white;
+    border-radius: 0px;
+    font-weight: 300;
+    transition: .6s ease;
+    font-size: 16px;
+    min-width: 100%;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 12PX
+}
+.form-arrow{
+    transition: .6s ease;
+    opacity: 0
+}
+.form-group{
+    margin-bottom: 8px
+}
+.contato-row .btn:hover,.contato-row .btn:focus{
+    color: white !important
+}
+.contato-row button:hover .form-arrow{
+    margin-left: 10px;
+    transition: .6s ease;
+    opacity: 1
+}
+.contato-row h1{
+    margin-bottom: 50px
+}
+.contato-row p{
+    max-width: 400px
+}
+
+.contato-row a p{
+    color: white;
+    font-weight: 600
+}
+
+.btn-info, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open>.dropdown-toggle.btn-info{
+    background: none !important;
+    border: none !important
+}
+
+.serv-bg-row{
+    background: black;
+    display: block;
+    position: relative;
+    margin-top:-850px !important;
+    z-index: 0;
+    padding-bottom: 180px
+}
+.serv-bg-row img{
+    position: relative;
+    top: -200px;
+    margin: 0 auto;
+    width: 90%;
+    display: block
+}
+
+.slick-dots{
+    display: none!important;
+}
+
+.slick-slider div {
+    transition: none;
+}
+
+/*COPYRIGHT*/
+
+.copyright-row{
+    background:black;
+    color: white;
+    padding: 30px 15px 10px 15px;
+    text-align: center;
+}
+
+
+/*MEDIA QUERY*/
+
+@media (max-width: 1600px) {
+    .logo-jett-aviao {
+        width: 120px;
+        margin-left: 15px;
+        margin-top: 20px;
+    }
+
+    .estrelas {
+        display: inline-block;
+        margin-left: 170px;
+    }
+
+    .estrelas img {
+        width: 50px;
+        margin-top: 100px;
+        margin-left: 70px;
+    }
+
+    .avioes img {
+        height: 800px;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    .texto-video {
+        margin-left: 190px;
+        margin-bottom: 25px;
+        margin-top: 30px;
+    }
+
+    .texto-video h1{
+        display: inline-block;
+        margin-left: 30px;
+        margin-top: 10px;
+        font-size: 16px;
+        color: white;
+    }
+
+    .home-direita h2 {
+        font-size: 35px;
+        margin-top: 45px;
+        color: dimgrey;
+    }
+
+    .home-direita h1 {
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 5px;
+        padding: 20px 30px 20px 0px;
+    }
+
+    .home-direita h3 {
+        font-size: 25px;
+        color: dimgrey;
+        margin-bottom: 60px;
+        margin-top: 25px;
+        padding: 0px 280px 0px 0px;
+        font-weight: 500;
+    }
+
+    .fundo-branco-home{
+        background: white;
+        height: 800px;
+        width: 400px;
+        position: absolute;
+        top: 0;
+        transform: skewX(-5deg);
+        right: 20%;
+        z-index: 1;
+    }
+
+    .pt-icones {
+        padding: 20px 20px 20px 0px;
+    }
+
+    .PT-EN{
+        font-size: 15px;
+    }
+
+    .icones-sociais{
+        display: inline-block;
+        margin-left: 100px;
+    }
+
+    .icones-sociais img{
+        width: 25px;
+        margin-left: 2px;
+    }
+
+    .btn-homefaleconosco{
+        color: white;
+        background: black;
+        padding: 5px 15px 5px 15px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .botoes-home{
+        color: white;
+        margin-bottom: 45px;
+        padding: 0px 100px 0px 0px;
+    }
+
+    .btn-saibamais{
+        background: #dedee2;
+        padding: 5px 15px 5px 15px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .btn-saibamaisA{
+        color:black;
+    }
+
+    .home-direita{
+        z-index: 2;
+    }
+
+    .aviaoraiox {
+        width: 700px
+    }
+    .raiox-bagageiro h1{
+        font-size: 40px;
+        font-weight: 400;
+        margin-left: 150px;
+        margin-top: 70px;
+    }
+
+    .raiox-bagageiro h2{
+        font-size: 30px;
+        margin-top: 60px;
+        font-weight: 800;
+        margin-left: 85px;
+    }
+
+    .raiox-bagageiro h3{
+        font-size: 20px;
+        margin-left: 150px;
+        margin-top: 30px;
+        margin-bottom: 45px;
+        color: dimgrey;
+    }
+
+    .raiox-bagageirox img{
+        width: 100px;
+        margin-left: 150px;
+        margin-top: 50px;
+    }
+
+    .btn-faleconosco{
+        color: white;
+        background: black;
+        padding: 10px 25px 10px 25px;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+        margin-left: 380px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .logo-jett-aviao {
+        width: 120px;
+        margin-left: 15px;
+        margin-top: 20px;
+    }
+
+    .estrelas {
+        display: inline-block;
+        margin-left: 100px;
+    }
+
+    .estrelas img {
+        width: 40px;
+        margin-top: 30px;
+        margin-left: 70px;
+    }
+
+    .avioes img {
+        height: 800px;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    .texto-video {
+        margin-left: 120px;
+        margin-bottom: 25px;
+        margin-top: 15px;
+    }
+
+    .texto-video h1{
+        display: inline-block;
+        margin-left: 30px;
+        margin-top: 10px;
+        font-size: 14px;
+        color: white;
+    }
+
+    .home-direita h2 {
+        font-size: 25px;
+        margin-top: 45px;
+        color: dimgrey;
+    }
+
+    .home-direita h1 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-top: 5px;
+        padding: 20px 30px 20px 0px;
+    }
+
+    .home-direita h3 {
+        font-size: 15px;
+        color: dimgrey;
+        margin-bottom: 60px;
+        margin-top: 25px;
+        padding: 0px 280px 0px 0px;
+        font-weight: 500;
+    }
+
+    .fundo-branco-home{
+        background: white;
+        height: 800px;
+        width: 350px;
+        position: absolute;
+        top: 0;
+        transform: skewX(-5deg);
+        right: 20%;
+        z-index: 1;
+    }
+
+    .pt-icones {
+        padding: 20px 20px 20px 0px;
+    }
+
+    .PT-EN{
+        font-size: 15px;
+    }
+
+    .icones-sociais{
+        display: inline-block;
+        margin-left: 100px;
+    }
+
+    .icones-sociais img{
+        width: 25px;
+        margin-left: 2px;
+    }
+
+    .btn-homefaleconosco{
+        color: white;
+        background: black;
+        padding: 5px 15px 5px 15px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .botoes-home{
+        color: white;
+        margin-bottom: 45px;
+        padding: 0px 100px 0px 0px;
+    }
+
+    .btn-saibamais{
+        background: #dedee2;
+        padding: 5px 15px 5px 15px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .btn-saibamaisA{
+        color:black;
+    }
+
+    .home-direita{
+        z-index: 2;
+    }
+
+    .aviaoraiox {
+        width: 700px
+    }
+    .raiox-bagageiro h1{
+        font-size: 40px;
+        font-weight: 400;
+        margin-left: 150px;
+        margin-top: 70px;
+    }
+
+    .raiox-bagageiro h2{
+        font-size: 30px;
+        margin-top: 60px;
+        font-weight: 800;
+        margin-left: 85px;
+    }
+
+    .raiox-bagageiro h3{
+        font-size: 20px;
+        margin-left: 150px;
+        margin-top: 30px;
+        margin-bottom: 45px;
+        color: dimgrey;
+    }
+
+    .raiox-bagageirox img{
+        width: 100px;
+        margin-left: 150px;
+        margin-top: 50px;
+    }
+
+    .btn-faleconosco{
+        color: white;
+        background: black;
+        padding: 10px 25px 10px 25px;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+        margin-left: 380px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-slick {
+        bottom: 0px;
+        width: 400px;
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    }
+
+    .estrelas {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .estrelas img {
+        width: 40px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 0;
+    }
+
+    .texto-video {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        margin-left: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .texto-video h1{
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-top: 10px;
+        font-size: 12px;
+        color: white;
+    }
+
+    .avioes img {
+        height: 600px;
+        margin-top: 0px;
+        margin-left: 0px;
+    }
+
+    .PT-EN {
+        font-size: 15px;
+        padding-left: 10px;
+    }
+
+    .icones-sociais {
+        display: inline-block;
+        position: absolute;
+        right: 10px;
+    }
+
+    .home-direita h2 {
+        font-size: 25px;
+        margin-top: 25px;
+        color: dimgrey;
+        padding-left: 20px;
+    }
+
+    .home-direita h1 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-top: 5px;
+        padding: 20px 30px 20px 20px;
+    }
+
+    .home-direita h3 {
+        font-size: 15px;
+        color: dimgrey;
+        margin-bottom: 60px;
+        margin-top: 25px;
+        padding: 0px 10px 0px 20px;
+        font-weight: 500;
+    }
+
+    .botoes-home {
+        color: white;
+        margin-bottom: 45px;
+        padding: 0px 0px 0px 20px;
+    }
+
+    .btn-homefaleconosco {
+        color: white;
+        background: black;
+        padding: 5px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .btn-saibamais {
+        background: #dedee2;
+        padding: 5px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .fundo-branco-home {
+        display: none;
+    }
+
+    .aviaoraiox {
+        width: 100%;
+    }
+
+    .raiox-bagageiro h1 {
+        font-size: 40px;
+        font-weight: 400;
+        margin-left: 50px;
+        margin-top: 70px;
+    }
+
+    .raiox-bagageiro h2 {
+        font-size: 30px;
+        margin-top: 60px;
+        font-weight: 800;
+        margin-left: 0px;
+        text-align: center;
+    }
+
+    .raiox-bagageiro h3 {
+        font-size: 20px;
+        margin-left: 50px;
+        margin-top: 30px;
+        margin-bottom: 45px;
+        color: dimgrey;
+    }
+
+    .raiox-bagageirox img {
+        width: 100px;
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+
+    .raiox-icones{
+        text-align:center;
+    }
+
+    iframe {
+        width: 360px;
+    }
+
+    .btn-faleconosco {
+        color: white;
+        background: black;
+        padding: 5px 15px 5px 15px;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+        margin: 30px auto;
+    }
+
+    .btn-homefaleconoscoA {
+        margin-left: 10px;
+        width: 50% !important;
+    }
+
+    .btn-saibamaisA {
+        width: 40% !important;
+    }
+
+    .formulario-contato-row, .sobre-nos-row {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .raiox-detalhes{
+        display: flex;
+        justify-content: center;
+    }
+}

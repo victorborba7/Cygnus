@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <nav id="sidebar">
+        <div class="d-flex flex-column justify-content-around align-items-center">
+            <div class="sidebar-header">
+                <h3>Logo</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p class="pl-3 name">Nome do Usuário</p>
+                <li class="active pl-5 py-3">
+                    <a href="index.html">Home</a>
+                </li>
+                <li class="pl-5 py-3">
+                    <a href="avioes.html">Aviões</a>
+                </li>
+                <li class="pl-5 py-3">
+                    <a href="usuarios.html">Usuários</a>
+                </li>
+                <li class="pl-5 py-3">
+                    <a href="marcas.html">Marcas</a>
+                </li>
+            </ul>
+            <button id="logout" class="px-3 py-2">Sair</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Olá, <span class="name"></span></h1>
+        <h3 class="mt-5">Acesso Rápido</h3>
+        <a href="usuarios.html" class="btn-acesso-rapido">Cadastrar novo usuário</a>
+        <br />
+        <a href="avioes.html" class="btn-acesso-rapido">Cadastrar novo avião</a>
+        <br />
+        <a href="marcas.html" class="btn-acesso-rapido">Cadastrar nova marca</a>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+</html>
+
+<style>
+    .btn-acesso-rapido {
+        display: block;
+        background-color: #CE3E5A;
+        color: #EDEDED;
+        padding: 10px;
+        font-size: 1.2rem;
+        width: 250px;
+        text-decoration: none;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    .btn-acesso-rapido:hover {
+        color: #EDEDED;
+    }
+</style>
+
+<script>
+    let url = "http://localhost:3000";
+    let loaded = false;
+    let id;
+    $("document").ready(function () {
+        const user = sessionStorage.getItem("user");
+        if (user == undefined) {
+            window.location.href = "login.html"
+            return false;
+        }
+        user_data = JSON.parse(user)
+        $('.name').text(user_data.name)
+    })
+</script>

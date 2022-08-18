@@ -1,0 +1,110 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+    <div class="content px-5 py-3">
+        <div class="d-flex flex-column justify-content-between align-items-center">
+            <h4>Digite seu login e senha</h4>
+            <div class="field">
+                <label for="username">Login</label>
+                <input type="text" id="username" />
+            </div>
+            <div class="field">
+                <label for="password">Senha</label>
+                <input type="password" id="password" />
+            </div>
+            <button id="login">ACESSAR SISTEMA</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+    body {
+        background: rgb(237, 237, 237);
+        background: linear-gradient(180deg, rgba(237, 237, 237, 1) 0%, rgba(237, 237, 237, 1) 50%, rgba(198, 74, 93, 1) 50%, rgba(187, 28, 53, 1) 100%);
+    }
+
+    h4 {
+        font-family: "Lato";
+        font-weight: normal;
+    }
+
+    .content {
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 1px;
+        height: 300px;
+        width: 350px;
+    }
+
+    form {
+        height: 100%;
+        width: 100%;
+    }
+
+    .field {
+        width: 100%;
+    }
+
+    input {
+        border-radius: 5px;
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #bb1c35;
+    }
+
+    label {
+        font-family: "Lato";
+        font-weight: lighter;
+    }
+
+    button {
+        background-color: #bb1c35;
+        border-radius: 5px;
+        color: #EDEDED;
+        border: none;
+        padding: 5px;
+        font-family: "Lato";
+        font-weight: bold;
+        width: 100%;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    // let url = "https://cygnus-temp.herokuapp.com";
+    let url = "http://localhost:3000"
+
+    $("#login").click(() => {
+        data = {
+            username: $("#username").val(),
+            password: $("#password").val(),
+        }
+        $.ajax({
+            method: "POST",
+            url: url + "/authenticate",
+            data: JSON.stringify(data),
+            processData: false,
+            contentType: "application/json",
+            success: function (data) {
+                if (data.success) {
+                    sessionStorage.setItem("user", JSON.stringify(data.user))
+                    window.location.href = "index.html"
+                } else {
+                    console.info(data.detail)
+                }
+            }
+        })
+    })
+</script>
