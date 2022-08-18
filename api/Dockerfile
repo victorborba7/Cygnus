@@ -1,4 +1,7 @@
-FROM python:3.10-ubuntu
+FROM python:3.10
+
+ENV http_proxy http://proxy-chain.xxx.com:911/
+ENV https_proxy http://proxy-chain.xxx.com:912/
 
 WORKDIR /api
 
