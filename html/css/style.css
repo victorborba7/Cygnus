@@ -922,21 +922,6 @@ label{
         background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
     }
 
-    .estrelas {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 20px;
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .estrelas img {
-        width: 40px;
-        margin-left: 0px;
-        margin-right: 0px;
-        margin-top: 0;
-    }
-
     .texto-video {
         margin-bottom: 10px;
         margin-top: 10px;
@@ -954,7 +939,6 @@ label{
     }
 
     .avioes img {
-        height: 600px;
         margin-top: 0px;
         margin-left: 0px;
     }
