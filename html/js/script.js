@@ -128,7 +128,7 @@ function getAircraft() {
 			$('.avioes').empty()
 
 			data.outside_files.forEach((value) => {
-				$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
+				$(".avioes").append(`<img src="${data.photos_path}/interno/${value}" />`)
 			});
 
 			$('.avioes').slick({
@@ -143,7 +143,7 @@ function getAircraft() {
 			$('.fotosdeaviao').empty();
 
 			data.inside_files.forEach((value) => {
-				$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" />`)
+				$(".fotosdeaviao").append(`<img src="${data.photos_path}/externo/${value}" />`)
 			});
 
 			$("#mapa_assentos").attr("src", data.mapa_assentos);
