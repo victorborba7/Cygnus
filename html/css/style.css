@@ -330,7 +330,7 @@ body {
 }
 
 .comparacao {
-    margin: 50px auto;
+    margin: 50px auto !important;
 }
 
 #map {
