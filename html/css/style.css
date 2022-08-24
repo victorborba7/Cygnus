@@ -296,6 +296,11 @@ body {
 
 
 /*BAGAGEIRO RAIOX*/
+.raiox-bagageiro div{
+    margin: 0;
+    padding: 0;
+}
+
 .aviaoraiox {
     width: 100%;
 }
