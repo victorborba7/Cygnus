@@ -3,6 +3,12 @@ import pandas as pd
 import os
 import aiofiles
 
+def indexContainingSubstring(the_list, substring):
+    for i, s in enumerate(the_list):
+        if substring in s:
+              return i
+    return -1
+
 #mypath = "C:/Users/victorvb2/Documents/Projetos/Cygnus/html"
 mypath = "/home/html"
 
@@ -14,6 +20,9 @@ def getAircraftById(id):
         records = df.to_dict("records")[0]
         records["outside_files"] = os.listdir(mypath + df["photos_path"][0] + "/externo")
         records["inside_files"] = os.listdir(mypath + df["photos_path"][0] + "/interno")
+        files = os.listdir(mypath + df["photos_path"][0]).index()
+        records["mapa_assentos"] = files[indexContainingSubstring(files, "mapa_assentos")]
+        
         return records
     return False
 
@@ -90,7 +99,7 @@ def deleteAircraft(id):
     except:
         raise
 
-async def saveImages(req, internos, externos):
+async def saveImages(req, internos, externos, mapa_assentos):
     #Fotos Internas,
     strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/interno"
     if not os.path.exists(strpath):
@@ -131,4 +140,21 @@ async def saveImages(req, internos, externos):
             count+=1
         finally:
             i.file.close()
+
+    #Mapa assentos
+    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}"
+    if not os.path.exists(strpath):
+        os.makedirs(strpath)
+    try:
+        filename, file_extension = os.path.splitext(mapa_assentos.filename)
+        filename = f"mapa_assentos{file_extension}"
+    
+        
+        async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
+            content = await mapa_assentos.read()  # async read
+            await out_file.write(content)  # async write
+        
+        count+=1
+    finally:
+        mapa_assentos.file.close()
     return f"/images/{req['company_name']}/{req['model']}"

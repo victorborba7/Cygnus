@@ -151,6 +151,10 @@
                 </div>
             </div>
             <div class="row fields">
+                <div class="col-md-6 col-12">
+                    <label for="mapa_assentos">Foto mapa dos assentos</label><br />
+                    <input class="col-md-12" type="file" id="mapa_assentos" multiple />
+                </div>
                 <div class="col-md-12 col-12">
                     <label for="description">Descrição</label>
                     <input class="col-md-12" type="textarea" id="description" />
@@ -356,6 +360,9 @@
             Array.from($('#ex_photos').prop('files')).forEach(file => {
                 data.append("externos", file)
             });
+
+            data.append("mapa_assentos", $('#mapa_assentos').prop('files')[0])
+
             $.ajax({
                 method: "POST",
                 url: url + "/aircraft/add",
