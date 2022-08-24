@@ -155,7 +155,7 @@ function getAircraft() {
 				dots: false,
 				arrows: false,
 				autoplay: true,
-				autoplaySpeed: 100,
+				autoplaySpeed: 2000,
 			});
 
 			$("#tbo").text(data.tbo)
