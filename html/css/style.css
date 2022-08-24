@@ -318,12 +318,6 @@ body {
     color: dimgrey;
 }
 
-.raiox-bagageiro img{
-    width: 100%;
-    margin-left: 150px;
-    margin-top: 65px;
-}
-
 .btn-faleconosco{
     color: white;
     background: black;
@@ -701,7 +695,7 @@ label{
     }
 
     .aviaoraiox {
-        width: 700px
+        width: 100%;
     }
     .raiox-bagageiro h1{
         font-size: 40px;
@@ -723,12 +717,6 @@ label{
         margin-top: 30px;
         margin-bottom: 45px;
         color: dimgrey;
-    }
-
-    .raiox-bagageiro img{
-        width: 100%;
-        margin-left: 150px;
-        margin-top: 50px;
     }
 
     .btn-faleconosco{
@@ -868,10 +856,7 @@ label{
     .home-direita{
         z-index: 2;
     }
-
-    .aviaoraiox {
-        width: 700px
-    }
+    
     .raiox-bagageiro h1{
         font-size: 40px;
         font-weight: 400;
@@ -892,12 +877,6 @@ label{
         margin-top: 30px;
         margin-bottom: 45px;
         color: dimgrey;
-    }
-
-    .raiox-bagageiro img{
-        width: 100%;
-        margin-left: 150px;
-        margin-top: 50px;
     }
 
     .btn-faleconosco{
@@ -1009,10 +988,6 @@ label{
         display: none;
     }
 
-    .aviaoraiox {
-        width: 100%;
-    }
-
     .raiox-bagageiro h1 {
         font-size: 40px;
         font-weight: 400;
@@ -1034,12 +1009,6 @@ label{
         margin-top: 30px;
         margin-bottom: 45px;
         color: dimgrey;
-    }
-
-    .raiox-bagageiro img {
-        width: 100%;
-        margin-left: 0px;
-        margin-top: 50px;
     }
 
     .raiox-icones{
