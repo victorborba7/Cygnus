@@ -146,7 +146,7 @@ function getAircraft() {
 				$(".fotosdeaviao").append(`<img src="${data.photos_path}/externo/${value}" />`)
 			});
 
-			$("#mapa_assentos").attr("src", photos_path + "/" + data.mapa_assentos);
+			$("#mapa_assentos").attr("src", data.photos_path + "/" + data.mapa_assentos);
 
 			$('.fotosdeaviao').slick({
 				infinite: true,
