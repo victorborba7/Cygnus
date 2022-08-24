@@ -296,6 +296,10 @@ body {
 
 
 /*BAGAGEIRO RAIOX*/
+.aviaoraiox {
+    width: 100%;
+}
+
 .raiox-bagageiro h1{
     font-size: 60px;
     font-weight: 700;
@@ -692,10 +696,6 @@ label{
 
     .home-direita{
         z-index: 2;
-    }
-
-    .aviaoraiox {
-        width: 100%;
     }
     .raiox-bagageiro h1{
         font-size: 40px;
