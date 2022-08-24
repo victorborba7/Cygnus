@@ -20,7 +20,7 @@ def getAircraftById(id):
         records = df.to_dict("records")[0]
         records["outside_files"] = os.listdir(mypath + df["photos_path"][0] + "/externo")
         records["inside_files"] = os.listdir(mypath + df["photos_path"][0] + "/interno")
-        files = os.listdir(mypath + df["photos_path"][0]).index()
+        files = os.listdir(mypath + df["photos_path"][0])
         records["mapa_assentos"] = files[indexContainingSubstring(files, "mapa_assentos")]
         
         return records
