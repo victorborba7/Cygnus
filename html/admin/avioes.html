@@ -1,9 +1,10 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -141,23 +142,44 @@
                 </div>
             </div>
             <div class="row fields">
-                <div class="col-md-6 col-12">
-                    <label for="int_photos">Fotos internas</label>
-                    <input class="col-md-12" type="file" id="int_photos" multiple />
+                <div class="col-12">
+                    <label for="int_photos">Fotos internas - Carrossel fotos internas: 1080x1080px, min. 5 fotos</label>
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                        <div class="drop-zone__thumbs"></div>
+                        <input class="col-md-12 drop-zone__input" type="file" id="int_photos" multiple />
+                    </div>
                 </div>
-                <div class="col-md-6 col-12">
-                    <label for="ex_photos">Fotos externas</label><br />
-                    <input class="col-md-12" type="file" id="ex_photos" multiple />
+            </div>
+            <div class="row fields">
+                <div class="col-12">
+                    <label for="ex_photos">Fotos externas - Carrossel home: 1350x1080px, min. 2 fotos</label><br />
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                        <div class="drop-zone__thumbs"></div>
+                        <input class="col-md-12 drop-zone__input" type="file" id="ex_photos" multiple />
+                    </div>
                 </div>
             </div>
             <div class="row fields">
                 <div class="col-md-6 col-12">
-                    <label for="mapa_assentos">Foto mapa dos assentos</label><br />
-                    <input class="col-md-12" type="file" id="mapa_assentos" multiple />
+                    <label for="mapa_assentos">Foto mapa dos assentos - Mapa de assentos: 1080x1350px, max. 1
+                        foto</label><br />
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                        <div class="drop-zone__thumbs"></div>
+                        <input class="col-md-12 drop-zone__input" type="file" id="mapa_assentos" />
+                    </div>
                 </div>
-                <div class="col-md-12 col-12">
+            </div>
+            <div class="row fields">
+                <div class="col-md-6 col-12">
                     <label for="description">Descrição</label>
-                    <input class="col-md-12" type="textarea" id="description" />
+                    <textarea class="col-md-12 textarea" wrap="hard" id="description"></textarea>
+                </div>
+                <div class="col-md-6 col-12">
+                    <label for="description">Descrição em inglês</label>
+                    <textarea class="col-md-12 textarea" wrap="hard" id="description_english"></textarea>
                 </div>
             </div>
             <button id="save" class="btn-cadastro">Salvar avião</button>
@@ -168,6 +190,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
         integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script src="js/paging.js"></script>
 
 </body>
@@ -214,6 +237,77 @@
         border: 1px solid #bb1c35;
     }
 
+    .textarea {
+        height: 200px;
+        padding: 5px;
+    }
+
+    .drop-zone {
+        border: 1px dashed #000;
+        min-height: 200px;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .drop-zone span {
+        line-height: 100px;
+    }
+
+    .drop-zone__input {
+        display: none;
+    }
+
+    .drop-zone__thumb {
+        width: 190px;
+        height: 190px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: cover;
+        position: relative;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .drop-zone__thumbs {
+        display: none;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .drop-zone__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        color: #ffffff;
+        background: #ff0000;
+        font-size: 14px;
+        text-align: center;
+        line-height: 30px !important;
+        border-radius: 5px;
+    }
+
     .btn-cadastro {
         background-color: #CE3E5A;
         color: #EDEDED;
@@ -225,19 +319,19 @@
 </style>
 
 <script>
-    //let url = "http://localhost:3000";
-    let url = "http://162.240.67.88:3000";
+    let url = "http://localhost:3000";
+    //let url = "http://162.240.67.88:3000";
     let loaded = false;
     let id;
     $("document").ready(function () {
-        const user = sessionStorage.getItem("user");
-        if (user == undefined) {
-            window.location.href = "login.html"
-            return false;
-        }
-        user_data = JSON.parse(user)
-        $('.name').text(user_data.name)
-        
+        // const user = sessionStorage.getItem("user");
+        // if (user == undefined) {
+        //     window.location.href = "login.html"
+        //     return false;
+        // }
+        // user_data = JSON.parse(user)
+        // $('.name').text(user_data.name)
+
         function getCompanies() {
             $.ajax({
                 method: "GET",
@@ -257,7 +351,6 @@
                 success: function (data) {
                     $("#dataTable").empty();
                     data.forEach(el => {
-                        console.info(el)
                         $("#dataTable").append(`
                         <tr>
                             <td>
@@ -275,7 +368,7 @@
                             </td>
                         </tr>`)
                     });
-                    
+
                     $("#table").paging({
                         limit: 5,
                         rowDisplayStyle: 'block',
@@ -306,7 +399,7 @@
             $.ajax({
                 method: "GET",
                 url: url + "/aircraft/get?id=" + id,
-                success: function (data) {
+                success: async function (data) {
                     $("#model").val(data.model)
                     $("#series").val(data.series)
                     $("#company").val(data.company_id)
@@ -323,9 +416,47 @@
                     $("#max_tail_height").val(data.max_tail_height)
                     $("#min_takeoff_distance").val(data.min_takeoff_distance)
                     $("#description").val(data.description)
-                    $("#available").prop('checked', data.available)
-                    $("#first_seen").prop('checked', data.first_seen)
+                    $("#available").prop('checked', Boolean(data.available))
+                    $("#first_seen").prop('checked', Boolean(data.first_seen))
                     loaded = true;
+
+                    var dt_interno = new DataTransfer();
+                    for (i = 0; i < data.inside_files.length; i++) {
+                        await fetch(`..${data.photos_path}/interno/${data.inside_files[i]}`)
+                            .then(res => res.blob())
+                            .then(blob => {
+                                dt_interno.items.add(new File([blob], data.inside_files[i]))
+                            })
+                    }
+
+                    fileInput = document.querySelector("#int_photos")
+                    fileInput.files = dt_interno.files
+                    updateThumbnail(fileInput.parentNode, fileInput.files)
+
+                    var dt_externo = new DataTransfer();
+                    for (i = 0; i < data.outside_files.length; i++) {
+                        await fetch(`..${data.photos_path}/externo/${data.outside_files[i]}`)
+                            .then(res => res.blob())
+                            .then(blob => {
+                                dt_interno.items.add(new File([blob], data.outside_files[i]))
+                            })
+                    }
+
+                    fileInput = document.querySelector("#ex_photos")
+                    fileInput.files = dt_interno.files
+                    updateThumbnail(fileInput.parentNode, fileInput.files)
+
+                    var dt_mapa_assentos = new DataTransfer();
+                    fetch(`..${data.photos_path}/${data.mapa_assentos}`)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            dt_mapa_assentos.items.add(new File([blob], data.mapa_assentos))
+                        })
+                        .then(() => {
+                            fileInput = document.querySelector("#mapa_assentos")
+                            fileInput.files = dt_mapa_assentos.files
+                            updateThumbnail(fileInput.parentNode, fileInput.files)
+                        })
                 }
             })
         }
@@ -352,7 +483,7 @@
                 first_seen: Boolean($("#first_seen").is(":checked"))
             })
 
-            
+
             data = new FormData();
             data.append("request", obj)
             Array.from($('#int_photos').prop('files')).forEach(file => {
@@ -467,5 +598,102 @@
         });
         getAircrafts();
         getCompanies();
+
+        function updateThumbnail(dropZoneElement, files) {
+            // First time - remove the prompt
+            if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+                dropZoneElement.querySelector(".drop-zone__prompt").style.display = "none";
+            }
+
+            thumbnailElements = dropZoneElement.querySelectorAll(".drop-zone__thumb");
+            thumbs = dropZoneElement.querySelector(".drop-zone__thumbs")
+            thumbs.style.display = "flex"
+
+            // First time - there is no thumbnail element, so lets create it
+            if (thumbnailElements.length > 0) {
+                while (thumbs.firstElementChild) {
+                    thumbs.firstElementChild.remove();
+                }
+            }
+
+            files.forEach((file, i) => {
+                let thumbnailElement = document.createElement("div");
+                thumbnailElement.classList.add("drop-zone__thumb");
+                thumbnailElement.dataset.label = file.name;
+
+                let closeElement = document.createElement("span");
+                closeElement.classList.add("drop-zone__close");
+                closeElement.innerHTML = "X";
+                closeElement.addEventListener("click", (e) => {
+                    e.stopPropagation()
+                    dropZoneElement = e.target.parentNode.parentNode.parentNode
+                    thumbsElement = e.target.parentNode.parentNode
+                    files = Array.from(dropZoneElement.querySelector("input").files)
+                    files.splice(0, 1)
+                    var dt = new DataTransfer();
+                    files.forEach((file) => {
+                        dt.items.add(file);
+                    });
+                    var file_list = dt.files;
+                    dropZoneElement.querySelector("input").files = file_list
+
+                    e.target.parentNode.remove()
+                    thumbnailElements = thumbsElement.querySelectorAll(".drop-zone__thumb");
+
+                    if (thumbnailElements.length == 0) {
+                        thumbsElement.style.display = "none"
+                        dropZoneElement.querySelector(".drop-zone__prompt").style.display = "block";
+                    }
+
+                });
+                thumbnailElement.appendChild(closeElement);
+
+                thumbs.appendChild(thumbnailElement);
+
+                // Show thumbnail for image files
+                const reader = new FileReader();
+
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                    thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+                };
+            });
+        }
+
+        document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+            const dropZoneElement = inputElement.closest(".drop-zone");
+
+            dropZoneElement.addEventListener("click", (e) => {
+                inputElement.click();
+            });
+
+            inputElement.addEventListener("change", (e) => {
+                if (inputElement.files.length) {
+                    updateThumbnail(dropZoneElement, inputElement.files);
+                }
+            });
+
+            dropZoneElement.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropZoneElement.classList.add("drop-zone--over");
+            });
+
+            ["dragleave", "dragend"].forEach((type) => {
+                dropZoneElement.addEventListener(type, (e) => {
+                    dropZoneElement.classList.remove("drop-zone--over");
+                });
+            });
+
+            dropZoneElement.addEventListener("drop", (e) => {
+                e.preventDefault();
+
+                if (e.dataTransfer.files.length) {
+                    inputElement.files = e.dataTransfer.files;
+                    updateThumbnail(dropZoneElement, e.dataTransfer.files);
+                }
+
+                dropZoneElement.classList.remove("drop-zone--over");
+            })
+        })
     })
 </script>
