@@ -38,7 +38,7 @@
             <div class="row pt-icones">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="PT-EN">
-                        <a id="portugues" class="idioma">PT</a>-<a id="english" class="idioma">EN</a>
+                        <a id="portugues" class="idioma">PT</a>-<a id="english" class="idioma idioma-selected">EN</a>
                     </div>
                 </div>
 
@@ -50,10 +50,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center mt-5">
+            <div class="row justify-content-sm-start justify-content-center mt-5">
                 <h4>Select a model below:</h4>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-sm-start justify-content-center">
                 <div class="col-10 col-md-6">
                     <select id="aircrafts" style="width: 100%;"></select>
                 </div>
@@ -112,7 +112,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
                 <div class=" fadetitulo col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1 id="info-model">Information: </h1>
+                    <h1>Information: <span id="info-model"></span></h1>
                 </div>
             </div>
         </div>
@@ -126,30 +126,54 @@
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
             <div class="informacoes">
-                <h5>Motorization</h5>
-                <p id="engine"></p>
-                <h5>Maximum take-off weight</h5>
-                <p id="max_takeoff_weight"></p>
-                <h5>Year of first production</h5>
-                <p id="first_year_production"></p>
-                <h5>TBO (total engine hours)</h5>
-                <p id="tbo"></p>
-                <h5>Maximum number of occupants</h5>
-                <p id="max_capacity"></p>
-                <h5>Maximum cruising speed *</h5>
-                <p id="max_cruise_speed"></p>
-                <h5>Maximum range</h5>
-                <p id="max_range"></p>
-                <h5>Maximum operating altitude</h5>
-                <p id="max_operating_altitude"></p>
-                <h5>Wingspan (wing tip to wing)</h5>
-                <p id="wingspan"></p>
-                <h5>Length</h5>
-                <p id="length"></p>
-                <h5>Max tail height</h5>
-                <p id="max_tail_height"></p>
-                <h5>Minimum take-off distance</h5>
-                <p id="min_takeoff_distance"></p>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Motorization</h5>
+                    <p class="col-3 text-left" id="engine"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Maximum take-off weight</h5>
+                    <p class="col-3 text-left" id="max_takeoff_weight"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Year of first production</h5>
+                    <p class="col-3 text-left" id="first_year_production"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">TBO (total engine hours)</h5>
+                    <p class="col-3 text-left" id="tbo"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Maximum number of occupants</h5>
+                    <p class="col-3 text-left" id="max_capacity"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Maximum cruising speed *</h5>
+                    <p class="col-3 text-left" id="max_cruise_speed"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Maximum range</h5>
+                    <p class="col-3 text-left" id="max_range"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Maximum operating altitude</h5>
+                    <p class="col-3 text-left" id="max_operating_altitude"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Wingspan (wing tip to wing)</h5>
+                    <p class="col-3 text-left" id="wingspan"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Length</h5>
+                    <p class="col-3 text-left" id="length"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Max tail height</h5>
+                    <p class="col-3 text-left" id="max_tail_height"></p>
+                </div>
+                <div class="informacao d-flex align-items-center justify-content-around row">
+                    <h5 class="col-6 text-left">Minimum take-off distance</h5>
+                    <p class="col-3 text-left" id="min_takeoff_distance"></p>
+                </div>
             </div>
 
         </div>

@@ -239,7 +239,7 @@ function getAircraft() {
 			$("#max_takeoff_weight").text(data.max_takeoff_weight)
 			$("#model").text(data.model)
 			$("#model-row").text(data.model)
-			$("#info-model").text("Informações: " + data.model)
+			$("#info-model").text(data.model)
 			$("#series").text(data.series)
 			$("#max_capacity").text(data.max_capacity)
 			$("#max_cruise_speed").text(data.max_cruise_speed)

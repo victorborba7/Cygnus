@@ -110,6 +110,10 @@ body {
     cursor: pointer;
 }
 
+.idioma-selected {
+    text-decoration: overline;
+}
+
 .icones-sociais {
     display: inline-block;
     margin-left: 130px;
@@ -185,6 +189,8 @@ body {
 .icones-status h1 {
     margin-top: 15px;
     margin-bottom: 10px;
+    font-size: 3rem;
+    font-weight: 900;
 }
 
 .icones-status img {
@@ -273,19 +279,29 @@ body {
     margin-left: 100px;
 }
 
+.fadetitulo h1 span {
+    font-weight: 400;
+}
+
 #logo {
     margin-top: 50px;
     width: 200px;
 }
 
 .informacoes {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 30px !important;
-    place-items: center start;
+    width: 100%;
+    padding: 30px 0px !important;
     color: #000000;
     background-color: #FFFFFF;
     height: 100%;
+}
+
+.informacoes h5 {
+    font-weight: 700;
+}
+
+.informacao {
+    width: 90%;
 }
 
 
