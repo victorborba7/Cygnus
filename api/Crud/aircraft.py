@@ -2,6 +2,7 @@ from database import engine
 import pandas as pd
 import os
 import aiofiles
+import shutil
 
 def indexContainingSubstring(the_list, substring):
     for i, s in enumerate(the_list):
@@ -31,7 +32,7 @@ def getAircrafts(company_id):
     where = ""
     if int(company_id) > 0:
         where = f"where company_id = {company_id}"
-    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where}", dbConnection)
+    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by first_seen desc", dbConnection)
     dbConnection.close()
     return df.to_dict("records")
 
@@ -39,17 +40,18 @@ def getAvailableAircrafts(company_id):
     dbConnection = engine.connect()
     df = pd.read_sql(f"select * from aircraft where available = 1 and company_id = {company_id}", dbConnection)
     dbConnection.close()
+    df["outside_files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"] + "/externo"), axis=1)
     return df.to_dict("records")
 
 def createAircraft(req):    
     try:
         insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
             first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
-            wingspan, length, max_tail_height, min_takeoff_distance, description, photos_path, available, first_seen) \
+            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, photos_path, available, first_seen) \
             values('{req['model']}', '{req['series']}', '{req['company_id']}', '{req['engine']}', '{req['max_takeoff_weight']}', \
             '{req['first_year_production']}', '{req['tbo']}', '{req['max_capacity']}', '{req['max_cruise_speed']}', \
             '{req['max_range']}', '{req['max_operating_altitude']}', '{req['wingspan']}', '{req['length']}', '{req['max_tail_height']}', '{req['min_takeoff_distance']}', \
-            '{req['description']}', '{req['photos_path']}', '{req['available']}', '{req['first_seen']}')"
+            '{req['description']}', '{req['description_en']}', '{req['photos_path']}', '{req['available']}', '{req['first_seen']}')"
         dbConnection = engine.connect()
         dbConnection.execute(insert)
         dbConnection.close()
@@ -77,6 +79,7 @@ def updateAircraft(req):
             max_tail_height = '{req['max_tail_height']}', \
             min_takeoff_distance = '{req['min_takeoff_distance']}', \
             description = '{req['description']}', \
+            description_en = '{req['description_en']}', \
             available = {req['available']}, \
             first_seen = {req['first_seen']} \
             where id = {req['id']}"
@@ -103,9 +106,10 @@ async def saveImages(req, internos, externos, mapa_assentos):
     #Mapa assentos
     strpath = f"{mypath}/images/{req['company_name']}/{req['model']}"
     if os.path.exists(strpath):
-        os.rmdir(strpath)
+        shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
     
+    count = 1
     try:
         filename, file_extension = os.path.splitext(mapa_assentos.filename)
         filename = f"mapa_assentos{file_extension}"
@@ -122,7 +126,7 @@ async def saveImages(req, internos, externos, mapa_assentos):
     #Fotos Internas,
     strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/interno"
     if os.path.exists(strpath):
-        os.rmdir(strpath)
+        shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
     
     count = 1
@@ -144,7 +148,7 @@ async def saveImages(req, internos, externos, mapa_assentos):
     #Fotos internas
     strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/externo"
     if os.path.exists(strpath):
-        os.rmdir(strpath)
+        shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
     
     count = 1

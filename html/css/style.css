@@ -1,5 +1,5 @@
 /*ALL-PADRÃO*/
-*{
+* {
     font-family: 'lato';
     transition: .7s;
 }
@@ -8,7 +8,8 @@ html {
     scroll-behavior: 'smooth';
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
 }
 
@@ -18,11 +19,11 @@ body {
 
 /*HOME*/
 
-.home-esquerda{
+.home-esquerda {
     background: grey;
 }
 
-.logo-jett-aviao{
+.logo-jett-aviao {
     position: absolute;
     width: 150px;
     margin-left: 35px;
@@ -37,17 +38,17 @@ body {
 .menu-slick {
     position: absolute;
     width: 100%;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
     bottom: 0;
 }
 
-.estrelas{
+.estrelas {
     display: inline-block;
     margin-left: 220px;
 }
 
-.estrelas img{
+.estrelas img {
     width: 50px;
     margin-top: 0px;
     margin-left: 100px;
@@ -59,19 +60,21 @@ body {
     margin-left: 0px;
 }
 
-.texto-video{
+.texto-video {
     margin-left: 250px;
-    margin-bottom: 25px; margin-top: 15px;
+    margin-bottom: 25px;
+    margin-top: 15px;
 }
 
-.texto-video h1{
+.texto-video h1 {
     display: inline-block;
-    margin-left: 55px; margin-top: 20px;
+    margin-left: 55px;
+    margin-top: 20px;
     font-size: 16px;
     color: white;
 }
 
-.home-direita h2{
+.home-direita h2 {
     font-size: 25px;
     margin-top: 45px;
     color: dimgrey;
@@ -84,57 +87,42 @@ body {
     padding: 20px 30px 20px 0px;
 }
 
-.home-direita h3{
-    font-size: 18px; color: dimgrey;
+.home-direita h3 {
+    font-size: 18px;
+    color: dimgrey;
     margin-bottom: 60px;
     margin-top: 25px;
     padding: 0px 280px 0px 0px;
     font-weight: 500;
 }
 
-.pt-icones{
+.pt-icones {
     margin-top: 10px;
     padding: 20px 20px 20px 0px;
 }
 
-.PT-EN{
+.PT-EN {
     font-size: 25px;
 }
 
-.idioma{
+.idioma {
     color: black;
 }
 
-.icones-sociais{
+.icones-sociais {
     display: inline-block;
     margin-left: 130px;
 }
 
-.icones-sociais img{
+.icones-sociais img {
     width: 25px;
     margin-left: 2px;
 }
 
-.btn-homefaleconosco{
+.btn-homefaleconosco {
     color: white;
     background: black;
     padding: 15px 35px 15px 35px;
-    border-radius:3px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.botoes-home{
-    color: white;
-    margin-bottom: 45px;
-    padding: 0px 334px 0px 0px;
-}
-
-.btn-saibamais{
-    background: #dedee2;
-    padding: 15px 50px 15px 50px;
     border-radius: 3px;
     text-align: center;
     font-size: 20px;
@@ -142,11 +130,27 @@ body {
     cursor: pointer;
 }
 
-.btn-saibamaisA{
-    color:black;
+.botoes-home {
+    color: white;
+    margin-bottom: 45px;
+    padding: 0px 334px 0px 0px;
 }
 
-.fundo-branco-home{
+.btn-saibamais {
+    background: #dedee2;
+    padding: 15px 40px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-saibamaisA {
+    color: black;
+}
+
+.fundo-branco-home {
     background: white;
     height: 1080px;
     width: 400px;
@@ -157,36 +161,36 @@ body {
     z-index: 1;
 }
 
-.home-direita{
+.home-direita {
     z-index: 2;
-    
+
 }
 
 /*ICONES DE STATUS*/
 
-.status-row{
-    background: rgb(187,28,53);
-    background: linear-gradient(90deg, rgba(187,28,53,1) 0%, rgba(37,0,6,1) 15%, rgba(0,0,0,1) 30%, rgba(19,3,5,1) 70%, rgba(37,0,6,1) 85%, rgba(187,28,53,1) 100%);
+.status-row {
+    background: rgb(187, 28, 53);
+    background: linear-gradient(90deg, rgba(187, 28, 53, 1) 0%, rgba(37, 0, 6, 1) 15%, rgba(0, 0, 0, 1) 30%, rgba(19, 3, 5, 1) 70%, rgba(37, 0, 6, 1) 85%, rgba(187, 28, 53, 1) 100%);
     z-index: 2;
     position: relative;
 }
 
-.icones-status{
+.icones-status {
     margin: 15px auto;
     color: white;
     text-align: center;
 }
 
-.icones-status h1{
+.icones-status h1 {
     margin-top: 15px;
     margin-bottom: 10px;
 }
 
-.icones-status img{
+.icones-status img {
     width: 60px;
 }
 
-.icones-status h2{
+.icones-status h2 {
     font-size: 21px;
     margin-top: 10px;
 }
@@ -194,17 +198,17 @@ body {
 /*FOTO AVIAO NO AR*/
 
 
-.aviaonoar-row{
+.aviaonoar-row {
     padding: 0;
 }
 
-.aviaonoar-row img{
+.aviaonoar-row img {
     width: 100%;
     display: block;
     margin: 0 auto;
 }
 
-.aviaonoar-row div{
+.aviaonoar-row div {
     padding: 0;
 }
 
@@ -223,30 +227,30 @@ body {
     font-weight: 700;
 }
 
-.motor-helice-row div{
+.motor-helice-row div {
     padding: 0;
     margin: 0;
 }
 
-.motor-helice-row h2{
+.motor-helice-row h2 {
     font-size: 20px;
     margin-bottom: 20px;
     margin-top: 90px;
     font-weight: 10;
 }
 
-.motor-helice-row h3{
+.motor-helice-row h3 {
     font-size: 22px;
     margin-bottom: 10px;
     margin-top: 45px;
     font-weight: 700;
 }
 
-.heliceimg{
+.heliceimg {
     width: 120px;
 }
 
-.motorimg{
+.motorimg {
     width: 120px;
 }
 
@@ -258,13 +262,13 @@ body {
     object-fit: cover !important;
 }
 
-.fadetitulo{
-    background: rgb(187,28,53);
-    background: linear-gradient(90deg, rgba(187,28,53,1) 0%, rgba(37,0,6,1) 59%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%);
+.fadetitulo {
+    background: rgb(187, 28, 53);
+    background: linear-gradient(90deg, rgba(187, 28, 53, 1) 0%, rgba(37, 0, 6, 1) 59%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 1) 100%);
     text-align: left;
 }
 
-.fadetitulo h1{
+.fadetitulo h1 {
     margin-left: 100px;
 }
 
@@ -273,7 +277,7 @@ body {
     width: 200px;
 }
 
-.informacoes{
+.informacoes {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 30px !important;
@@ -286,17 +290,17 @@ body {
 
 /*FOTOS DE AVIAO*/
 
-.fotosdeaviao{
+.fotosdeaviao {
     margin: 0;
 }
 
-.fotosdeaviao img{
+.fotosdeaviao img {
     width: 300px;
 }
 
 
 /*BAGAGEIRO RAIOX*/
-.raiox-bagageiro div{
+.raiox-bagageiro div {
     margin: 0;
     padding: 0;
 }
@@ -305,17 +309,17 @@ body {
     width: 100%;
 }
 
-.raiox-bagageiro h2{
+.raiox-bagageiro h2 {
     font-size: 35px;
     margin-top: 65px;
     font-weight: 1000;
 }
 
-.btn-faleconosco{
+.btn-faleconosco {
     color: white;
     background: black;
     padding: 15px 35px 15px 35px;
-    border-radius:12px;
+    border-radius: 12px;
     text-align: center;
     font-size: 25px;
     font-weight: 700;
@@ -339,19 +343,20 @@ body {
     width: 100%
 }
 
-.selects-planes{
+.selects-planes {
     margin-top: 20px;
 }
 
-.selects-planes label{
+.selects-planes label {
     margin-top: 10px;
 }
 
-.selects-planes select, input{
+.selects-planes select,
+input {
     padding: 10px;
 }
 
-.selectize-control{
+.selectize-control {
     padding: 0 !important;
 }
 
@@ -379,27 +384,28 @@ body {
     border: 1px solid black;
 }
 
-.option{
+.option {
     cursor: pointer;
 }
 
 /*AERONAVES DISPONÍVEIS*/
 
-.aeronaves-disponiveis .slick-prev:before, .aeronaves-disponiveis .slick-next:before {
-    color: #000000!important;
+.aeronaves-disponiveis .slick-prev:before,
+.aeronaves-disponiveis .slick-next:before {
+    color: #000000 !important;
 }
 
 .aeronaves-disponiveis .slick-slide {
-	margin: 0 26px;
+    margin: 0 26px;
 }
 
-.aeronaves-disponiveis{
+.aeronaves-disponiveis {
     width: 80%;
     margin: 20px auto;
 }
 
-.aeronaves-disponiveis h1{
-    color: rgb(187,28,53);
+.aeronaves-disponiveis h1 {
+    color: rgb(187, 28, 53);
     margin-bottom: 20px;
     font-size: 1.9rem;
     font-weight: bold;
@@ -417,81 +423,86 @@ body {
 
 
 /*SOBRE NÓS*/
-.sobre-nos{
+.sobre-nos {
     text-align: left;
     margin-bottom: 50px;
-    
+
 }
 
-.sobre-nos h1{
+.sobre-nos h1 {
     font-size: 20px;
     margin-top: 65px;
     font-weight: 700;
 }
 
-.sobre-nos h2{
+.sobre-nos h2 {
     font-size: 18px;
     color: dimgrey;
 
 }
 
-.sobre-contato h1{
+.sobre-contato h1 {
     font-size: 20px;
     margin-top: 65px;
-    font-weight: 700;    
+    font-weight: 700;
 }
 
-.sobre-contato p{
+.sobre-contato p {
     margin: 0 auto;
     color: dimgrey;
 
 }
 
-.sobre-newsletter h2{
+.sobre-newsletter h2 {
     font-size: 18px;
     color: dimgrey;
 
 }
 
-.sobre-newsletter h1{
+.sobre-newsletter h1 {
     font-size: 20px;
     margin-top: 65px;
-    font-weight: 700; 
+    font-weight: 700;
 }
 
 /*CONTATO*/
 
-.whats-form-icon{
+.whats-form-icon {
     filter: grayscale(4) brightness(6);
     width: 25px;
     margin-right: 20px;
 }
-.contato-row{
-  background: rgb(187,28,53);
-    background: linear-gradient(90deg, rgba(187,28,53,1) 0%, rgba(37,0,6,1) 20%, rgba(0,0,0,1) 40%, rgba(0,0,0,1) 100%);
-  
+
+.contato-row {
+    background: rgb(187, 28, 53);
+    background: linear-gradient(90deg, rgba(187, 28, 53, 1) 0%, rgba(37, 0, 6, 1) 20%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 100%);
+
     padding: 50px 0;
     color: white;
     position: relative;
-   
-   
+
+
 }
-.title-row-w{
+
+.title-row-w {
     font-weight: 700;
     color: white;
 }
-label{
+
+label {
     display: none
 }
 
-.contato-row input, .contato-row textarea{
+.contato-row input,
+.contato-row textarea {
     padding: 27px;
     border-radius: 0px;
     font-family: 'montserrat';
     border: 2px solid black
 }
-.contato-row button{
- background:  rgba(187,28,53,1);
+
+.contato-row button {
+    background: rgba(187, 28, 53, 1);
     color: white;
     border: 2px solid white;
     border-radius: 0px;
@@ -503,47 +514,60 @@ label{
     text-align: center;
     margin-bottom: 12PX
 }
-.form-arrow{
+
+.form-arrow {
     transition: .6s ease;
     opacity: 0
 }
-.form-group{
+
+.form-group {
     margin-bottom: 8px
 }
-.contato-row .btn:hover,.contato-row .btn:focus{
+
+.contato-row .btn:hover,
+.contato-row .btn:focus {
     color: white !important
 }
-.contato-row button:hover .form-arrow{
+
+.contato-row button:hover .form-arrow {
     margin-left: 10px;
     transition: .6s ease;
     opacity: 1
 }
-.contato-row h1{
+
+.contato-row h1 {
     margin-bottom: 50px
 }
-.contato-row p{
+
+.contato-row p {
     max-width: 400px
 }
 
-.contato-row a p{
+.contato-row a p {
     color: white;
     font-weight: 600
 }
 
-.btn-info, .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open>.dropdown-toggle.btn-info{
+.btn-info,
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.open>.dropdown-toggle.btn-info {
     background: none !important;
     border: none !important
 }
 
-.serv-bg-row{
+.serv-bg-row {
     background: black;
     display: block;
     position: relative;
-    margin-top:-850px !important;
+    margin-top: -850px !important;
     z-index: 0;
     padding-bottom: 180px
 }
-.serv-bg-row img{
+
+.serv-bg-row img {
     position: relative;
     top: -200px;
     margin: 0 auto;
@@ -551,8 +575,8 @@ label{
     display: block
 }
 
-.slick-dots{
-    display: none!important;
+.slick-dots {
+    display: none !important;
 }
 
 .slick-slider div {
@@ -561,11 +585,56 @@ label{
 
 /*COPYRIGHT*/
 
-.copyright-row{
-    background:black;
+.copyright-row {
+    background: black;
     color: white;
     padding: 30px 15px 10px 15px;
     text-align: center;
+}
+
+.overlay {
+    display: none;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #222;
+    opacity: 0.3;
+    z-index: 999;
+}
+
+.overlay__inner {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.overlay__content {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {
+    width: 75px;
+    height: 75px;
+    display: inline-block;
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.05);
+    border-top-color: #fff;
+    animation: spin 1s infinite linear;
+    border-radius: 100%;
+    border-style: solid;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 
@@ -601,7 +670,7 @@ label{
         margin-top: 30px;
     }
 
-    .texto-video h1{
+    .texto-video h1 {
         display: inline-block;
         margin-left: 30px;
         margin-top: 10px;
@@ -631,7 +700,7 @@ label{
         font-weight: 500;
     }
 
-    .fundo-branco-home{
+    .fundo-branco-home {
         background: white;
         height: 800px;
         width: 400px;
@@ -646,21 +715,21 @@ label{
         padding: 20px 20px 20px 0px;
     }
 
-    .PT-EN{
+    .PT-EN {
         font-size: 15px;
     }
 
-    .icones-sociais{
+    .icones-sociais {
         display: inline-block;
         margin-left: 100px;
     }
 
-    .icones-sociais img{
+    .icones-sociais img {
         width: 25px;
         margin-left: 2px;
     }
 
-    .btn-homefaleconosco{
+    .btn-homefaleconosco {
         color: white;
         background: black;
         padding: 5px 15px 5px 15px;
@@ -671,13 +740,13 @@ label{
         cursor: pointer;
     }
 
-    .botoes-home{
+    .botoes-home {
         color: white;
         margin-bottom: 45px;
         padding: 0px 100px 0px 0px;
     }
 
-    .btn-saibamais{
+    .btn-saibamais {
         background: #dedee2;
         padding: 5px 15px 5px 15px;
         border-radius: 3px;
@@ -687,28 +756,29 @@ label{
         cursor: pointer;
     }
 
-    .btn-saibamaisA{
-        color:black;
+    .btn-saibamaisA {
+        color: black;
     }
 
-    .home-direita{
+    .home-direita {
         z-index: 2;
     }
-    .raiox-bagageiro h1{
+
+    .raiox-bagageiro h1 {
         font-size: 40px;
         font-weight: 400;
         margin-left: 150px;
         margin-top: 70px;
     }
 
-    .raiox-bagageiro h2{
+    .raiox-bagageiro h2 {
         font-size: 30px;
         margin-top: 60px;
         font-weight: 800;
         margin-left: 85px;
     }
 
-    .raiox-bagageiro h3{
+    .raiox-bagageiro h3 {
         font-size: 20px;
         margin-left: 150px;
         margin-top: 30px;
@@ -716,7 +786,7 @@ label{
         color: dimgrey;
     }
 
-    .btn-faleconosco{
+    .btn-faleconosco {
         color: white;
         background: black;
         padding: 10px 25px 10px 25px;
@@ -760,7 +830,7 @@ label{
         margin-top: 15px;
     }
 
-    .texto-video h1{
+    .texto-video h1 {
         display: inline-block;
         margin-left: 30px;
         margin-top: 10px;
@@ -790,7 +860,7 @@ label{
         font-weight: 500;
     }
 
-    .fundo-branco-home{
+    .fundo-branco-home {
         background: white;
         height: 800px;
         width: 350px;
@@ -805,21 +875,21 @@ label{
         padding: 20px 20px 20px 0px;
     }
 
-    .PT-EN{
+    .PT-EN {
         font-size: 15px;
     }
 
-    .icones-sociais{
+    .icones-sociais {
         display: inline-block;
         margin-left: 100px;
     }
 
-    .icones-sociais img{
+    .icones-sociais img {
         width: 25px;
         margin-left: 2px;
     }
 
-    .btn-homefaleconosco{
+    .btn-homefaleconosco {
         color: white;
         background: black;
         padding: 5px 15px 5px 15px;
@@ -830,13 +900,13 @@ label{
         cursor: pointer;
     }
 
-    .botoes-home{
+    .botoes-home {
         color: white;
         margin-bottom: 45px;
         padding: 0px 100px 0px 0px;
     }
 
-    .btn-saibamais{
+    .btn-saibamais {
         background: #dedee2;
         padding: 5px 15px 5px 15px;
         border-radius: 3px;
@@ -846,29 +916,29 @@ label{
         cursor: pointer;
     }
 
-    .btn-saibamaisA{
-        color:black;
+    .btn-saibamaisA {
+        color: black;
     }
 
-    .home-direita{
+    .home-direita {
         z-index: 2;
     }
-    
-    .raiox-bagageiro h1{
+
+    .raiox-bagageiro h1 {
         font-size: 40px;
         font-weight: 400;
         margin-left: 150px;
         margin-top: 70px;
     }
 
-    .raiox-bagageiro h2{
+    .raiox-bagageiro h2 {
         font-size: 30px;
         margin-top: 60px;
         font-weight: 800;
         margin-left: 85px;
     }
 
-    .raiox-bagageiro h3{
+    .raiox-bagageiro h3 {
         font-size: 20px;
         margin-left: 150px;
         margin-top: 30px;
@@ -876,7 +946,7 @@ label{
         color: dimgrey;
     }
 
-    .btn-faleconosco{
+    .btn-faleconosco {
         color: white;
         background: black;
         padding: 10px 25px 10px 25px;
@@ -894,8 +964,8 @@ label{
     .menu-slick {
         bottom: 0px;
         width: 400px;
-        background: rgb(0,0,0);
-        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        background: rgb(0, 0, 0);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
     }
 
     .texto-video {
@@ -906,7 +976,7 @@ label{
         justify-content: space-around;
     }
 
-    .texto-video h1{
+    .texto-video h1 {
         margin-left: 0px;
         margin-right: 0px;
         margin-top: 10px;
@@ -1008,8 +1078,8 @@ label{
         color: dimgrey;
     }
 
-    .raiox-icones{
-        text-align:center;
+    .raiox-icones {
+        text-align: center;
     }
 
     iframe {
@@ -1037,12 +1107,13 @@ label{
         width: 40% !important;
     }
 
-    .formulario-contato-row, .sobre-nos-row {
+    .formulario-contato-row,
+    .sobre-nos-row {
         padding-left: 20px;
         padding-right: 20px;
     }
 
-    .raiox-detalhes{
+    .raiox-detalhes {
         display: flex;
         justify-content: center;
     }

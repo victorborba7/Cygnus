@@ -178,8 +178,8 @@
                     <textarea class="col-md-12 textarea" wrap="hard" id="description"></textarea>
                 </div>
                 <div class="col-md-6 col-12">
-                    <label for="description">Descrição em inglês</label>
-                    <textarea class="col-md-12 textarea" wrap="hard" id="description_english"></textarea>
+                    <label for="description_en">Descrição em inglês</label>
+                    <textarea class="col-md-12 textarea" wrap="hard" id="description_en"></textarea>
                 </div>
             </div>
             <button id="save" class="btn-cadastro">Salvar avião</button>
@@ -481,6 +481,7 @@
                     $("#max_tail_height").val(data.max_tail_height)
                     $("#min_takeoff_distance").val(data.min_takeoff_distance)
                     $("#description").val(data.description)
+                    $("#description_en").val(data.description_en)
                     $("#available").prop('checked', Boolean(data.available))
                     $("#first_seen").prop('checked', Boolean(data.first_seen))
                     loaded = true;
@@ -548,6 +549,7 @@
                 max_tail_height: $("#max_tail_height").val(),
                 min_takeoff_distance: $("#min_takeoff_distance").val(),
                 description: $("#description").val(),
+                description_en: $("#description_en").val(),
                 available: Boolean($("#available").is(":checked")),
                 first_seen: Boolean($("#first_seen").is(":checked"))
             })
@@ -594,6 +596,7 @@
                 model: $("#model").val(),
                 series: $("#series").val(),
                 company_id: $("#company").val(),
+                company_name: $("#company option:selected").text(),
                 engine: $("#engine").val(),
                 max_takeoff_weight: $("#max_takeoff_weight").val(),
                 first_year_production: $("#first_year_production").val(),
@@ -607,6 +610,7 @@
                 max_tail_height: $("#max_tail_height").val(),
                 min_takeoff_distance: $("#min_takeoff_distance").val(),
                 description: $("#description").val(),
+                description_en: $("#description_en").val(),
                 available: Boolean($("#available").is(":checked")),
                 first_seen: Boolean($("#first_seen").is(":checked"))
             })
@@ -694,6 +698,7 @@
             $("#max_tail_height").val("")
             $("#min_takeoff_distance").val("")
             $("#description").val("")
+            $("#description_en").val("")
             $("#available").prop('checked', false)
             $("#first_seen").prop('checked', false)
             updateThumbnail(document.getElementById("int_photos"), Array())

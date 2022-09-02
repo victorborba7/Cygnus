@@ -2,6 +2,7 @@ from database import engine
 import pandas as pd
 import os
 import aiofiles
+import shutil
 
 def indexContainingSubstring(the_list, substring):
     for i, s in enumerate(the_list):
@@ -94,7 +95,7 @@ async def deleteLogo(req):
         strpath = f"{mypath}/images/{req['name']}"
         
         if not os.path.exists(strpath):
-            os.rmdir(strpath)
+            shutil.rmtree(strpath, ignore_errors=True)
     except:
         return False
     finally:

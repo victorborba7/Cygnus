@@ -1,10 +1,11 @@
 var latlng = new google.maps.LatLng(37.6922, -97.3372);
 var geocoder = new google.maps.Geocoder();
 const queryString = window.location.search;
-let company = window.location.pathname.replace("/", "");
+var path = window.location.pathname.split("/")
+let company = path[path.length - 1];
 let company_id;
-//let api = "http://localhost:3000";
-let api = "http://162.240.67.88:3000";
+//let url = "http://localhost:3000";
+let url = "http://162.240.67.88:3000";
 
 var mapOptions = {
 	center: latlng,
@@ -63,67 +64,97 @@ function DrawPlane(id) {
 }
 
 function getAircrafts() {
+	$(".overlay").css("display", "block");
 	$.ajax({
 		method: "GET",
 		crossDomain: true,
-		url: api + "/aircraft/list?company_id=" + company_id,
+		url: url + "/aircraft/list?company_id=" + company_id,
 		success: function (data) {
 			data.forEach(function (value) {
 				$("#aircrafts").append("<option value=" + value.id + ">" + value.model + "</option>");
 			})
 			$("#aircrafts").val(data[0].id).change()
+		},
+		complete: function () {
+			$(".overlay").css("display", "none");
 		}
 	})
 }
 
 function getCompanyByName() {
+	$(".overlay").css("display", "block");
 	$.ajax({
 		method: "GET",
 		crossDomain: true,
-		url: api + "/company/get/name?name=" + company,
+		url: url + "/company/get/name?name=" + company,
 		success: function (data) {
 			company_id = data.id
 			$("#logo").attr("src", data.photo_path);
 			getAircrafts();
 			getAvailableAircrafts();
+		},
+		complete: function () {
+			$(".overlay").css("display", "none");
 		}
 	})
 }
 
 function getAvailableAircrafts() {
+	$(".overlay").css("display", "block");
 	$.ajax({
 		method: "GET",
-		url: api + "/aircraft/available/list?company_id=" + company_id,
+		url: url + "/aircraft/available/list?company_id=" + company_id,
 		success: function (data) {
 			$('#aeronaves-disponiveis').empty();
 			data.forEach(el => {
+				var div = "<div class='available_photos'>"
+				el.outside_files.forEach(photo => {
+					div += `<img class="card-img-top" src="${el.photos_path}/externo/${photo}" alt="Card imagem"></img>`
+				});
+				div += "</div>"
 				$('#aeronaves-disponiveis').append(`
 				<div class="card card-disponiveis">
-					<img class="card-img-top" src="${el.photos_path}/externo/externo_1.webp" alt="Card imagem">
+					${div}
 					<div class="card-body">
 						<h5 class="card-title">${el.model}</h5>
 						<p class="card-text">${el.first_year_production} | ${el.tbo} horas totais FOB USA</p>
 						<a href="#" class="btn btn-danger">TENHO INTERESSE</a>
-						<button class="btn btn-primary mt-3">BAIXAR ESPECIFICAÇÕES</button>
 					</div>
 				</div>
 				`);
 			});
+
+			$(".available_photos").slick({
+				infinite: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				fade: true,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				arrows: false
+			});
+
 			$('#aeronaves-disponiveis').slick({
 				infinite: true,
 				slidesToShow: 3,
 				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 2000,
 				arrows: true
 			});
+		},
+		complete: function () {
+			$(".overlay").css("display", "none");
 		}
 	})
 }
 
 function getAircraft() {
+	$(".overlay").css("display", "block");
 	$.ajax({
 		method: "GET",
 		crossDomain: true,
-		url: api + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
+		url: url + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
 		success: function (data) {
 			$('.avioes').empty()
 
@@ -135,7 +166,8 @@ function getAircraft() {
 				infinite: true,
 				dots: true,
 				arrows: false,
-				speed: 200,
+				autoplay: true,
+				autoplaySpeed: 2000,
 				fade: true,
 				cssEase: 'linear'
 			});
@@ -176,12 +208,27 @@ function getAircraft() {
 			$("#min_takeoff_distance").text(data.min_takeoff_distance)
 			$("#description_pt").text(data.description)
 			$("#description_en").text(data.description_en)
+		},
+		complete: function () {
+			$(".overlay").css("display", "none");
 		}
 	})
 }
 
 $("#planes1, #planes2").change(function () {
 	DrawPlane($(this).attr("id"))
+})
+
+$("#english").click(function () {
+	var path = window.location.pathname.split("/")
+	let company = path[path.length - 1];
+	window.location = "/en/" + company
+})
+
+$("#portugues").click(function () {
+	var path = window.location.pathname.split("/")
+	let company = path[path.length - 1];
+	window.location = "/" + company
 })
 
 $(document).ready(function () {
