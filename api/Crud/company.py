@@ -3,6 +3,12 @@ import pandas as pd
 import os
 import aiofiles
 
+def indexContainingSubstring(the_list, substring):
+    for i, s in enumerate(the_list):
+        if substring in s:
+              return i
+    return -1
+
 #mypath = "C:/Users/victorvb2/Documents/Projetos/Cygnus/html"
 mypath = "/home/html"
 
@@ -11,8 +17,9 @@ def getCompanyById(id):
     dbConnection = engine.connect()
     df = pd.read_sql(f"select * from company where id = {id}", dbConnection)
     dbConnection.close()
+    records = df.to_dict("records")[0]
     if len(df) > 0:
-        return df.to_dict("records")[0]
+        return records
     return False
 
 def getCompanyByName(name):

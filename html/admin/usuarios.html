@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
@@ -11,11 +11,11 @@
     <nav id="sidebar">
         <div class="d-flex flex-column justify-content-around align-items-center">
             <div class="sidebar-header">
-                <h3>Logo</h3>
+                <img src="../images/logo.svg" width="200px" />
             </div>
 
             <ul class="list-unstyled components">
-                <p class="pl-3" id="nome_user">Nome do Usuário</p>
+                <h5 class="pl-3" id="nome_user"></h5>
                 <li class="pl-5 py-3">
                     <a href="index.html">Home</a>
                 </li>
@@ -77,17 +77,29 @@
             <button id="save" class="btn-cadastro">Salvar Usuário</button>
         </form>
     </div>
+    <div class="overlay">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
         integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/paging.js"></script>
 </body>
 
 </html>
 
 <style>
+    .sidebar-header {
+        background-color: #EDEDED;
+        width: 100%;
+        text-align: center;
+    }
+
     h2 {
         margin-top: 100px;
     }
@@ -135,24 +147,68 @@
         font-size: 1.2rem;
         width: 200px;
     }
+
+    .overlay {
+        display: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: #222;
+        opacity: 0.3;
+    }
+
+    .overlay__inner {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .overlay__content {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .spinner {
+        width: 75px;
+        height: 75px;
+        display: inline-block;
+        border-width: 2px;
+        border-color: rgba(255, 255, 255, 0.05);
+        border-top-color: #fff;
+        animation: spin 1s infinite linear;
+        border-radius: 100%;
+        border-style: solid;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 </style>
 
 <script>
-    //let url = "http://localhost:3000";
-    let url = "http://162.240.67.88:3000";
+    let url = "http://localhost:3000";
+    //let url = "http://162.240.67.88:3000";
     let loaded = false;
     let id;
     $("document").ready(function () {
         const user = sessionStorage.getItem("user");
         if (user == undefined) {
-            console.info(user);
             window.location.href = "login.html"
             return false;
         }
         user_data = JSON.parse(user)
-        $('.name').text(user_data.name)
-        
+        $('#nome_user').text(user_data.name)
+
         function getUsers() {
+            $(".overlay").css("display", "block");
             $.ajax({
                 method: "GET",
                 url: url + "/user/list",
@@ -176,7 +232,7 @@
                             </td>
                         </tr>`)
                     });
-                    
+
                     $("#table").paging({
                         limit: 5,
                         rowDisplayStyle: 'block',
@@ -184,6 +240,9 @@
                         rows: []
 
                     });
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
 
@@ -201,6 +260,7 @@
         }
 
         function getUser() {
+            $(".overlay").css("display", "block");
             $.ajax({
                 method: "GET",
                 url: url + "/user/get/id?id=" + id,
@@ -210,11 +270,15 @@
                     $("#email").val(data.email)
                     $("#password").val(data.password)
                     loaded = true;
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
         function addUser() {
+            $(".overlay").css("display", "block");
             data = new FormData();
             data.append("request", JSON.stringify({
                 "name": $("#name").val(),
@@ -222,7 +286,6 @@
                 "email": $("#email").val(),
                 "password": $("#password").val()
             }))
-            console.info(data)
             $.ajax({
                 method: "POST",
                 url: url + "/user/add",
@@ -231,13 +294,23 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getUsers()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Usuário cadastrado com suscesso", "success");
+                        getUsers()
+                    }
                     clearFiedls();
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
         function editUser() {
+            $(".overlay").css("display", "block");
             data = new FormData();
             data.append("request", JSON.stringify({
                 "id": id,
@@ -254,14 +327,24 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getUsers()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Usuário alterado com suscesso", "success");
+                        getUsers()
+                    }
                     loaded = false;
                     clearFiedls();
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
         function removeUser() {
+            $(".overlay").css("display", "block");
             data = new FormData();
             data.append("request", JSON.stringify({
                 "id": id
@@ -274,9 +357,18 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getUsers()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Usuário removido com suscesso", "success");
+                        getUsers()
+                    }
                     loaded = false;
                     clearFiedls()
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }

@@ -12,11 +12,11 @@
     <nav id="sidebar">
         <div class="d-flex flex-column justify-content-around align-items-center">
             <div class="sidebar-header">
-                <h3>Logo</h3>
+                <img src="../images/logo.svg" width="200px" />
             </div>
 
             <ul class="list-unstyled components">
-                <p class="pl-3" id="nome_user">Nome do Usuário</p>
+                <h5 class="pl-3" id="nome_user"></h5>
                 <li class="pl-5 py-3">
                     <a href="index.html">Home</a>
                 </li>
@@ -204,6 +204,12 @@
 </html>
 
 <style>
+    .sidebar-header {
+        background-color: #EDEDED;
+        width: 100%;
+        text-align: center;
+    }
+
     h2 {
         margin-top: 100px;
     }
@@ -331,6 +337,7 @@
         height: 100%;
         position: fixed;
         background: #222;
+        opacity: 0.3;
     }
 
     .overlay__inner {
@@ -373,13 +380,13 @@
     let loaded = false;
     let id;
     $("document").ready(function () {
-        // const user = sessionStorage.getItem("user");
-        // if (user == undefined) {
-        //     window.location.href = "login.html"
-        //     return false;
-        // }
-        // user_data = JSON.parse(user)
-        // $('.name').text(user_data.name)
+        const user = sessionStorage.getItem("user");
+        if (user == undefined) {
+            window.location.href = "login.html"
+            return false;
+        }
+        user_data = JSON.parse(user)
+        $('#nome_user').text(user_data.name)
 
         function getCompanies () {
             $(".overlay").css("display", "block");
@@ -798,5 +805,6 @@
                 dropZoneElement.classList.remove("drop-zone--over");
             })
         })
+    
     })
 </script>

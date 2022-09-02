@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css" />
@@ -11,11 +11,11 @@
     <nav id="sidebar">
         <div class="d-flex flex-column justify-content-around align-items-center">
             <div class="sidebar-header">
-                <h3>Logo</h3>
+                <img src="../images/logo.svg" width="200px" />
             </div>
 
             <ul class="list-unstyled components">
-                <p class="pl-3" id="nome_user">Nome do Usuário</p>
+                <h5 class="pl-3" id="nome_user"></h5>
                 <li class="pl-5 py-3">
                     <a href="index.html">Home</a>
                 </li>
@@ -59,23 +59,41 @@
                 </div>
                 <div class="col-md-6 col-12">
                     <label for="logo">Logo</label>
-                    <input class="col-md-12" type="file" id="logo" />
+                    foto</label><br />
+                    <div class="drop-zone">
+                        <span class="drop-zone__prompt">Drop file here or click to upload</span>
+                        <div class="drop-zone__thumbs"></div>
+                        <input class="col-md-12 drop-zone__input" type="file" id="logo" />
+                    </div>
                 </div>
             </div>
             <button id="save" class="btn-cadastro">Salvar Marca</button>
         </form>
+    </div>
+    <div class="overlay">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
         integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/paging.js"></script>
 </body>
 
 </html>
 
 <style>
+    .sidebar-header {
+        background-color: #EDEDED;
+        width: 100%;
+        text-align: center;
+    }
+
     h2 {
         margin-top: 100px;
     }
@@ -123,11 +141,121 @@
         font-size: 1.2rem;
         width: 200px;
     }
+
+    .drop-zone {
+        border: 1px dashed #000;
+        min-height: 200px;
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .drop-zone span {
+        line-height: 100px;
+    }
+
+    .drop-zone__input {
+        display: none;
+    }
+
+    .drop-zone__thumb {
+        width: 190px;
+        height: 190px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: cover;
+        position: relative;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .drop-zone__thumbs {
+        display: none;
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .drop-zone__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        color: #ffffff;
+        background: #ff0000;
+        font-size: 14px;
+        text-align: center;
+        line-height: 30px !important;
+        border-radius: 5px;
+    }
+
+    .overlay {
+        display: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: #222;
+        opacity: 0.3;
+    }
+
+    .overlay__inner {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .overlay__content {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .spinner {
+        width: 75px;
+        height: 75px;
+        display: inline-block;
+        border-width: 2px;
+        border-color: rgba(255, 255, 255, 0.05);
+        border-top-color: #fff;
+        animation: spin 1s infinite linear;
+        border-radius: 100%;
+        border-style: solid;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 </style>
 
 <script>
-    //let url = "http://localhost:3000";
-    let url = "http://162.240.67.88:3000";
+    let url = "http://localhost:3000";
+    //let url = "http://162.240.67.88:3000";
     let loaded = false;
     let id;
     $("document").ready(function () {
@@ -137,9 +265,10 @@
             return false;
         }
         user_data = JSON.parse(user)
-        $('.name').text(user_data.name)
+        $('#nome_user').text(user_data.name)
 
         function getCompanies() {
+            $(".overlay").css("display", "block");
             $.ajax({
                 method: "GET",
                 url: url + "/company/list",
@@ -162,6 +291,9 @@
                         rows: []
 
                     });
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
 
@@ -179,12 +311,29 @@
         }
 
         function getCompany() {
+            $(".overlay").css("display", "block");
             $.ajax({
                 method: "GET",
                 url: url + "/company/get/id?id=" + id,
                 success: function (data) {
                     $("#name").val(data.name)
                     loaded = true;
+
+                    var logo = new DataTransfer();
+                    fetch(`../${data.photo_path}`)
+                        .then(res => res.blob())
+                        .then(blob => {
+                            path = data.photo_path.split("/")
+                            logo.items.add(new File([blob], path[path.length - 1]))
+                        })
+                        .then(() => {
+                            fileInput = document.querySelector("#logo")
+                            fileInput.files = logo.files
+                            updateThumbnail(fileInput.parentNode, fileInput.files)
+                        })
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
@@ -204,13 +353,23 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getCompanies()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Marca cadastrada com suscesso", "success");
+                        getCompanies()
+                    }
                     clearFiedls();
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
-        function editCompany() {            
+        function editCompany() {
+            $(".overlay").css("display", "block");
             data = new FormData();
             data.append("request", JSON.stringify({
                 "name": $("#name").val(),
@@ -227,13 +386,23 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getCompanies()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Marca alterada com suscesso", "success");
+                        getCompanies()
+                    }
                     clearFiedls();
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
-        function removeCompany() {            
+        function removeCompany() {
+            $(".overlay").css("display", "block");
             data = new FormData();
             data.append("request", JSON.stringify({
                 "id": id
@@ -246,23 +415,134 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getCompanies()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Marca deletada com suscesso", "success");
+                        getCompanies()
+                    }
                     clearFiedls();
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
         function clearFiedls() {
             $("#name").val("")
+            updateThumbnail(document.getElementById("logo"), Array())
         }
 
         $("#save").click(function (e) {
             e.preventDefault()
-            console.info(loaded)
             if (!loaded) addCompany()
             else editCompany()
         });
 
+        $("#logout").click(function () {
+            sessionStorage.removeItem("user");
+            window.location.href = "login.html"
+        })
+
         getCompanies();
+
+        function updateThumbnail(dropZoneElement, files) {
+            // First time - remove the prompt
+            if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+                dropZoneElement.querySelector(".drop-zone__prompt").style.display = "none";
+            }
+
+            thumbnailElements = dropZoneElement.querySelectorAll(".drop-zone__thumb");
+            thumbs = dropZoneElement.querySelector(".drop-zone__thumbs")
+            thumbs.style.display = "flex"
+
+            // First time - there is no thumbnail element, so lets create it
+            if (thumbnailElements.length > 0) {
+                while (thumbs.firstElementChild) {
+                    thumbs.firstElementChild.remove();
+                }
+            }
+
+            files.forEach((file, i) => {
+                let thumbnailElement = document.createElement("div");
+                thumbnailElement.classList.add("drop-zone__thumb");
+                thumbnailElement.dataset.label = file.name;
+
+                let closeElement = document.createElement("span");
+                closeElement.classList.add("drop-zone__close");
+                closeElement.innerHTML = "X";
+                closeElement.addEventListener("click", (e) => {
+                    e.stopPropagation()
+                    dropZoneElement = e.target.parentNode.parentNode.parentNode
+                    thumbsElement = e.target.parentNode.parentNode
+                    files = Array.from(dropZoneElement.querySelector("input").files)
+                    files.splice(0, 1)
+                    var dt = new DataTransfer();
+                    files.forEach((file) => {
+                        dt.items.add(file);
+                    });
+                    var file_list = dt.files;
+                    dropZoneElement.querySelector("input").files = file_list
+
+                    e.target.parentNode.remove()
+                    thumbnailElements = thumbsElement.querySelectorAll(".drop-zone__thumb");
+
+                    if (thumbnailElements.length == 0) {
+                        thumbsElement.style.display = "none"
+                        dropZoneElement.querySelector(".drop-zone__prompt").style.display = "block";
+                    }
+
+                });
+                thumbnailElement.appendChild(closeElement);
+
+                thumbs.appendChild(thumbnailElement);
+
+                // Show thumbnail for image files
+                const reader = new FileReader();
+
+                reader.readAsDataURL(file);
+                reader.onload = () => {
+                    thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+                };
+            });
+        }
+
+        document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+            const dropZoneElement = inputElement.closest(".drop-zone");
+
+            dropZoneElement.addEventListener("click", (e) => {
+                inputElement.click();
+            });
+
+            inputElement.addEventListener("change", (e) => {
+                if (inputElement.files.length) {
+                    updateThumbnail(dropZoneElement, inputElement.files);
+                }
+            });
+
+            dropZoneElement.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropZoneElement.classList.add("drop-zone--over");
+            });
+
+            ["dragleave", "dragend"].forEach((type) => {
+                dropZoneElement.addEventListener(type, (e) => {
+                    dropZoneElement.classList.remove("drop-zone--over");
+                });
+            });
+
+            dropZoneElement.addEventListener("drop", (e) => {
+                e.preventDefault();
+
+                if (e.dataTransfer.files.length) {
+                    inputElement.files = e.dataTransfer.files;
+                    updateThumbnail(dropZoneElement, e.dataTransfer.files);
+                }
+
+                dropZoneElement.classList.remove("drop-zone--over");
+            })
+        })
     })
 </script>

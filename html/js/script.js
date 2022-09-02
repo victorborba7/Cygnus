@@ -174,7 +174,8 @@ function getAircraft() {
 			$("#length").text(data.length)
 			$("#max_tail_height").text(data.max_tail_height)
 			$("#min_takeoff_distance").text(data.min_takeoff_distance)
-			$("#description").text(data.description)
+			$("#description_pt").text(data.description)
+			$("#description_en").text(data.description_en)
 		}
 	})
 }
