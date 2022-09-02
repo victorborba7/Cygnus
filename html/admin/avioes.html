@@ -504,12 +504,12 @@
                         await fetch(`..${data.photos_path}/externo/${data.outside_files[i]}`)
                             .then(res => res.blob())
                             .then(blob => {
-                                dt_interno.items.add(new File([blob], data.outside_files[i]))
+                                dt_externo.items.add(new File([blob], data.outside_files[i]))
                             })
                     }
 
                     fileInput = document.querySelector("#ex_photos")
-                    fileInput.files = dt_interno.files
+                    fileInput.files = dt_externo.files
                     updateThumbnail(fileInput.parentNode, fileInput.files)
 
                     var dt_mapa_assentos = new DataTransfer();
