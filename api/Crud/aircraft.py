@@ -51,7 +51,7 @@ def createAircraft(req):
             values('{req['model']}', '{req['series']}', '{req['company_id']}', '{req['engine']}', '{req['max_takeoff_weight']}', \
             '{req['first_year_production']}', '{req['tbo']}', '{req['max_capacity']}', '{req['max_cruise_speed']}', \
             '{req['max_range']}', '{req['max_operating_altitude']}', '{req['wingspan']}', '{req['length']}', '{req['max_tail_height']}', '{req['min_takeoff_distance']}', \
-            '{req['description']}', '{req['description_en']}', '{req['photos_path']}', '{req['available']}', '{req['first_seen']}')"
+            '{req['description']}', '{req['description_en']}', '{req['photos_path']}', '{int(req['available'])}', '{int(req['first_seen'])}')"
         dbConnection = engine.connect()
         dbConnection.execute(insert)
         dbConnection.close()
@@ -80,8 +80,8 @@ def updateAircraft(req):
             min_takeoff_distance = '{req['min_takeoff_distance']}', \
             description = '{req['description']}', \
             description_en = '{req['description_en']}', \
-            available = {req['available']}, \
-            first_seen = {req['first_seen']} \
+            available = {int(req['available'])}, \
+            first_seen = {int(req['first_seen'])} \
             where id = {req['id']}"
         
         dbConnection = engine.connect()

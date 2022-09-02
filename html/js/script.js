@@ -4,6 +4,9 @@ const queryString = window.location.search;
 var path = window.location.pathname.split("/")
 let company = path[path.length - 1];
 let company_id;
+let outside_images = 0;
+let inside_images = 0;
+let first_load = 1;
 //let url = "http://localhost:3000";
 let url = "http://162.240.67.88:3000";
 
@@ -156,40 +159,80 @@ function getAircraft() {
 		crossDomain: true,
 		url: url + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
 		success: function (data) {
-			$('.avioes').empty()
+			if (first_load == 1) {
 
-			data.inside_files.forEach((value) => {
-				$(".avioes").append(`<img src="${data.photos_path}/interno/${value}" />`)
-			});
+				$('.avioes').empty()
 
-			$('.avioes').slick({
-				infinite: true,
-				dots: true,
-				arrows: false,
-				autoplay: true,
-				autoplaySpeed: 2000,
-				fade: true,
-				cssEase: 'linear'
-			});
+				data.outside_files.forEach((value) => {
+					$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
+				});
 
-			$('.fotosdeaviao').empty();
+				$('.avioes').slick({
+					infinite: true,
+					dots: true,
+					arrows: false,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					fade: true,
+					cssEase: 'linear'
+				});
 
-			data.outside_files.forEach((value) => {
-				$(".fotosdeaviao").append(`<img src="${data.photos_path}/externo/${value}" />`)
-			});
+				outside_images = data.outside_files.length
+
+				$('.fotosdeaviao').empty();
+
+				data.inside_files.forEach((value) => {
+					$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" />`)
+				});
+
+
+				$('.fotosdeaviao').slick({
+					infinite: true,
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					dots: false,
+					arrows: false,
+					autoplay: true,
+					autoplaySpeed: 2000,
+				});
+
+				inside_images = data.inside_files.length
+
+				first_load = 0;
+			}
+			else {
+				var slideIndex = outside_images;
+				for (i = 0; i < outside_images; i++) {
+					$('.avioes').slick('slickRemove', slideIndex - 1);
+					if (slideIndex !== 0) {
+						slideIndex--;
+					}
+				};
+
+
+				data.outside_files.forEach((value) => {
+					$('.avioes').slick('slickAdd', `<img src="${data.photos_path}/externo/${value}" />`);
+				});
+
+				outside_images = data.outside_files.length;
+
+				var slideIndex = inside_images;
+				for (i = 0; i < inside_images; i++) {
+					$('.fotosdeaviao').slick('slickRemove', slideIndex - 1);
+					if (slideIndex !== 0) {
+						slideIndex--;
+					}
+				};
+
+
+				data.inside_files.forEach((value) => {
+					$('.fotosdeaviao').slick('slickAdd', `<img src="${data.photos_path}/interno/${value}" />`);
+				});
+
+				inside_images = data.inside_files.length;
+			}
 
 			$("#mapa_assentos").attr("src", data.photos_path + "/" + data.mapa_assentos);
-
-			$('.fotosdeaviao').slick({
-				infinite: true,
-				slidesToShow: 4,
-				slidesToScroll: 1,
-				dots: false,
-				arrows: false,
-				autoplay: true,
-				autoplaySpeed: 2000,
-			});
-
 			$("#tbo").text(data.tbo)
 			$("#engine").text(data.engine)
 			$("#first_year_production").text(data.first_year_production)
