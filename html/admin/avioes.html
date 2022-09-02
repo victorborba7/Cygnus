@@ -185,12 +185,18 @@
             <button id="save" class="btn-cadastro">Salvar avião</button>
         </form>
     </div>
+    <div class="overlay">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"
         integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="js/paging.js"></script>
 
 </body>
@@ -316,6 +322,49 @@
         width: 200px;
         margin-top: 10px;
     }
+
+    .overlay {
+        display: none;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: #222;
+    }
+
+    .overlay__inner {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .overlay__content {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .spinner {
+        width: 75px;
+        height: 75px;
+        display: inline-block;
+        border-width: 2px;
+        border-color: rgba(255, 255, 255, 0.05);
+        border-top-color: #fff;
+        animation: spin 1s infinite linear;
+        border-radius: 100%;
+        border-style: solid;
+    }
+
+    @keyframes spin {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 </style>
 
 <script>
@@ -332,7 +381,8 @@
         // user_data = JSON.parse(user)
         // $('.name').text(user_data.name)
 
-        function getCompanies() {
+        function getCompanies () {
+            $(".overlay").css("display", "block");
             $.ajax({
                 method: "GET",
                 url: url + "/company/list",
@@ -340,11 +390,15 @@
                     data.forEach(el => {
                         $("#company").append(`<option value="${el.id}">${el.name}</option>`)
                     });
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
-        function getAircrafts() {
+        function getAircrafts () {
+            $(".overlay").css("display", "block");
             $.ajax({
                 method: "GET",
                 url: url + "/aircraft/list?company_id=0",
@@ -376,6 +430,9 @@
                         rows: []
 
                     });
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
 
@@ -395,7 +452,8 @@
             });
         }
 
-        function getAircraft() {
+        function getAircraft () {
+            $(".overlay").css("display", "block");
             $.ajax({
                 method: "GET",
                 url: url + "/aircraft/get?id=" + id,
@@ -457,10 +515,14 @@
                             fileInput.files = dt_mapa_assentos.files
                             updateThumbnail(fileInput.parentNode, fileInput.files)
                         })
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
-        function addAircraft() {
+        function addAircraft () {
+            $(".overlay").css("display", "block");
             obj = JSON.stringify({
                 model: $("#model").val(),
                 series: $("#series").val(),
@@ -503,13 +565,23 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getAircrafts()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Avião cadastrado com suscesso", "success");
+                        getAircrafts()
+                    }
                     clearFiedls();
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
-        function editAircraft() {
+        function editAircraft () {
+            $(".overlay").css("display", "block");
             obj = JSON.stringify({
                 id: id,
                 model: $("#model").val(),
@@ -532,8 +604,17 @@
                 first_seen: Boolean($("#first_seen").is(":checked"))
             })
 
+
             data = new FormData();
             data.append("request", obj)
+            Array.from($('#int_photos').prop('files')).forEach(file => {
+                data.append("internos", file)
+            });
+            Array.from($('#ex_photos').prop('files')).forEach(file => {
+                data.append("externos", file)
+            });
+
+            data.append("mapa_assentos", $('#mapa_assentos').prop('files')[0])
 
             $.ajax({
                 method: "POST",
@@ -543,14 +624,24 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getAircrafts()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Avião alterado com suscesso", "success");
+                        getAircrafts()
+                    }
                     loaded = false;
                     clearFiedls();
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
-        function removeAircraft() {
+        function removeAircraft () {
+            $(".overlay").css("display", "block");
             obj = JSON.stringify({
                 id: id
             })
@@ -565,12 +656,21 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    if (data.success) getAircrafts()
+                    if (data.success) {
+                        swal("Tudo Certo!", "Avião deletado com suscesso", "success");
+                        getAircrafts()
+                    }
+                },
+                error: function (data) {
+                    swal("Erro!", "Tente novamente mais tarde", "error");
+                },
+                complete: function () {
+                    $(".overlay").css("display", "none");
                 }
             })
         }
 
-        function clearFiedls() {
+        function clearFiedls () {
             $("#model").val("")
             $("#series").val("")
             $("#company").val("")
@@ -589,6 +689,9 @@
             $("#description").val("")
             $("#available").prop('checked', false)
             $("#first_seen").prop('checked', false)
+            updateThumbnail(document.getElementById("int_photos"), Array())
+            updateThumbnail(document.getElementById("ex_photos"), Array())
+            updateThumbnail(document.getElementById("mapa_assentos"), Array())
         }
 
         $("#save").click(function (e) {
@@ -599,7 +702,7 @@
         getAircrafts();
         getCompanies();
 
-        function updateThumbnail(dropZoneElement, files) {
+        function updateThumbnail (dropZoneElement, files) {
             // First time - remove the prompt
             if (dropZoneElement.querySelector(".drop-zone__prompt")) {
                 dropZoneElement.querySelector(".drop-zone__prompt").style.display = "none";

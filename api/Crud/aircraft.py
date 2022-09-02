@@ -100,10 +100,30 @@ def deleteAircraft(id):
         raise
 
 async def saveImages(req, internos, externos, mapa_assentos):
+    #Mapa assentos
+    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}"
+    if os.path.exists(strpath):
+        os.rmdir(strpath)
+    os.makedirs(strpath)
+    
+    try:
+        filename, file_extension = os.path.splitext(mapa_assentos.filename)
+        filename = f"mapa_assentos{file_extension}"
+    
+        
+        async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
+            content = await mapa_assentos.read()  # async read
+            await out_file.write(content)  # async write
+        
+        count+=1
+    finally:
+        mapa_assentos.file.close()
+
     #Fotos Internas,
     strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/interno"
-    if not os.path.exists(strpath):
-        os.makedirs(strpath)
+    if os.path.exists(strpath):
+        os.rmdir(strpath)
+    os.makedirs(strpath)
     
     count = 1
     for i in internos:
@@ -123,8 +143,9 @@ async def saveImages(req, internos, externos, mapa_assentos):
             
     #Fotos internas
     strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/externo"
-    if not os.path.exists(strpath):
-        os.makedirs(strpath)
+    if os.path.exists(strpath):
+        os.rmdir(strpath)
+    os.makedirs(strpath)
     
     count = 1
     for i in externos:
@@ -140,21 +161,5 @@ async def saveImages(req, internos, externos, mapa_assentos):
             count+=1
         finally:
             i.file.close()
-
-    #Mapa assentos
-    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}"
-    if not os.path.exists(strpath):
-        os.makedirs(strpath)
-    try:
-        filename, file_extension = os.path.splitext(mapa_assentos.filename)
-        filename = f"mapa_assentos{file_extension}"
-    
-        
-        async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
-            content = await mapa_assentos.read()  # async read
-            await out_file.write(content)  # async write
-        
-        count+=1
-    finally:
-        mapa_assentos.file.close()
+            
     return f"/images/{req['company_name']}/{req['model']}"

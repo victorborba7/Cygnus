@@ -129,8 +129,9 @@ async def addAircraft(request: str = Form(...), internos: List[UploadFile] = Fil
     return {"success": createAircraft(req)}
 
 @app.post("/aircraft/update")
-async def changeAircraft(request: str = Form(...)):
+async def changeAircraft(request: str = Form(...), internos: List[UploadFile] = File(...), externos: List[UploadFile] = File(...), mapa_assentos: UploadFile = File(...)):
     req = json.loads(request)
+    req["photos_path"] = await saveImages(req, externos, internos, mapa_assentos)
     return {"success": updateAircraft(req)}
 
 @app.get("/aircraft/list")
