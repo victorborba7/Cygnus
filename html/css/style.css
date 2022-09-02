@@ -107,6 +107,7 @@ body {
 
 .idioma {
     color: black;
+    cursor: pointer;
 }
 
 .icones-sociais {
