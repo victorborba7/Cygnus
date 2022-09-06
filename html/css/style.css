@@ -412,13 +412,8 @@ input {
     color: #000000 !important;
 }
 
-.aeronaves-disponiveis .slick-slide {
-    margin: 0 26px;
-}
-
 .aeronaves-disponiveis {
-    width: 80%;
-    margin: 20px auto;
+    margin: 30px 0;
 }
 
 .aeronaves-disponiveis h1 {
@@ -430,10 +425,16 @@ input {
 
 .card-disponiveis {
     border-radius: 10px;
+    max-width: 500px;
 }
 
 .card-disponiveis img {
     width: 100%;
+}
+
+.middle {
+    width: 100%;
+    text-align: center;
 }
 
 /*FORMULARIO-CONTATO*/
@@ -652,6 +653,24 @@ label {
     100% {
         transform: rotate(360deg);
     }
+}
+
+.footer {
+    color: #FFFFFF !important;
+}
+
+.footer h3 {
+    font-size: 1rem;
+}
+
+.logotipo {
+    color: #FFFFFF;
+    width: 200px;
+}
+
+.icons-rs-footer img {
+    width: 20px;
+    margin: 0 10px;
 }
 
 

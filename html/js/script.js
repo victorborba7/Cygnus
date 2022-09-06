@@ -7,8 +7,8 @@ let company_id;
 let outside_images = 0;
 let inside_images = 0;
 let first_load = 1;
-//let url = "http://localhost:3000";
-let url = "http://162.240.67.88:3000";
+let url = "http://localhost:3000";
+//let url = "http://162.240.67.88:3000";
 
 var mapOptions = {
 	center: latlng,
@@ -92,7 +92,7 @@ function getCompanyByName() {
 		url: url + "/company/get/name?name=" + company,
 		success: function (data) {
 			company_id = data.id
-			$("#logo").attr("src", data.photo_path);
+			$("#logo").attr("src", "/" + data.photo_path);
 			getAircrafts();
 			getAvailableAircrafts();
 		},
@@ -121,7 +121,7 @@ function getAvailableAircrafts() {
 					<div class="card-body">
 						<h5 class="card-title">${el.model}</h5>
 						<p class="card-text">${el.first_year_production} | ${el.tbo} horas totais FOB USA</p>
-						<a href="#" class="btn btn-danger">TENHO INTERESSE</a>
+						<div class="middle"><a href="#" class="btn btn-danger">TENHO INTERESSE</a></div>
 					</div>
 				</div>
 				`);
