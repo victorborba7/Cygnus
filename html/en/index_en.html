@@ -201,12 +201,12 @@
                     <h2>Compare the range:</h2>
                 </div>
                 <div id="map" class="col-md-12"></div>
-                <div class="col-md-12 selects-planes mt-3">
+                <div class="col-10 col-md-12 selects-planes mt-3">
                     <label for="airports">Choose an airport:</label>
                     <select id="airports" class="col-md-12">
                     </select>
                     <label for="planes1">Choose a plane:</label>
-                    <select class="col-md-12" name="planes1" id="planes1">
+                    <select class="col-10 col-md-12" name="planes1" id="planes1">
                         <option value="0" selected>Planes...</option>
                         <optgroup label="KING AIR">
                             <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
@@ -326,7 +326,7 @@
                         </optgroup>
                     </select>
                     <label for="planes2">Escolha um avião:</label>
-                    <select class="col-md-12" name="planes2" id="planes2">
+                    <select class="col-10 col-md-12" name="planes2" id="planes2">
                         <option value="0" selected>Planes...</option>
                         <optgroup label="KING AIR">
                             <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
@@ -518,31 +518,45 @@
 
     <!--SOBRE NÓS-->
 
-    <div class="row sobre-nos-row">
-        <div class="container">
-            <div class="row">
-                <div class="sobre-nos col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <h1>About us</h1>
-                    <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</h2>
+    <footer class="row justify-content-center flex-column flex-sm-row footer align-items-center"
+        style="background-color: #000000;">
+        <div class="col-2">
+            <a href="#"><img src="images/logo.svg" class="logotipo"></a>
+            <h3>Cygnus Aircrafts</h3>
+            <p>Revendedor de aeronaves</p>
+            <p>São Paulo - Brasil e Florida - USA</p>
+        </div>
+        <div class="col-2">
+            <h3>Contato</h3>
+            <a>
+                <p>sales@cygnusaircrafts.com</p>
+            </a>
+            <a>
+                <p>+55 16 9.8178.4048</p>
+            </a>
+            <a>
+                <p>+1 (754) 704.8650</p>
+            </a>
+        </div>
+        <div class="col-2">
+            <h3>Horário de atendimento</h3>
+            <p>Segunda à sexta:</p>
+            <p>das 9h até as 17h</p>
+        </div>
+        <div class="col-2">
+            <h3>Redes sociais</h3>
+            <div class="row icons-rs-footer justify-content-start" style="width: 100%;">
+                <div>
+                    <a href="https://www.facebook.com/cygnusaircrafts" target="_blank"><img src="images/icon-face.svg"
+                            alt="facebook"></a>
                 </div>
-
-                <div class="sobre-contato col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <h1>Contact</h1>
-                    <p>xxxx-xxxx</p>
-                    <p>xxxx-xxxx</p>
-                    <p>contato@contato.com.br</p>
-                    <p>Endereço, rua 123 321</p>
-                </div>
-
-                <div class="sobre-newsletter col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <h1>Newsletter</h1>
-                    <h2>Sed ut perspiciatis unde omnis iste natus error sit voluptatem.</h2>
-
+                <div>
+                    <a href="https://www.instagram.com/cygnusaircrafts/" target="_blank"><img
+                            src="images/icon-insta.svg" alt="Instagram"></a>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 
     <!--COPYRIGHT-->
     <div class="row copyright-row">
