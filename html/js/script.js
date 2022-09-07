@@ -7,8 +7,8 @@ let company_id;
 let outside_images = 0;
 let inside_images = 0;
 let first_load = 1;
-//let url = "http://localhost:3000";
-let url = "http://162.240.67.88:3000";
+let url = "http://localhost:3000";
+//let url = "http://162.240.67.88:3000";
 
 var mapOptions = {
 	center: latlng,

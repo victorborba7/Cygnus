@@ -111,7 +111,7 @@ body {
 }
 
 .idioma-selected {
-    text-decoration: overline;
+    text-decoration: underline !important;
 }
 
 .icones-sociais {
@@ -273,6 +273,7 @@ body {
     background: rgb(187, 28, 53);
     background: linear-gradient(90deg, rgba(187, 28, 53, 1) 0%, rgba(37, 0, 6, 1) 59%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 1) 100%);
     text-align: left;
+    color: #FFFFFF;
 }
 
 .fadetitulo h1 {
@@ -326,10 +327,11 @@ body {
     width: 100%;
 }
 
-.raiox-bagageiro h2 {
-    font-size: 35px;
-    margin-top: 65px;
-    font-weight: 1000;
+.raiox-bagageiro h1 {
+    color: white;
+    margin-top: 60px;
+    margin-bottom: 80px;
+    font-weight: 700;
 }
 
 .btn-faleconosco {
@@ -418,7 +420,7 @@ input {
 
 .aeronaves-disponiveis h1 {
     color: rgb(187, 28, 53);
-    margin-bottom: 20px;
+    margin: 30px;
     font-size: 1.9rem;
     font-weight: bold;
 }
