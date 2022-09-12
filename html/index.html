@@ -38,7 +38,7 @@
             <div class="row pt-icones">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="PT-EN">
-                        <a id="portugues" class="idioma idioma-selected">PT</a>-<a id="english" class="idioma">EN</a>
+                        <a id="portugues" class="idioma">PT</a>-<a id="english" class="idioma idioma-selected">EN</a>
                     </div>
                 </div>
 
@@ -46,12 +46,11 @@
                     <div class="icones-sociais">
                         <img src="/images/insta-ico-black.svg">
                         <img src="/images/facebook-icon-black.svg">
-                        <img src="/images/youtube-icon-black.svg">
                     </div>
                 </div>
             </div>
             <div class="row justify-content-sm-start justify-content-center mt-5">
-                <h4>Selecione um modelo abaixo:</h4>
+                <h4>Select a model below:</h4>
             </div>
             <div class="row justify-content-sm-start justify-content-center">
                 <div class="col-10 col-md-6">
@@ -62,16 +61,16 @@
             <img id="logo" />
             <h2 id="model"></h2>
             <h1 id="series"></h1>
-            <h3 id="description_pt"></h3>
-            <h3 id="description_en" style="display: none;"></h3>
+            <h3 id="description_pt" style="display: none;"></h3>
+            <h3 id="description_en"></h3>
 
             <div class="row botoes-home">
                 <div class="btn-homefaleconoscoA col-md-6 col-lg-6">
-                    <a class="btn-homefaleconosco">Fale Conosco</a>
+                    <a href="#form-contato" class="btn-homefaleconosco">Contact us</a>
                 </div>
 
                 <div class="btn-saibamaisA col-md-6 col-lg-6">
-                    <a class="btn-saibamais">Saiba Mais</a>
+                    <a href="https://cygnusaircrafts.com" class="btn-saibamais">Learn more</a>
                 </div>
 
             </div>
@@ -112,7 +111,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
                 <div class=" fadetitulo col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>Informações: <span id="info-model"></span></h1>
+                    <h1>Information: <span id="info-model"></span></h1>
                 </div>
             </div>
         </div>
@@ -125,53 +124,53 @@
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-            <div class="informacoes d-flex flex-column align-items-end justify-content-between">
+            <div class="informacoes">
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Motorização</h5>
+                    <h5 class="col-6 text-left">Motorization</h5>
                     <p class="col-3 text-left" id="engine"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Peso máximo de decolagem</h5>
+                    <h5 class="col-6 text-left">Maximum take-off weight</h5>
                     <p class="col-3 text-left" id="max_takeoff_weight"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Ano de primeira produção</h5>
+                    <h5 class="col-6 text-left">Year of first production</h5>
                     <p class="col-3 text-left" id="first_year_production"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">TBO (horas totais do motor)</h5>
+                    <h5 class="col-6 text-left">TBO (total engine hours)</h5>
                     <p class="col-3 text-left" id="tbo"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Nº Máximo de ocupantes</h5>
+                    <h5 class="col-6 text-left">Maximum number of occupants</h5>
                     <p class="col-3 text-left" id="max_capacity"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Velocidade de cruzeiro *</h5>
+                    <h5 class="col-6 text-left">Maximum cruising speed *</h5>
                     <p class="col-3 text-left" id="max_cruise_speed"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Alcance máximo</h5>
+                    <h5 class="col-6 text-left">Maximum range</h5>
                     <p class="col-3 text-left" id="max_range"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Altitude máxima de operação</h5>
+                    <h5 class="col-6 text-left">Maximum operating altitude</h5>
                     <p class="col-3 text-left" id="max_operating_altitude"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Envergadura (ponta de uma asa a outra)</h5>
+                    <h5 class="col-6 text-left">Wingspan (wing tip to wing)</h5>
                     <p class="col-3 text-left" id="wingspan"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Comprimento</h5>
+                    <h5 class="col-6 text-left">Length</h5>
                     <p class="col-3 text-left" id="length"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Altura máxima da cauda</h5>
+                    <h5 class="col-6 text-left">Max tail height</h5>
                     <p class="col-3 text-left" id="max_tail_height"></p>
                 </div>
                 <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Distância para decolagem</h5>
+                    <h5 class="col-6 text-left">Minimum take-off distance</h5>
                     <p class="col-3 text-left" id="min_takeoff_distance"></p>
                 </div>
             </div>
@@ -188,29 +187,26 @@
     <!--RAIO X E BAGAGEIRO + BOTAO FALE CONOSCO-->
 
     <div class="row raiox-bagageiro">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="row">
-                <div class="fadetitulo col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>Compare o alcance:</h1>
-                </div>
-            </div>
-        </div>
+
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-            <img class="aviaoraiox" id="mapa_assentos" />
+            <img class="aviaoraiox" id="mapa_assentos">
 
         </div>
 
-        <div id="range-planes" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 row">
+        <div id="range-planes" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="col-md-10 comparacao">
+                <div class="col-md-12 text-center">
+                    <h2>Compare the range:</h2>
+                </div>
                 <div id="map" class="col-10 col-md-12"></div>
                 <div class="col-10 col-md-12 selects-planes mt-3">
-                    <label for="airports">Escolha um aeroporto:</label>
+                    <label for="airports">Choose an airport:</label>
                     <select id="airports" class="col-md-12">
                     </select>
-                    <label for="planes1">Escolha um avião:</label>
+                    <label for="planes1">Choose a plane:</label>
                     <select class="col-10 col-md-12" name="planes1" id="planes1">
-                        <option value="0" selected>Aeronaves...</option>
+                        <option value="0" selected>Planes...</option>
                         <optgroup label="KING AIR">
                             <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
                             <option value="2" data-data='{"radius": "1682"}'>Beech King Air 260</option>
@@ -328,9 +324,9 @@
                             <option value="100" data-data='{"radius": "709"}'>Piper M-600</option>
                         </optgroup>
                     </select>
-                    <label for="planes2">Escolha um avião:</label>
+                    <label for="planes2">Choose a plane:</label>
                     <select class="col-10 col-md-12" name="planes2" id="planes2">
-                        <option value="0" selected>Aeronaves...</option>
+                        <option value="0" selected>Planes...</option>
                         <optgroup label="KING AIR">
                             <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
                             <option value="2" data-data='{"radius": "1682"}'>Beech King Air 260</option>
@@ -455,31 +451,24 @@
 
     <!--AERONAVES DISPONÍVEIS-->
     <div class="aeronaves-disponiveis">
-        <h1>AERONAVES DISPONÍVEIS:</h1>
+        <h1>AVAILABLE AIRCRAFTS:</h1>
         <div id="aeronaves-disponiveis"></div>
     </div>
 
     <!--CONTATO-->
 
-    <div class="row formulario-contato-row contato-row">
+    <div id="form-contato" class="row formulario-contato-row contato-row">
         <div class="container">
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-                    <h1>Contato<div class="red-bt"></div>
+                    <h1>Contact<div class="red-bt"></div>
                     </h1>
                     <p>
-                        Entre em contato por email ou whatsapp
-                        <br />
-                        Se você não encontrou alguma informação ou gostaria de fazer uma avaliação da sua aeronave,
-                        entre em contato, estaremos prontos para atendê-lo!
-                        <br />
-                        <br />
-                        sales@cygnusaircrafts.com
-                        <br />
-                        +55 16 9.8178.4048
-                        <br />
-                        +1 (754) 704.8650
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
                     </p>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467689.79713799525!2d-46.87548274582955!3d-23.68216040473634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1580310481715!5m2!1spt-BR!2sbr"
@@ -489,35 +478,35 @@
                     <form name="sentMessage" id="contactForm">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="name">Nome</label>
-                                <input type="text" class="form-control" id="nome" placeholder="Nome" required />
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Name" required />
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="e-mail"
+                                <label for="email">E-mail</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail"
                                     required />
                             </div>
                             <div class="form-group">
-                                <label for="phone">DDD + Telefone /Whatsapp</label>
+                                <label for="phone">Area code + Phone /Whatsapp</label>
                                 <input class="form-control required digits" type="tel" id="fone" size="30" value=""
-                                    placeholder="DDD + Telefone /Whatsapp" required>
+                                    placeholder="Area code + Phone /Whatsapp" required>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <div id="success"></div>
-                                <label for="comments">Mensagem</label>
+                                <label for="comments">Message</label>
                                 <textarea class="form-control" id="mensagem" cols="3" rows="5"
-                                    placeholder="Mensagem"></textarea>
+                                    placeholder="Message"></textarea>
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-12 text-right">
                             <button class="btn btn-lg" id="whats-form"><img src="/images/whats-icon.svg"
-                                    class="whats-form-icon" /> Enviar por Whatsapp <span
+                                    class="whats-form-icon" />Send via Whatsapp<span
                                     class="form-arrow">&#10095;&#10095;</span></button>
                         </div>
                         <div class="col-md-12 col-lg-12 text-right">
-                            <button name="submit" type="submit" class="btn btn-lg" id="submit"> Enviar por email <span
+                            <button name="submit" type="submit" class="btn btn-lg" id="submit">Send via E-mail<span
                                     class="form-arrow">&#10095;&#10095;</span></button>
                         </div>
                     </form>
@@ -547,10 +536,10 @@
                     <p>sales@cygnusaircrafts.com</p>
                 </a>
                 <a>
-                    <p>+55 16 9.8178.4048</p>
+                    <p>+1 (754) 704.8650</p>
                 </a>
                 <a>
-                    <p>+1 (754) 704.8650</p>
+                    <p>+55 16 9.8178.4048</p>
                 </a>
             </div>
             <div class="col-2">
@@ -578,7 +567,7 @@
     <div class="row copyright-row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-            <p>Feito com ♥ por <a href="https://jabutidesign.com.br" target="_blank">Jabuti Design®</a> , 2020 • JABUTI
+            <p>Made with ♥ by <a href="https://jabutidesign.com.br" target="_blank">Jabuti Design®</a> , 2020 • JABUTI
                 DESIGN CNPJ: 38.860.596/0001-72 - São Paulo, SP</p>
 
         </div>

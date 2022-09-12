@@ -29,10 +29,10 @@ def getAircraftById(id):
 
 def getAircrafts(company_id):
     dbConnection = engine.connect()
-    where = ""
+    where = "where first_seen > 0"
     if int(company_id) > 0:
-        where = f"where company_id = {company_id}"
-    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by first_seen desc", dbConnection)
+        where = f"{where} and company_id = {company_id}"
+    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by first_seen asc", dbConnection)
     dbConnection.close()
     return df.to_dict("records")
 

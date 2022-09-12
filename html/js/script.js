@@ -112,7 +112,10 @@ function getAvailableAircrafts() {
 			data.forEach(el => {
 				var div = "<div class='available_photos'>"
 				el.outside_files.forEach(photo => {
-					div += `<img class="card-img-top" src="${el.photos_path}/externo/${photo}" alt="Card imagem"></img>`
+					div += `<img class="card-img-top" src="${el.photos_path}/externo/${photo}" alt="Card imagem" />`
+				});
+				el.inside_files.forEach(photo => {
+					div += `<img class="card-img-top" src="${el.photos_path}/interno/${photo}" alt="Card imagem" />`
 				});
 				div += "</div>"
 				$('#aeronaves-disponiveis').append(`

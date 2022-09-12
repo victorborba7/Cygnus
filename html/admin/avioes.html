@@ -138,7 +138,7 @@
                 </div>
                 <div class="col-md-3 col-6 d-flex align-items-center justify-content-around">
                     <label for="first_seen">Prioridade</label>
-                    <input type="checkbox" id="first_seen" />
+                    <input type="number" id="first_seen" />
                 </div>
             </div>
             <div class="row fields">
@@ -483,7 +483,7 @@
                     $("#description").val(data.description)
                     $("#description_en").val(data.description_en)
                     $("#available").prop('checked', Boolean(data.available))
-                    $("#first_seen").prop('checked', Boolean(data.first_seen))
+                    $("#first_seen").val(data.first_seen)
                     loaded = true;
 
                     var dt_interno = new DataTransfer();
@@ -551,7 +551,7 @@
                 description: $("#description").val(),
                 description_en: $("#description_en").val(),
                 available: Boolean($("#available").is(":checked")),
-                first_seen: Boolean($("#first_seen").is(":checked"))
+                first_seen: $("#first_seen").val()
             })
 
 
@@ -612,7 +612,7 @@
                 description: $("#description").val(),
                 description_en: $("#description_en").val(),
                 available: Boolean($("#available").is(":checked")),
-                first_seen: Boolean($("#first_seen").is(":checked"))
+                first_seen: $("#first_seen").val()
             })
 
 
@@ -700,7 +700,7 @@
             $("#description").val("")
             $("#description_en").val("")
             $("#available").prop('checked', false)
-            $("#first_seen").prop('checked', false)
+            $("#first_seen").val(0)
             updateThumbnail(document.getElementById("int_photos"), Array())
             updateThumbnail(document.getElementById("ex_photos"), Array())
             updateThumbnail(document.getElementById("mapa_assentos"), Array())
