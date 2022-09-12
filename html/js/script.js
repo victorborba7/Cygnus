@@ -7,6 +7,7 @@ let company_id;
 let outside_images = 0;
 let inside_images = 0;
 let first_load = 1;
+
 //let url = "http://localhost:3000";
 let url = "http://162.240.67.88:3000";
 
@@ -114,6 +115,7 @@ function getAvailableAircrafts() {
 				el.outside_files.forEach(photo => {
 					div += `<img class="card-img-top" src="${el.photos_path}/externo/${photo}" alt="Card imagem" />`
 				});
+				console.info(data)
 				el.inside_files.forEach(photo => {
 					div += `<img class="card-img-top" src="${el.photos_path}/interno/${photo}" alt="Card imagem" />`
 				});
@@ -268,13 +270,13 @@ $("#planes1, #planes2").change(function () {
 $("#english").click(function () {
 	var path = window.location.pathname.split("/")
 	let company = path[path.length - 1];
-	window.location = "/en/" + company
+	window.location = "/" + company
 })
 
 $("#portugues").click(function () {
 	var path = window.location.pathname.split("/")
 	let company = path[path.length - 1];
-	window.location = "/" + company
+	window.location = "/pt/" + company
 })
 
 $(document).ready(function () {

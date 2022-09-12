@@ -41,6 +41,7 @@ def getAvailableAircrafts(company_id):
     df = pd.read_sql(f"select * from aircraft where available = 1 and company_id = {company_id}", dbConnection)
     dbConnection.close()
     df["outside_files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"] + "/externo"), axis=1)
+    df["inside_files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"] + "/interno"), axis=1)
     return df.to_dict("records")
 
 def createAircraft(req):    

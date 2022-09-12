@@ -17,6 +17,20 @@ body {
     position: relative
 }
 
+img {
+    object-fit: cover
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.mt-5,
+.my-5 {
+    margin-top: 5rem !important
+}
+
 /*HOME*/
 
 .home-esquerda {
@@ -43,17 +57,6 @@ body {
     bottom: 0;
 }
 
-.estrelas {
-    display: inline-block;
-    margin-left: 220px;
-}
-
-.estrelas img {
-    width: 50px;
-    margin-top: 0px;
-    margin-left: 100px;
-}
-
 .avioes img {
     height: 1000px;
     margin-top: 0px;
@@ -75,7 +78,7 @@ body {
 }
 
 .home-direita h2 {
-    font-size: 25px;
+    font-size: 35px;
     margin-top: 45px;
     color: dimgrey;
 }
@@ -96,13 +99,22 @@ body {
     font-weight: 500;
 }
 
+.home-direita h4 {
+    margin-left: 15px !important;
+}
+
 .pt-icones {
     margin-top: 10px;
     padding: 20px 20px 20px 0px;
 }
 
 .PT-EN {
-    font-size: 25px;
+    font-size: 18px;
+}
+
+#aircrafts {
+    border-color: red;
+    border-radius: 5px;
 }
 
 .idioma {
@@ -125,7 +137,7 @@ body {
 }
 
 .btn-homefaleconosco {
-    color: white;
+    color: #dedee2;
     background: black;
     padding: 15px 35px 15px 35px;
     border-radius: 3px;
@@ -135,8 +147,15 @@ body {
     cursor: pointer;
 }
 
+.btn-homefaleconosco:hover {
+    color: black;
+    background: #dedee2;
+    text-decoration: none;
+}
+
 .botoes-home {
     color: white;
+    margin-top: 100px;
     margin-bottom: 45px;
     padding: 0px 334px 0px 0px;
 }
@@ -149,6 +168,13 @@ body {
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
+    color: black;
+}
+
+.btn-saibamais:hover {
+    color: #dedee2;
+    background-color: black;
+    text-decoration: none;
 }
 
 .btn-saibamaisA {
@@ -162,9 +188,10 @@ body {
     position: absolute;
     top: 0;
     transform: skewX(-5deg);
-    right: 30%;
+    right: 26%;
     z-index: 1;
 }
+
 
 .home-direita {
     z-index: 2;
@@ -229,8 +256,8 @@ body {
 
 .motor-helice-row h1 {
     color: white;
-    margin-top: 60px;
-    margin-bottom: 80px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     font-weight: 700;
 }
 
@@ -262,7 +289,7 @@ body {
 }
 
 .aviaoestacionado-row img {
-    width: 100%;
+    width: 110%;
     height: 545px;
     position: relative;
     right: 0;
@@ -285,16 +312,18 @@ body {
 }
 
 #logo {
-    margin-top: 50px;
+    margin-top: 42px;
     width: 200px;
 }
 
 .informacoes {
     width: 100%;
+    margin-top: -100px !important;
     padding: 30px 0px !important;
     color: #000000;
     background-color: #FFFFFF;
     height: 100%;
+    border-radius: 30px;
 }
 
 .informacoes h5 {
@@ -416,6 +445,7 @@ input {
 
 .aeronaves-disponiveis {
     margin: 30px 0;
+    text-align: center;
 }
 
 .aeronaves-disponiveis h1 {
@@ -495,13 +525,20 @@ input {
 
 .contato-row {
     background: rgb(187, 28, 53);
-    background: linear-gradient(90deg, rgba(187, 28, 53, 1) 0%, rgba(37, 0, 6, 1) 20%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 1) 100%);
+    background: linear-gradient(90deg, rgba(187, 28, 53, 1) 0%, rgba(37, 0, 6, 1) 30%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%);
 
     padding: 50px 0;
     color: white;
     position: relative;
 
 
+}
+
+.red-bt {
+    width: 140px;
+    height: 3px;
+    background: rgba(187, 28, 53, 1);
+    margin-top: 10px;
 }
 
 .title-row-w {
@@ -516,9 +553,9 @@ label {
 .contato-row input,
 .contato-row textarea {
     padding: 27px;
-    border-radius: 0px;
     font-family: 'montserrat';
-    border: 2px solid black
+    border: 2px solid black;
+    border-radius: 8px;
 }
 
 .contato-row button {
@@ -537,11 +574,11 @@ label {
 
 .form-arrow {
     transition: .6s ease;
-    opacity: 0
+    opacity: 0;
 }
 
 .form-group {
-    margin-bottom: 8px
+    margin-bottom: 0px;
 }
 
 .contato-row .btn:hover,
@@ -556,7 +593,7 @@ label {
 }
 
 .contato-row h1 {
-    margin-bottom: 50px
+    margin-bottom: 30px;
 }
 
 .contato-row p {
@@ -566,6 +603,10 @@ label {
 .contato-row a p {
     color: white;
     font-weight: 600
+}
+
+#form-contato iframe {
+    margin-top: 30px
 }
 
 .btn-info,
@@ -607,7 +648,7 @@ label {
 
 .copyright-row {
     background: black;
-    color: white;
+    color: rgba(187, 28, 53, 1);
     padding: 30px 15px 10px 15px;
     text-align: center;
 }
@@ -659,6 +700,7 @@ label {
 
 .footer {
     color: #FFFFFF !important;
+    padding-top: 30px;
 }
 
 .footer h3 {
@@ -683,17 +725,6 @@ label {
         width: 120px;
         margin-left: 15px;
         margin-top: 20px;
-    }
-
-    .estrelas {
-        display: inline-block;
-        margin-left: 170px;
-    }
-
-    .estrelas img {
-        width: 50px;
-        margin-top: 100px;
-        margin-left: 70px;
     }
 
     .avioes img {
@@ -1143,6 +1174,11 @@ label {
 
     .btn-saibamaisA {
         width: 40% !important;
+    }
+
+    .contato-row {
+        background: rgb(187, 28, 53);
+        background: linear-gradient(0deg, rgba(187, 28, 53, 1) 0%, rgba(37, 0, 6, 1) 30%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 100%)
     }
 
     .formulario-contato-row,
