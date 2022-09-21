@@ -337,6 +337,21 @@ a:hover {
 
 /*FOTOS DE AVIAO*/
 
+.intern-galley {
+    margin: -75px;
+}
+
+.intern-galley div {
+    margin: 0;
+    padding: 0;
+}
+
+.intern-galley h1 {
+    color: white;
+    margin: 50px 0;
+    font-weight: 300;
+}
+
 .fotosdeaviao {
     margin: 0;
 }
@@ -353,7 +368,8 @@ a:hover {
 }
 
 .aviaoraiox {
-    width: 100%;
+    height: 750px;
+    margin: 0 auto;
 }
 
 .raiox-bagageiro h1 {
@@ -377,17 +393,42 @@ a:hover {
 }
 
 /*RANGE AVIÕES*/
+.fadetitulo-inverse {
+    background: rgb(187, 28, 53);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 5%, rgba(37, 0, 6, 1) 10%, rgba(187, 28, 53, 1) 100%);
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.fadetitulo-inverse h1 {
+    margin-left: 100px;
+}
+
+.fadetitulo-inverse h1 span {
+    font-weight: 400;
+}
+
 #range-planes {
-    background-color: #f7f7f7;
+    border-radius: 30px;
+    padding: 20px !important;
+    margin-top: -100px;
+    margin-bottom: -30px;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 5%, rgba(37, 0, 6, 1) 10%, rgba(187, 28, 53, 1) 100%);
+    color: #ffffff;
+}
+
+#range-planes h2 {
+    font-weight: 700;
 }
 
 .comparacao {
-    margin: 50px auto !important;
+    margin: 0 auto !important;
 }
 
 #map {
     margin-top: 30px;
-    height: 500px;
+    height: 400px;
     width: 100%
 }
 
@@ -434,6 +475,13 @@ input {
 
 .option {
     cursor: pointer;
+}
+
+.faixa-black {
+    width: 100%;
+    background-color: #000000;
+    border: none;
+    height: 50px;
 }
 
 /*AERONAVES DISPONÍVEIS*/
