@@ -29,10 +29,10 @@ def getAircraftById(id):
 
 def getAircrafts(company_id):
     dbConnection = engine.connect()
-    where = "where first_seen > 0"
+    where = "where model_order > 0"
     if int(company_id) > 0:
         where = f"{where} and company_id = {company_id}"
-    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by first_seen asc", dbConnection)
+    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by model_order asc", dbConnection)
     dbConnection.close()
     return df.to_dict("records")
 
@@ -40,14 +40,13 @@ def createAircraft(req):
     try:
         insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
             first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
-            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, photos_path, available, first_seen) \
+            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, photos_path, model_order) \
             values('{req['model']}', '{req['series']}', '{req['company_id']}', '{req['engine']}', '{req['max_takeoff_weight']}', \
             '{req['first_year_production']}', '{req['tbo']}', '{req['max_capacity']}', '{req['max_cruise_speed']}', \
             '{req['max_range']}', '{req['max_operating_altitude']}', '{req['wingspan']}', '{req['length']}', '{req['max_tail_height']}', '{req['min_takeoff_distance']}', \
-            '{req['description']}', '{req['description_en']}', '{req['photos_path']}', '{int(req['available'])}', '{int(req['first_seen'])}'); \
-            SELECT LAST_INSERT_ID();"
+            '{req['description']}', '{req['description_en']}', '{req['photos_path']}', '{int(req['model_order'])}')"
         dbConnection = engine.connect()
-        teste = dbConnection.execute(insert)
+        dbConnection.execute(insert)
         dbConnection.close()
         return True
     except:
@@ -74,8 +73,7 @@ def updateAircraft(req):
             min_takeoff_distance = '{req['min_takeoff_distance']}', \
             description = '{req['description']}', \
             description_en = '{req['description_en']}', \
-            available = {int(req['available'])}, \
-            first_seen = {int(req['first_seen'])} \
+            model_order = {int(req['model_order'])} \
             where id = {req['id']}"
         
         dbConnection = engine.connect()
