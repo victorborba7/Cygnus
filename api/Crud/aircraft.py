@@ -40,15 +40,16 @@ def createAircraft(req):
     try:
         insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
             first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
-            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, photos_path, available, first_seen) \
+            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, photos_path, first_seen) \
             values('{req['model']}', '{req['series']}', '{req['company_id']}', '{req['engine']}', '{req['max_takeoff_weight']}', \
             '{req['first_year_production']}', '{req['tbo']}', '{req['max_capacity']}', '{req['max_cruise_speed']}', \
             '{req['max_range']}', '{req['max_operating_altitude']}', '{req['wingspan']}', '{req['length']}', '{req['max_tail_height']}', '{req['min_takeoff_distance']}', \
-            '{req['description']}', '{req['description_en']}', '{req['photos_path']}', '{int(req['available'])}', '{int(req['first_seen'])}'); \
+            '{req['description']}', '{req['description_en']}', '{req['photos_path']}' '{int(req['first_seen'])}'); \
             SELECT LAST_INSERT_ID();"
         dbConnection = engine.connect()
         teste = dbConnection.execute(insert)
         dbConnection.close()
+        print(teste)
         return True
     except:
         raise
@@ -74,7 +75,6 @@ def updateAircraft(req):
             min_takeoff_distance = '{req['min_takeoff_distance']}', \
             description = '{req['description']}', \
             description_en = '{req['description_en']}', \
-            available = {int(req['available'])}, \
             first_seen = {int(req['first_seen'])} \
             where id = {req['id']}"
         

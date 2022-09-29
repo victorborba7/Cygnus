@@ -95,7 +95,7 @@ function getCompanyByName() {
 			company_id = data.id
 			$("#logo").attr("src", "/" + data.photo_path);
 			getAircrafts();
-			getAvailableAircrafts();
+			//getAvailableAircrafts();
 		},
 		complete: function () {
 			$(".overlay").css("display", "none");

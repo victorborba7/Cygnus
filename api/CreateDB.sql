@@ -43,10 +43,13 @@ CREATE AVAILABLE_AIRCRAFT(
     company_id BIGINT,
     available TINYINT,
     interior_description TEXT,
-    interior_description_en TEXT,
     exterior_description TEXT,
-    exterior_description_en TEXT,
-
+    additional_equipment TEXT,
+    airframe TEXT,
+    engines TEXT,
+    propeller TEXT,
+    maintance_inspection TEXT,
+    avionics TEXT
 )
 
 CREATE TABLE COMPANY (

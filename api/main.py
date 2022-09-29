@@ -6,6 +6,7 @@ import json
 from Crud.user import *
 from Crud.company import *
 from Crud.aircraft import *
+from Crud.available_aircrafts import *
 # http://localhost:3000/user/delete?username=VBorba
 #import uvicorn
 

@@ -135,11 +135,7 @@
                     <label for="min_takeoff_distance">Distância para a decolagem</label>
                     <input class="col-md-12" type="text" id="min_takeoff_distance" />
                 </div>
-                <div class="col-md-3 col-6 d-flex align-items-center justify-content-around">
-                    <label for="available">Está disponível</label>
-                    <input type="checkbox" id="available" />
-                </div>
-                <div class="col-md-3 col-6 d-flex align-items-center justify-content-around">
+                <div class="col-md-3 col-6">
                     <label for="first_seen">Prioridade</label>
                     <input type="number" id="first_seen" />
                 </div>
@@ -486,7 +482,6 @@ let url = "http://localhost:3000";
                     $("#min_takeoff_distance").val(data.min_takeoff_distance)
                     $("#description").val(data.description)
                     $("#description_en").val(data.description_en)
-                    $("#available").prop('checked', Boolean(data.available))
                     $("#first_seen").val(data.first_seen)
                     loaded = true;
 
@@ -554,7 +549,6 @@ let url = "http://localhost:3000";
                 min_takeoff_distance: $("#min_takeoff_distance").val(),
                 description: $("#description").val(),
                 description_en: $("#description_en").val(),
-                available: Boolean($("#available").is(":checked")),
                 first_seen: $("#first_seen").val()
             })
 
@@ -615,7 +609,6 @@ let url = "http://localhost:3000";
                 min_takeoff_distance: $("#min_takeoff_distance").val(),
                 description: $("#description").val(),
                 description_en: $("#description_en").val(),
-                available: Boolean($("#available").is(":checked")),
                 first_seen: $("#first_seen").val()
             })
 
@@ -703,7 +696,6 @@ let url = "http://localhost:3000";
             $("#min_takeoff_distance").val("")
             $("#description").val("")
             $("#description_en").val("")
-            $("#available").prop('checked', false)
             $("#first_seen").val(0)
             updateThumbnail(document.getElementById("int_photos"), Array())
             updateThumbnail(document.getElementById("ex_photos"), Array())
