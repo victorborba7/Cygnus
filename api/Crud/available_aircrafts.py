@@ -13,7 +13,7 @@ def indexContainingSubstring(the_list, substring):
 #mypath = "C:/Users/victorvb2/Documents/Projetos/Cygnus/html"
 mypath = "/home/html"
 
-def getAircraftById(id):
+def getAvailableAircraftById(id):
     dbConnection = engine.connect()
     df = pd.read_sql(f"select * from aircraft where id = {id}", dbConnection)
     dbConnection.close()
@@ -27,7 +27,7 @@ def getAircraftById(id):
         return records
     return False
 
-def getAircrafts(company_id):
+def getAvailableAircrafts(company_id):
     dbConnection = engine.connect()
     where = "where model_order > 0"
     if int(company_id) > 0:
@@ -36,7 +36,7 @@ def getAircrafts(company_id):
     dbConnection.close()
     return df.to_dict("records")
 
-def createAircraft(req):    
+async def createAvailableAircraft(req):    
     try:
         insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
             first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
@@ -48,11 +48,24 @@ def createAircraft(req):
         dbConnection = engine.connect()
         dbConnection.execute(insert)
         dbConnection.close()
+        
+        dbConnection = engine.connect()
+        [req["id"]] = dbConnection.execute("SELECT MAX(id) from aircraft").fetchone()
+        dbConnection.close()
+        
+        req["photos_path"] = await saveImages(req, internos, externos, mapa_assentos)
+        update = f"update aircraft \
+            set \
+            photos_path = '{req['photos_path']}' \
+            where id = {req['id']}"
+        dbConnection = engine.connect()
+        dbConnection.execute(update)
+        dbConnection.close()
         return True
     except:
         raise
 
-def updateAircraft(req):
+def updateAvailableAircraft(req):
     try:
         update = f"update aircraft \
             set \
@@ -84,7 +97,7 @@ def updateAircraft(req):
     except:
         raise
 
-def deleteAircraft(id):
+def deleteAvailableAircraft(id):
     try:
         delete = f"delete from aircraft where id = {id}"
         dbConnection = engine.connect()
@@ -96,7 +109,7 @@ def deleteAircraft(id):
 
 async def saveImages(req, internos, externos, mapa_assentos):
     #Mapa assentos
-    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}"
+    strpath = f"{mypath}/images/{req['company_name']}/available/{req['id']}"
     if os.path.exists(strpath):
         shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
@@ -116,7 +129,7 @@ async def saveImages(req, internos, externos, mapa_assentos):
         mapa_assentos.file.close()
 
     #Fotos Internas,
-    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/interno"
+    strpath = f"{mypath}/images/{req['company_name']}/available/{req['id']}/interno"
     if os.path.exists(strpath):
         shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
@@ -138,7 +151,7 @@ async def saveImages(req, internos, externos, mapa_assentos):
             i.file.close()
             
     #Fotos internas
-    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/externo"
+    strpath = f"{mypath}/images/{req['company_name']}/available/{req['id']}/externo"
     if os.path.exists(strpath):
         shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
@@ -158,4 +171,4 @@ async def saveImages(req, internos, externos, mapa_assentos):
         finally:
             i.file.close()
             
-    return f"/images/{req['company_name']}/{req['model']}"
+    return f"/images/{req['company_name']}/available/{req['id']}"

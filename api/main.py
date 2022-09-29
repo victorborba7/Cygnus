@@ -6,7 +6,7 @@ import json
 from Crud.user import *
 from Crud.company import *
 from Crud.aircraft import *
-from Crud.available_aircrafts import *
+#from Crud.available_aircrafts import *
 # http://localhost:3000/user/delete?username=VBorba
 #import uvicorn
 
@@ -126,8 +126,7 @@ async def removeCompany(request: str = Form(...)):
 @app.post("/aircraft/add")
 async def addAircraft(request: str = Form(...), internos: List[UploadFile] = File(...), externos: List[UploadFile] = File(...), mapa_assentos: UploadFile = File(...)):
     req = json.loads(request)
-    req["photos_path"] = await saveImages(req, internos, externos, mapa_assentos)
-    return {"success": createAircraft(req)}
+    return {"success": await createAircraft(req, internos, externos, mapa_assentos)}
 
 @app.post("/aircraft/update")
 async def changeAircraft(request: str = Form(...), internos: List[UploadFile] = File(...), externos: List[UploadFile] = File(...), mapa_assentos: UploadFile = File(...)):

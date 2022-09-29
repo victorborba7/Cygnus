@@ -36,20 +36,31 @@ def getAircrafts(company_id):
     dbConnection.close()
     return df.to_dict("records")
 
-def createAircraft(req):    
+async def createAircraft(req, internos, externos, mapa_assentos):
     try:
         insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
             first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
-            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, photos_path, first_seen) \
+            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, first_seen) \
             values('{req['model']}', '{req['series']}', '{req['company_id']}', '{req['engine']}', '{req['max_takeoff_weight']}', \
             '{req['first_year_production']}', '{req['tbo']}', '{req['max_capacity']}', '{req['max_cruise_speed']}', \
             '{req['max_range']}', '{req['max_operating_altitude']}', '{req['wingspan']}', '{req['length']}', '{req['max_tail_height']}', '{req['min_takeoff_distance']}', \
-            '{req['description']}', '{req['description_en']}', '{req['photos_path']}' '{int(req['first_seen'])}'); \
-            SELECT LAST_INSERT_ID();"
+            '{req['description']}', '{req['description_en']}', '{int(req['first_seen'])}')"
         dbConnection = engine.connect()
-        teste = dbConnection.execute(insert)
+        dbConnection.execute(insert)
         dbConnection.close()
-        print(teste)
+        
+        dbConnection = engine.connect()
+        [req["id"]] = dbConnection.execute("SELECT MAX(id) from aircraft").fetchone()
+        dbConnection.close()
+        
+        req["photos_path"] = await saveImages(req, internos, externos, mapa_assentos)
+        update = f"update aircraft \
+            set \
+            photos_path = '{req['photos_path']}' \
+            where id = {req['id']}"
+        dbConnection = engine.connect()
+        dbConnection.execute(update)
+        dbConnection.close()
         return True
     except:
         raise
@@ -98,7 +109,7 @@ def deleteAircraft(id):
 
 async def saveImages(req, internos, externos, mapa_assentos):
     #Mapa assentos
-    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}"
+    strpath = f"{mypath}/images/{req['company_name']}/{req['id']}"
     if os.path.exists(strpath):
         shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
@@ -118,7 +129,7 @@ async def saveImages(req, internos, externos, mapa_assentos):
         mapa_assentos.file.close()
 
     #Fotos Internas,
-    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/interno"
+    strpath = f"{mypath}/images/{req['company_name']}/{req['id']}/interno"
     if os.path.exists(strpath):
         shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
@@ -140,7 +151,7 @@ async def saveImages(req, internos, externos, mapa_assentos):
             i.file.close()
             
     #Fotos internas
-    strpath = f"{mypath}/images/{req['company_name']}/{req['model']}/externo"
+    strpath = f"{mypath}/images/{req['company_name']}/{req['id']}/externo"
     if os.path.exists(strpath):
         shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
@@ -160,4 +171,4 @@ async def saveImages(req, internos, externos, mapa_assentos):
         finally:
             i.file.close()
             
-    return f"/images/{req['company_name']}/{req['model']}"
+    return f"/images/{req['company_name']}/{req['id']}"
