@@ -375,8 +375,8 @@
 
 <script>
     
-let url = "http://localhost:3000";
-    //let url = "http://162.240.67.88:3000";
+//let url = "http://localhost:3000";
+    let url = "http://162.240.67.88:3000";
     let loaded = false;
     let id;
     $("document").ready(function () {
@@ -443,8 +443,8 @@ let url = "http://localhost:3000";
                 }
             })
 
-            $(".edit").off()
-            $(".delete").off()
+            $(".edit").off("click")
+            $(".delete").off("click")
 
             $(document).on('click', '.edit', function (e) {
                 e.preventDefault()
@@ -697,9 +697,7 @@ let url = "http://localhost:3000";
             $("#description").val("")
             $("#description_en").val("")
             $("#first_seen").val(0)
-            updateThumbnail(document.getElementById("int_photos"), Array())
-            updateThumbnail(document.getElementById("ex_photos"), Array())
-            updateThumbnail(document.getElementById("mapa_assentos"), Array())
+            $(".drop-zone__thumbs").empty()
         }
 
         $("#save").click(function (e) {

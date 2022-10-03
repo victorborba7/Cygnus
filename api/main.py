@@ -6,7 +6,7 @@ import json
 from Crud.user import *
 from Crud.company import *
 from Crud.aircraft import *
-#from Crud.available_aircrafts import *
+from Crud.available_aircrafts import *
 # http://localhost:3000/user/delete?username=VBorba
 #import uvicorn
 
@@ -139,11 +139,6 @@ def readAircrafts(company_id):
     aircrafts = getAircrafts(company_id)
     return aircrafts
 
-@app.get("/aircraft/available/list")
-def readAircrafts(company_id):
-    aircrafts = getAvailableAircrafts(company_id)
-    return aircrafts
-
 @app.get("/aircraft/get")
 def readAircraftById(id):
     db_aircraft = getAircraftById(id)
@@ -155,5 +150,34 @@ def readAircraftById(id):
 async def removeAircraft(request: str = Form(...)):
     req = json.loads(request)
     return {"success": deleteAircraft(req["id"])}
+
+
+@app.post("/available/aircraft/add")
+async def addAvailableAircraft(request: str = Form(...), photos: List[UploadFile] = File(...)):
+    req = json.loads(request)
+    return {"success": await createAvailableAircraft(req, photos)}
+
+@app.post("/available/aircraft/update")
+async def changeAvailableAircraft(request: str = Form(...), photos: List[UploadFile] = File(...)):
+    req = json.loads(request)
+    req["photos_path"] = await saveImagesA(req, photos)
+    return {"success": updateAvailableAircraft(req)}
+
+@app.get("/available/aircraft/list")
+def readAvailableAircrafts(company_id):
+    aircrafts = getAvailableAircrafts(company_id)
+    return aircrafts
+
+@app.get("/available/aircraft/get")
+def readAvailableAircraftById(id):
+    db_aircraft = getAvailableAircraftById(id)
+    if db_aircraft is None:
+        raise HTTPException(status_code=404, detail="aircraft not found")
+    return db_aircraft
+
+@app.post("/available/aircraft/delete")
+async def removeAvailableAircraft(request: str = Form(...)):
+    req = json.loads(request)
+    return {"success": deleteAvailableAircraft(req["id"])}
 
 #uvicorn.run(app, host="0.0.0.0", port=8000)

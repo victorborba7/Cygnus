@@ -23,7 +23,7 @@
     <!-- HOME -->
     <div class="row home-row">
 
-        <div class="home-esquerda col-xs-12 col-sm-12 col-md-7 col-lg-7">
+        <div class="home-esquerda col-12 col-sm-12 col-md-7 col-lg-7">
 
             <div class="logo-jett-aviao">
                 <img src="/images/logo-white.svg">
@@ -34,15 +34,15 @@
 
         <div class="fundo-branco-home"></div>
 
-        <div class="home-direita col-xs-12 col-sm-12 col-md-5 col-lg-5">
+        <div class="home-direita col-12 col-sm-12 col-md-5 col-lg-5">
             <div class="row pt-icones">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="PT-EN">
                         <a id="portugues" class="idioma idioma-selected">PT</a>-<a id="english" class="idioma">EN</a>
                     </div>
                 </div>
 
-                <div class=" col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class=" col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="icones-sociais">
                         <img src="/images/insta-ico-black.svg">
                         <img src="/images/facebook-icon-black.svg">
@@ -87,7 +87,7 @@
         <div class="container">
 
             <div class="row icones-status">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <h1 id="model-row"></h1>
                 </div>
             </div>
@@ -100,7 +100,7 @@
     <!--FOTO AVIÃO VOANDO FADE RED-->
 
     <div class="row aviaonoar-row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
             <img src="/images/aviao-fade-vermelho.jpg" alt="Avião Voando entre as Nuvens">
         </div>
     </div>
@@ -108,21 +108,21 @@
     <!--MOTOR HÉLICE E AVIÃO ESTACIONADO-->
 
     <div class="row motor-helice-row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class=" fadetitulo col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class=" fadetitulo col-12 col-sm-12 col-md-12 col-lg-12">
                     <h1>Informações: <span id="info-model"></span></h1>
                 </div>
             </div>
         </div>
 
-        <div class="aviaoestacionado-row col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="aviaoestacionado-row col-6 col-sm-6 col-md-6 col-lg-6">
 
             <img src="/images/aviao-no-chao.jpg" alt="Foto do Aviao Estacionado no Chão">
 
         </div>
 
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+        <div class="col-5 col-sm-5 col-md-5 col-lg-5">
 
             <div class="informacoes d-flex flex-column align-items-end justify-content-between">
                 <div class="informacao d-flex align-items-center justify-content-around row">
@@ -181,9 +181,9 @@
 
     <!--3 FOTOS AVIÃO-->
     <div class="intern-galley">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="fadetitulo col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="fadetitulo col-12 col-sm-12 col-md-12 col-lg-12">
                     <h1 class="text-center">Galeria de fotos internas:</h1>
                 </div>
             </div>
@@ -195,18 +195,18 @@
     <!--RAIO X E BAGAGEIRO + BOTAO FALE CONOSCO-->
 
     <div class="row raiox-bagageiro">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-                <div class="fadetitulo-inverse col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="fadetitulo-inverse col-12 col-sm-12 col-md-12 col-lg-12">
                     <h1>Mapa de Assentos:</h1>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
             <img class="aviaoraiox" id="mapa_assentos" />
         </div>
 
-        <div id="range-planes" class="col-xs-12 col-sm-12 col-md-5 col-lg-5 row">
+        <div id="range-planes" class="col-12 col-sm-12 col-md-5 col-lg-5 row">
             <div class="col-md-12 text-center">
                 <h2>Compare o alcance:</h2>
             </div>
@@ -465,7 +465,8 @@
     <!--AERONAVES DISPONÍVEIS-->
     <div class="aeronaves-disponiveis">
         <h1>AERONAVES DISPONÍVEIS:</h1>
-        <div id="aeronaves-disponiveis"></div>
+        <div id="aeronaves-disponiveis" class="slick-aeronaves-disponiveis"></div>
+        <div id="modal-holder" class="hidden"></div>
     </div>
 
     <!--CONTATO-->
@@ -473,7 +474,7 @@
     <div id="form-contato" class="row formulario-contato-row contato-row">
         <div class="container">
             <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
 
                     <h1>Contato<div class="red-bt"></div>
                     </h1>
@@ -494,7 +495,7 @@
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467689.79713799525!2d-46.87548274582955!3d-23.68216040473634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1580310481715!5m2!1spt-BR!2sbr"
                         height="310" width="500px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                 </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <form name="sentMessage" id="contactForm">
                         <div class="col-sm-12">
                             <div class="form-group">
@@ -585,7 +586,7 @@
 
     <!--COPYRIGHT-->
     <div class="row copyright-row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
             <p>Feito com ♥ por <a href="https://jabutidesign.com.br" target="_blank">Jabuti Design®</a> , 2020 • JABUTI
                 DESIGN CNPJ: 38.860.596/0001-72 - São Paulo, SP</p>

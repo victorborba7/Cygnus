@@ -33,7 +33,7 @@ CREATE TABLE AIRCRAFT (
     description TEXT,
     description_en TEXT,
     photos_path VARCHAR(255),
-    model_order INT
+    first_seen INT
 );
 
 CREATE AVAILABLE_AIRCRAFT(
@@ -48,8 +48,9 @@ CREATE AVAILABLE_AIRCRAFT(
     airframe TEXT,
     engines TEXT,
     propeller TEXT,
-    maintance_inspection TEXT,
-    avionics TEXT
+    maintenance_inspection TEXT,
+    avionics TEXT,
+    photos_path VARCHAR(255)
 )
 
 CREATE TABLE COMPANY (

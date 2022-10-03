@@ -8,8 +8,8 @@ let outside_images = 0;
 let inside_images = 0;
 let first_load = 1;
 
-let url = "http://localhost:3000";
-//let url = "http://162.240.67.88:3000";
+//let url = "http://localhost:3000";
+let url = "http://162.240.67.88:3000";
 
 var mapOptions = {
 	center: latlng,
@@ -95,7 +95,7 @@ function getCompanyByName() {
 			company_id = data.id
 			$("#logo").attr("src", "/" + data.photo_path);
 			getAircrafts();
-			//getAvailableAircrafts();
+			getAvailableAircrafts();
 		},
 		complete: function () {
 			$(".overlay").css("display", "none");
@@ -107,29 +107,126 @@ function getAvailableAircrafts() {
 	$(".overlay").css("display", "block");
 	$.ajax({
 		method: "GET",
-		url: url + "/aircraft/available/list?company_id=" + company_id,
+		url: url + "/available/aircraft/list?company_id=" + company_id,
 		success: function (data) {
 			$('#aeronaves-disponiveis').empty();
 			data.forEach(el => {
 				var div = "<div class='available_photos'>"
-				el.outside_files.forEach(photo => {
-					div += `<img class="card-img-top" src="${el.photos_path}/externo/${photo}" alt="Card imagem" />`
-				});
-				console.info(data)
-				el.inside_files.forEach(photo => {
-					div += `<img class="card-img-top" src="${el.photos_path}/interno/${photo}" alt="Card imagem" />`
+				var div2 = `<div id="available_photos_ficha${el.id}" class='available_photos_ficha col-10'>`
+				var div3 = `<div id="available_photos_ficha_nav${el.id}" class='available_photos_ficha_nav col-8'>`
+				el.files.forEach(photo => {
+					div += `<img class="card-img-top" src="${el.photos_path}/${photo}" alt="Card imagem" />`
+					div2 += `<div class="img-holder-ficha"><img class="card-img-top-big" src="${el.photos_path}/${photo}" alt="Card imagem" /></div>`
+					div3 += `<img class="card-img-top-ficha" src="${el.photos_path}/${photo}" alt="Card imagem" />`
 				});
 				div += "</div>"
+				div2 += "</div>"
+				div3 += "</div>"
 				$('#aeronaves-disponiveis').append(`
-				<div class="card card-disponiveis">
-					${div}
-					<div class="card-body">
-						<h5 class="card-title">${el.model}</h5>
-						<p class="card-text">${el.first_year_production} | ${el.tbo} horas totais FOB USA</p>
-						<div class="middle"><a href="#" class="btn btn-danger">TENHO INTERESSE</a></div>
+				<div class="card-holder">
+					<div class="card card-disponiveis">
+						${div}
+						<div class="card-body">
+							<h5 class="card-title">${el.model}</h5>
+							<div class="row">
+								<div class="col-12 mb-2"><button id="open${el.id}" class="btn btn-success middle">FICHA TÉCNICA</button></div>
+								<div class="col-12"><a href="#form-contato" id="interesse${el.id}" data-model="${el.model}" data-model="${el.year}" class="btn btn-danger middle">TENHO INTERESSE</a></div>
+							</div>
+						</div>
+					</div>
+				<div>
+				`);
+
+				$('#modal-holder').append(`
+				<div id="modal${el.id}" class="d-flex flex-column justify-content-around modal" style="display: none !important">
+					<div id="close${el.id}" class="close">X</div>
+					<h2>${el.model}</h2>
+					<h3>${el.year}</h3>
+					<div class="row justify-content-center justify-content-sm-around">
+						<div class="col-12 col-md-8">
+							<div class="row justify-content-around">
+								${div2}
+								${div3}
+							</div>
+						</div>
+						<div class="col-12 col-md-4 d-flex flex-column justify-content-around">
+							<div class="row justify-content-around">
+								<div class="col-3">
+									<h4>Airframe</h4>
+									<p>${el.airframe}</p>
+								</div>
+								<div class="col-3">
+									<h4>Engines</h4>
+									<p>${el.engines}</p>
+								</div>
+								<div class="col-3">
+									<h4>Propeller</h4>
+									<p>${el.propeller}</p>
+								</div>
+							</div>
+							<div class="row justify-content-around">
+								<div class="col-3">
+									<h4>Avionics</h4>
+									<p>${el.avionics}</p>
+								</div>
+								<div class="col-3">
+									<h4>Additional Equipment</h4>
+									<p>${el.additional_equipment}</p>
+								</div>
+								<div class="col-3">
+									<h4>Interior</h4>
+									<p>${el.interior_description}</p>
+								</div>
+							</div>
+							<div class="row justify-content-around">
+								<div class="col-3">
+									<h4>Exterior</h4>
+									<p>${el.exterior_description}</p>
+								</div>
+								<div class="col-3">
+									<h4>Maintenance Inspection</h4>
+									<p>${el.maintenance_inspection}</p>
+								</div>
+								<div class="col-3"></div>
+							</div>
+						</div>
 					</div>
 				</div>
-				`);
+				`)
+
+				$(`#interesse${el.id}`).click(function () {
+					$("#mensagem").val(`Olá, quero mais informações sobre o modelo ${el.model} do ano ${el.year}`)
+				})
+
+				$(`#close${el.id}`).click(function () {
+					$(`#modal${el.id}`).attr('style', 'display:none !important');
+					$(`#available_photos_ficha${el.id}`).destroy()
+					$(`#available_photos_ficha_nav${el.id}`).destroy()
+				})
+
+				$(`#open${el.id}`).click(function () {
+					$(`#modal${el.id}`).attr('style', 'display:flex !important');
+
+					$(`#available_photos_ficha${el.id}`).slick({
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						fade: true,
+						arrows: false,
+						asNavFor: `#available_photos_ficha_nav${el.id}`,
+						infinite: true
+					});
+		
+					$(`#available_photos_ficha_nav${el.id}`).slick({
+					  slidesToShow: 3,
+					  slidesToScroll: 1,
+					  asNavFor: `#available_photos_ficha${el.id}`,
+					  dots: false,
+					  arrows: false,
+					  centerMode: true,
+					  focusOnSelect: true,
+					  infinite: true
+					});
+				})
 			});
 
 			$(".available_photos").slick({
@@ -142,13 +239,15 @@ function getAvailableAircrafts() {
 				arrows: false
 			});
 
+			var slides = data.length <= 4 ? data.length - 1 : 4
+
 			$('#aeronaves-disponiveis').slick({
 				infinite: true,
-				slidesToShow: 3,
+				slidesToShow: slides,
 				slidesToScroll: 1,
+				arrows: true,
 				autoplay: true,
-				autoplaySpeed: 2000,
-				arrows: true
+				autoplaySpeed: 5000,
 			});
 		},
 		complete: function () {
@@ -187,7 +286,7 @@ function getAircraft() {
 				$('.fotosdeaviao').empty();
 
 				data.inside_files.forEach((value) => {
-					$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" />`)
+					$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
 				});
 
 

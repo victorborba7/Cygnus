@@ -15,46 +15,43 @@ mypath = "/home/html"
 
 def getAvailableAircraftById(id):
     dbConnection = engine.connect()
-    df = pd.read_sql(f"select * from aircraft where id = {id}", dbConnection)
+    df = pd.read_sql(f"select * from available_aircraft where id = {id}", dbConnection)
     dbConnection.close()
     if len(df) > 0:
         records = df.to_dict("records")[0]
-        records["outside_files"] = os.listdir(mypath + df["photos_path"][0] + "/externo")
-        records["inside_files"] = os.listdir(mypath + df["photos_path"][0] + "/interno")
-        files = os.listdir(mypath + df["photos_path"][0])
-        records["mapa_assentos"] = files[indexContainingSubstring(files, "mapa_assentos")]
+        records["files"] = os.listdir(mypath + df["photos_path"][0])
         
         return records
     return False
 
 def getAvailableAircrafts(company_id):
     dbConnection = engine.connect()
-    where = "where model_order > 0"
+    where = ""
     if int(company_id) > 0:
-        where = f"{where} and company_id = {company_id}"
-    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by model_order asc", dbConnection)
+        where = f"where company_id = {company_id}"
+    df = pd.read_sql(f"select a.*, c.name as company_name from available_aircraft a join company c on a.company_id = c.id {where}", dbConnection)
     dbConnection.close()
+    df["files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"]), axis=1)
     return df.to_dict("records")
 
-async def createAvailableAircraft(req):    
+async def createAvailableAircraft(req, photos):
     try:
-        insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
-            first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
-            wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, photos_path, model_order) \
-            values('{req['model']}', '{req['series']}', '{req['company_id']}', '{req['engine']}', '{req['max_takeoff_weight']}', \
-            '{req['first_year_production']}', '{req['tbo']}', '{req['max_capacity']}', '{req['max_cruise_speed']}', \
-            '{req['max_range']}', '{req['max_operating_altitude']}', '{req['wingspan']}', '{req['length']}', '{req['max_tail_height']}', '{req['min_takeoff_distance']}', \
-            '{req['description']}', '{req['description_en']}', '{req['photos_path']}', '{int(req['model_order'])}')"
+        insert = f"insert into available_aircraft(model, year, company_id, available, interior_description, \
+            exterior_description, additional_equipment, airframe, engines, propeller, maintenance_inspection, \
+            avionics) \
+	    values('{req['model']}', '{req['year']}', '{req['company_id']}', '{req['available']}', '{req['interior_description']}', \
+            '{req['exterior_description']}', '{req['additional_equipment']}', '{req['airframe']}', '{req['engines']}', \
+            '{req['propeller']}', '{req['maintenance_inspection']}', '{req['avionics']}')"
         dbConnection = engine.connect()
         dbConnection.execute(insert)
         dbConnection.close()
         
         dbConnection = engine.connect()
-        [req["id"]] = dbConnection.execute("SELECT MAX(id) from aircraft").fetchone()
+        [req["id"]] = dbConnection.execute("SELECT MAX(id) from available_aircraft").fetchone()
         dbConnection.close()
         
-        req["photos_path"] = await saveImages(req, internos, externos, mapa_assentos)
-        update = f"update aircraft \
+        req["photos_path"] = await saveImagesA(req, photos)
+        update = f"update available_aircraft \
             set \
             photos_path = '{req['photos_path']}' \
             where id = {req['id']}"
@@ -67,26 +64,21 @@ async def createAvailableAircraft(req):
 
 def updateAvailableAircraft(req):
     try:
-        update = f"update aircraft \
+        update = f"update available_aircraft \
             set \
             model = '{req['model']}', \
-            series = '{req['series']}', \
+            year = '{req['year']}', \
             company_id = '{req['company_id']}', \
-            engine = '{req['engine']}', \
-            max_takeoff_weight = '{req['max_takeoff_weight']}', \
-            first_year_production = '{req['first_year_production']}', \
-            tbo = '{req['tbo']}', \
-            max_capacity = '{req['max_capacity']}', \
-            max_cruise_speed = '{req['max_cruise_speed']}', \
-            max_range = '{req['max_range']}', \
-            max_operating_altitude = '{req['max_operating_altitude']}', \
-            wingspan = '{req['wingspan']}', \
-            length = '{req['length']}', \
-            max_tail_height = '{req['max_tail_height']}', \
-            min_takeoff_distance = '{req['min_takeoff_distance']}', \
-            description = '{req['description']}', \
-            description_en = '{req['description_en']}', \
-            model_order = {int(req['model_order'])} \
+            engines = '{req['engines']}', \
+            available = {req['available']}, \
+            interior_description = '{req['interior_description']}', \
+            exterior_description = '{req['exterior_description']}', \
+            additional_equipment = '{req['additional_equipment']}', \
+            airframe = '{req['airframe']}', \
+            engines = '{req['engines']}', \
+            propeller = '{req['propeller']}', \
+            maintenance_inspection = '{req['maintenance_inspection']}', \
+            avionics = '{req['avionics']}' \
             where id = {req['id']}"
         
         dbConnection = engine.connect()
@@ -99,7 +91,7 @@ def updateAvailableAircraft(req):
 
 def deleteAvailableAircraft(id):
     try:
-        delete = f"delete from aircraft where id = {id}"
+        delete = f"delete from available_aircraft where id = {id}"
         dbConnection = engine.connect()
         dbConnection.execute(delete)
         dbConnection.close()
@@ -107,60 +99,18 @@ def deleteAvailableAircraft(id):
     except:
         raise
 
-async def saveImages(req, internos, externos, mapa_assentos):
-    #Mapa assentos
+async def saveImagesA(req, photos):
+    #Fotos internas
     strpath = f"{mypath}/images/{req['company_name']}/available/{req['id']}"
     if os.path.exists(strpath):
         shutil.rmtree(strpath, ignore_errors=True)
     os.makedirs(strpath)
     
     count = 1
-    try:
-        filename, file_extension = os.path.splitext(mapa_assentos.filename)
-        filename = f"mapa_assentos{file_extension}"
-    
-        
-        async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
-            content = await mapa_assentos.read()  # async read
-            await out_file.write(content)  # async write
-        
-        count+=1
-    finally:
-        mapa_assentos.file.close()
-
-    #Fotos Internas,
-    strpath = f"{mypath}/images/{req['company_name']}/available/{req['id']}/interno"
-    if os.path.exists(strpath):
-        shutil.rmtree(strpath, ignore_errors=True)
-    os.makedirs(strpath)
-    
-    count = 1
-    for i in internos:
+    for i in photos:
         try:
             filename, file_extension = os.path.splitext(i.filename)
-            
-            filename = f"interno_{count}{file_extension}"
-        
-            
-            async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
-                content = await i.read()  # async read
-                await out_file.write(content)  # async write
-            
-            count+=1
-        finally:
-            i.file.close()
-            
-    #Fotos internas
-    strpath = f"{mypath}/images/{req['company_name']}/available/{req['id']}/externo"
-    if os.path.exists(strpath):
-        shutil.rmtree(strpath, ignore_errors=True)
-    os.makedirs(strpath)
-    
-    count = 1
-    for i in externos:
-        try:
-            filename, file_extension = os.path.splitext(i.filename)
-            filename = f"externo_{count}{file_extension}"
+            filename = f"file_{count}{file_extension}"
         
             
             async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
