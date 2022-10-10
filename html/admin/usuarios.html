@@ -204,10 +204,10 @@
     let id;
     $("document").ready(function () {
         const user = sessionStorage.getItem("user");
-        // if (user == undefined) {
-        //     window.location.href = "login.html"
-        //     return false;
-        // }
+        if (user == undefined) {
+            window.location.href = "login.html"
+            return false;
+        }
         user_data = JSON.parse(user)
         $('#nome_user').text(user_data.name)
 
