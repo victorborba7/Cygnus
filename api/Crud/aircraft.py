@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import aiofiles
 import shutil
+from PIL import Image
 
 def indexContainingSubstring(the_list, substring):
     for i, s in enumerate(the_list):

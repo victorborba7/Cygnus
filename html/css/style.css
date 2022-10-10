@@ -18,7 +18,7 @@ body {
 }
 
 img {
-    object-fit: cover
+    object-fit: cover !important;
 }
 
 a:hover {
@@ -35,6 +35,10 @@ a:hover {
 
 .home-esquerda {
     background: grey;
+}
+
+.home-esquerda .slick-track {
+    height: 1000px !important;
 }
 
 .logo-jett-aviao {
@@ -58,7 +62,7 @@ a:hover {
 }
 
 .avioes img {
-    height: 1000px;
+    height: 100%;
     margin-top: 0px;
     margin-left: 0px;
 }
@@ -352,12 +356,16 @@ a:hover {
     font-weight: 300;
 }
 
+.intern-galley .slick-track {
+    height: 504px;
+}
+
 .fotosdeaviao {
     margin: 0;
 }
 
 .fotosdeaviao img {
-    width: 300px;
+    height: 100%;
     border: 2px solid #000000;
 }
 
@@ -739,7 +747,14 @@ label {
 }
 
 .slick-dots {
-    display: none !important;
+    bottom: 60px !important;
+}
+
+.slick-dots li button::before{
+    font-size: 20px !important;
+}
+.slick-dots li.slick-active button::before{
+    color: black !important;
 }
 
 .slick-slider div {

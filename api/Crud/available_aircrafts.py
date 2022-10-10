@@ -31,7 +31,8 @@ def getAvailableAircrafts(company_id):
         where = f"where company_id = {company_id}"
     df = pd.read_sql(f"select a.*, c.name as company_name from available_aircraft a join company c on a.company_id = c.id {where}", dbConnection)
     dbConnection.close()
-    df["files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"]), axis=1)
+    if len(df) > 0:
+        df["files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"]), axis=1)
     return df.to_dict("records")
 
 async def createAvailableAircraft(req, photos):

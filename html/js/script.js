@@ -8,8 +8,8 @@ let outside_images = 0;
 let inside_images = 0;
 let first_load = 1;
 
-let url = "http://localhost:3000";
-//let url = "http://162.240.67.88:3000";
+//let url = "http://localhost:8000";
+let url = "http://162.240.67.88:8000";
 
 var mapOptions = {
 	center: latlng,
@@ -78,9 +78,6 @@ function getAircrafts() {
 				$("#aircrafts").append("<option value=" + value.id + ">" + value.model + "</option>");
 			})
 			$("#aircrafts").val(data[0].id).change()
-		},
-		complete: function () {
-			$(".overlay").css("display", "none");
 		}
 	})
 }
@@ -96,9 +93,6 @@ function getCompanyByName() {
 			$("#logo").attr("src", "/" + data.photo_path);
 			getAircrafts();
 			getAvailableAircrafts();
-		},
-		complete: function () {
-			$(".overlay").css("display", "none");
 		}
 	})
 }
@@ -109,6 +103,10 @@ function getAvailableAircrafts() {
 		method: "GET",
 		url: url + "/available/aircraft/list?company_id=" + company_id,
 		success: function (data) {
+			if(data.length == 0){
+				console.info(data.length)
+				$(".aeronaves-disponiveis").css("display", "none")
+			}
 			$('#aeronaves-disponiveis').empty();
 			data.forEach(el => {
 				var div = "<div class='available_photos'>"
@@ -249,15 +247,13 @@ function getAvailableAircrafts() {
 				autoplay: true,
 				autoplaySpeed: 5000,
 			});
-		},
-		complete: function () {
-			$(".overlay").css("display", "none");
 		}
 	})
 }
 
 function getAircraft() {
 	$(".overlay").css("display", "block");
+	$("body").css("overflow", "none");
 	$.ajax({
 		method: "GET",
 		crossDomain: true,
@@ -277,7 +273,6 @@ function getAircraft() {
 					arrows: false,
 					autoplay: true,
 					autoplaySpeed: 2000,
-					fade: true,
 					cssEase: 'linear'
 				});
 
