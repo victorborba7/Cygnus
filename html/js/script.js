@@ -1,6 +1,3 @@
-var latlng = new google.maps.LatLng(37.6922, -97.3372);
-var geocoder = new google.maps.Geocoder();
-const queryString = window.location.search;
 var path = window.location.pathname.split("/")
 let company = path[path.length - 1];
 let company_id;
@@ -11,61 +8,6 @@ let first_load = 1;
 //let url = "http://localhost:8000";
 let url = "http://162.240.67.88:8000";
 
-var mapOptions = {
-	center: latlng,
-	zoom: 1,
-	mapTypeId: google.maps.MapTypeId.ROADMAP,
-	disableDefaultUI: true,
-	scaleControl: true,
-	scaleControlOptions: {
-		position: google.maps.ControlPosition.RIGHT_BOTTOM
-	},
-	zoomControl: true,
-	zoomControlOptions: {
-		position: google.maps.ControlPosition.RIGHT_TOP
-	}
-
-};
-
-var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-var circlePlane1;
-var circlePlane2;
-var marker;
-var imagePin = 'images/pin.svg';
-
-function DrawPlane(id) {
-	if ($("#" + id + " option:selected").val() != 0) {
-		setTimeout(function () {
-
-			var plane = $("#" + id + " option:selected").data("data").radius;
-			if (circlePlane1 != undefined && id == "planes1") circlePlane1.setMap(null)
-			if (circlePlane2 != undefined && id == "planes2") circlePlane2.setMap(null)
-			if (id == "planes1") {
-				var color = "#aa9a6e"
-				circlePlane1 = new google.maps.Circle({
-					strokeColor: color, // Range Ring Color
-					strokeWeight: 2,
-					fillOpacity: 0,
-					map: map,
-					center: latlng,
-					radius: Math.abs(plane) * 1610 // Radius Multiplier
-				});
-			}
-
-			if (id == "planes2") {
-				var color = "#087fc0"
-				circlePlane2 = new google.maps.Circle({
-					strokeColor: color, // Range Ring Color
-					strokeWeight: 2,
-					fillOpacity: 0,
-					map: map,
-					center: latlng,
-					radius: Math.abs(plane) * 1610 // Radius Multiplier
-				});
-			}
-		}, 500)
-	}
-}
 
 function getAircrafts() {
 	$(".overlay").css("display", "block");
@@ -103,7 +45,7 @@ function getAvailableAircrafts() {
 		method: "GET",
 		url: url + "/available/aircraft/list?company_id=" + company_id,
 		success: function (data) {
-			if(data.length == 0){
+			if (data.length == 0) {
 				$(".aeronaves-disponiveis").css("display", "none")
 			}
 			$('#aeronaves-disponiveis').empty();
@@ -212,16 +154,16 @@ function getAvailableAircrafts() {
 						asNavFor: `#available_photos_ficha_nav${el.id}`,
 						infinite: true
 					});
-		
+
 					$(`#available_photos_ficha_nav${el.id}`).slick({
-					  slidesToShow: 3,
-					  slidesToScroll: 1,
-					  asNavFor: `#available_photos_ficha${el.id}`,
-					  dots: false,
-					  arrows: false,
-					  centerMode: true,
-					  focusOnSelect: true,
-					  infinite: true
+						slidesToShow: 3,
+						slidesToScroll: 1,
+						asNavFor: `#available_photos_ficha${el.id}`,
+						dots: false,
+						arrows: false,
+						centerMode: true,
+						focusOnSelect: true,
+						infinite: true
 					});
 				})
 			});
@@ -352,10 +294,6 @@ function getAircraft() {
 	})
 }
 
-$("#planes1, #planes2").change(function () {
-	DrawPlane($(this).attr("id"))
-})
-
 $("#english").click(function () {
 	var path = window.location.pathname.split("/")
 	let company = path[path.length - 1];
@@ -374,6 +312,64 @@ $(document).ready(function () {
 	$("#aircrafts").change(function () {
 		getAircraft();
 	})
+
+	var latlng = new google.maps.LatLng(37.6922, -97.3372);
+	var geocoder = new google.maps.Geocoder();
+	var mapOptions = {
+		center: latlng,
+		zoom: 1,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		disableDefaultUI: true,
+		scaleControl: true,
+		scaleControlOptions: {
+			position: google.maps.ControlPosition.RIGHT_BOTTOM
+		},
+		zoomControl: true,
+		zoomControlOptions: {
+			position: google.maps.ControlPosition.RIGHT_TOP
+		}
+
+	};
+
+	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	var circlePlane1;
+	var circlePlane2;
+	var marker;
+	var imagePin = 'images/pin.svg';
+
+	function DrawPlane(id) {
+		if ($("#" + id + " option:selected").val() != 0) {
+			setTimeout(function () {
+
+				var plane = $("#" + id + " option:selected").data("data").radius;
+				if (circlePlane1 != undefined && id == "planes1") circlePlane1.setMap(null)
+				if (circlePlane2 != undefined && id == "planes2") circlePlane2.setMap(null)
+				if (id == "planes1") {
+					var color = "#aa9a6e"
+					circlePlane1 = new google.maps.Circle({
+						strokeColor: color, // Range Ring Color
+						strokeWeight: 2,
+						fillOpacity: 0,
+						map: map,
+						center: latlng,
+						radius: Math.abs(plane) * 1610 // Radius Multiplier
+					});
+				}
+
+				if (id == "planes2") {
+					var color = "#087fc0"
+					circlePlane2 = new google.maps.Circle({
+						strokeColor: color, // Range Ring Color
+						strokeWeight: 2,
+						fillOpacity: 0,
+						map: map,
+						center: latlng,
+						radius: Math.abs(plane) * 1610 // Radius Multiplier
+					});
+				}
+			}, 500)
+		}
+	}
 
 	$("#airports").selectize({
 		options: airportsdb,
@@ -411,4 +407,8 @@ $(document).ready(function () {
 	$(".items").click(function () {
 		$("#airports").selectize()[0].selectize.clear();
 	});
+
+	$("#planes1, #planes2").change(function () {
+		DrawPlane($(this).attr("id"))
+	})
 });
