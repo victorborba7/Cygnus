@@ -292,12 +292,16 @@ a:hover {
     width: 120px;
 }
 
-.aviaoestacionado-row img {
+/* .aviaoestacionado-row img {
     width: 110%;
     height: 545px;
     position: relative;
     right: 0;
     object-fit: cover !important;
+} */
+
+.aviaoestacionado-row {
+    height: 545px;
 }
 
 .fadetitulo {

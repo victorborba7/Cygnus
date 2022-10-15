@@ -104,7 +104,6 @@ function getAvailableAircrafts() {
 		url: url + "/available/aircraft/list?company_id=" + company_id,
 		success: function (data) {
 			if(data.length == 0){
-				console.info(data.length)
 				$(".aeronaves-disponiveis").css("display", "none")
 			}
 			$('#aeronaves-disponiveis').empty();
@@ -279,10 +278,6 @@ function getAircraft() {
 				outside_images = data.outside_files.length
 
 				$('.fotosdeaviao').empty();
-
-				data.inside_files.forEach((value) => {
-					$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
-				});
 
 
 				$('.fotosdeaviao').slick({
