@@ -221,6 +221,9 @@ function getAircraft() {
 
 				$('.fotosdeaviao').empty();
 
+				data.inside_files.forEach((value) => {
+					$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
+				});
 
 				$('.fotosdeaviao').slick({
 					infinite: true,
