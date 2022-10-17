@@ -965,6 +965,18 @@ label {
         max-width: 400px;
         font-size: 18px;
     }
+
+    .btn-saibamais {
+        background: #dedee2;
+        padding: 15px 40px;
+        border-radius: 3px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        cursor: pointer;
+        color: black;
+        margin-left: -30px;
+    }
 }
 
 @media (max-width: 1600px) {
