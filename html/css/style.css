@@ -557,7 +557,7 @@ input {
     border: 1px solid #cccccc;
 }
 
-.img-holder-ficha{
+.img-holder-ficha {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -569,6 +569,7 @@ input {
     background-size: cover;
     object-fit: cover;
 }
+
 .card-img-top-big {
     max-width: 500px;
     max-height: 500px;
@@ -754,10 +755,11 @@ label {
     bottom: 60px !important;
 }
 
-.slick-dots li button::before{
+.slick-dots li button::before {
     font-size: 20px !important;
 }
-.slick-dots li.slick-active button::before{
+
+.slick-dots li.slick-active button::before {
     color: black !important;
 }
 
@@ -840,6 +842,85 @@ label {
 
 
 /*MEDIA QUERY*/
+
+@media (min-width: 1920px) {
+    .fundo-branco-home {
+        background: white;
+        height: 1080px;
+        width: 400px;
+        position: absolute;
+        top: 0;
+        transform: skewX(-5deg);
+        right: 32%;
+        z-index: 1;
+
+    }
+
+    .home-direita h3 {
+        font-size: 22px;
+        color: dimgrey;
+        margin-bottom: 60px;
+        margin-top: 25px;
+        padding: 0px 409px 0px 0px;
+        font-weight: 500;
+    }
+
+    #aircrafts {
+        border-color: red;
+        height: 40px;
+        border-radius: 5px;
+        border: solid 2px red;
+    }
+
+    .PT-EN {
+        font-size: 22px;
+        font-weight: 800;
+    }
+
+
+
+    .fadetitulo h1 {
+        margin-left: 350px;
+    }
+
+    .fadetitulo-inverse h1 {
+        margin-left: 350px;
+    }
+
+    .aviaoraiox {
+        /* width: 100%; */
+        margin: 0 auto;
+        max-height: 800px;
+    }
+
+    #range-planes h2 {
+        font-size: 45px;
+        font-weight: 700;
+        padding-top: 50px;
+    }
+
+    #airports-selectized {
+        width: 100% !important;
+        -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+        left: 0px !important;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
+
+    .selects-planes select,
+    input {
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid black;
+    }
+
+    .container {
+        max-width: 1400px
+    }
+}
 
 @media (max-width: 1600px) {
     .logo-jett-aviao {
