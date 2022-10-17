@@ -28,7 +28,7 @@ def getAvailableAircrafts(company_id):
     dbConnection = engine.connect()
     where = ""
     if int(company_id) > 0:
-        where = f"where company_id = {company_id}"
+        where = f"where available = 1 and company_id = {company_id}"
     df = pd.read_sql(f"select a.*, c.name as company_name from available_aircraft a join company c on a.company_id = c.id {where}", dbConnection)
     dbConnection.close()
     if len(df) > 0:
