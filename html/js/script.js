@@ -203,8 +203,14 @@ function getAircraft() {
 		crossDomain: true,
 		url: url + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
 		success: function (data) {
+
 			$('.avioes').empty()
-			$('.avioes').slick('unslick');
+			$('.fotosdeaviao').empty();
+
+			if (first_load == 0) {
+				$('.avioes').slick('unslick');
+				$('.fotosdeaviao').slick('unslick');
+			}
 
 			data.outside_files.forEach((value) => {
 				$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
@@ -220,9 +226,6 @@ function getAircraft() {
 			});
 
 			outside_images = data.outside_files.length
-
-			$('.fotosdeaviao').slick('unslick');
-			$('.fotosdeaviao').empty();
 
 			data.inside_files.forEach((value) => {
 				$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
