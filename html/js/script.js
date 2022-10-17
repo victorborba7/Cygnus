@@ -210,7 +210,6 @@ function getAircraft() {
 
 			$('.avioes').empty()
 			$('.fotosdeaviao').empty();
-			console.info($('.fotosdeaviao').children().length)
 
 			data.outside_files.forEach((value) => {
 				$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
