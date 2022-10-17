@@ -977,6 +977,11 @@ label {
         color: black;
         margin-left: -160px;
     }
+
+    #logo {
+        margin-top: 65px;
+        width: 240px;
+    }
 }
 
 @media (max-width: 1600px) {
