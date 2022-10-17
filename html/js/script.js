@@ -203,7 +203,6 @@ function getAircraft() {
 		crossDomain: true,
 		url: url + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
 		success: function (data) {
-
 			if (first_load == 0) {
 				$('.avioes').slick('unslick');
 				$('.fotosdeaviao').slick('unslick');
@@ -211,6 +210,7 @@ function getAircraft() {
 
 			$('.avioes').empty()
 			$('.fotosdeaviao').empty();
+			console.info($('.fotosdeaviao').children().length)
 
 			data.outside_files.forEach((value) => {
 				$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
