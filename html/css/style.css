@@ -311,7 +311,7 @@ a:hover {
     color: #FFFFFF;
 }
 
-.fadetitulo h1 {
+.motor-helice-row .fadetitulo h1 {
     margin-left: 100px;
 }
 
@@ -879,7 +879,7 @@ label {
 
 
 
-    .fadetitulo h1 {
+    .motor-helice-row .fadetitulo h1 {
         margin-left: 350px;
     }
 
