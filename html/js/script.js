@@ -178,11 +178,8 @@ function getAvailableAircrafts() {
 				arrows: false
 			});
 
-			var slides = data.length <= 4 ? data.length - 1 : 4
-
 			$('#aeronaves-disponiveis').slick({
 				infinite: true,
-				slidesToShow: slides,
 				slidesToScroll: 1,
 				arrows: true,
 				autoplay: true,
