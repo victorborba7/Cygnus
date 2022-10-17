@@ -204,13 +204,13 @@ function getAircraft() {
 		url: url + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
 		success: function (data) {
 
-			$('.avioes').empty()
-			$('.fotosdeaviao').empty();
-
 			if (first_load == 0) {
 				$('.avioes').slick('unslick');
 				$('.fotosdeaviao').slick('unslick');
 			}
+
+			$('.avioes').empty()
+			$('.fotosdeaviao').empty();
 
 			data.outside_files.forEach((value) => {
 				$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
