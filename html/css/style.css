@@ -954,11 +954,10 @@ label {
         padding: 35px 20px 100px 10px;
     }
 
-    .justify-content-center {
+    footer .justify-content-center {
         -ms-flex-pack: center!important;
         justify-content: center!important;
-    
-        margin-left: 170px;
+        margin-left: 170px !important;
     }
 
     .contato-row p {

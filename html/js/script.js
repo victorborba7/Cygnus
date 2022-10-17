@@ -203,71 +203,76 @@ function getAircraft() {
 		crossDomain: true,
 		url: url + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
 		success: function (data) {
-			$('.avioes').empty()
+			if (first_load == 1) {
 
-			data.outside_files.forEach((value) => {
-				$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
-			});
+				$('.avioes').empty()
 
-			$('.avioes').slick({
-				infinite: true,
-				dots: true,
-				arrows: false,
-				autoplay: true,
-				autoplaySpeed: 2000,
-				cssEase: 'linear'
-			});
+				data.outside_files.forEach((value) => {
+					$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
+				});
 
-			outside_images = data.outside_files.length
+				$('.avioes').slick({
+					infinite: true,
+					dots: true,
+					arrows: false,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					cssEase: 'linear'
+				});
 
-			$('.fotosdeaviao').empty();
+				outside_images = data.outside_files.length
 
-			data.inside_files.forEach((value) => {
-				$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
-			});
+				$('.fotosdeaviao').empty();
 
-			$('.fotosdeaviao').slick({
-				infinite: true,
-				slidesToShow: 4,
-				slidesToScroll: 1,
-				dots: false,
-				arrows: false,
-				autoplay: true,
-				autoplaySpeed: 2000,
-			});
+				data.inside_files.forEach((value) => {
+					$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
+				});
 
-			inside_images = data.inside_files.length
-			// else {
-			// 	var slideIndex = outside_images;
-			// 	for (i = 0; i < outside_images; i++) {
-			// 		$('.avioes').slick('slickRemove', slideIndex - 1);
-			// 		if (slideIndex !== 0) {
-			// 			slideIndex--;
-			// 		}
-			// 	};
+				$('.fotosdeaviao').slick({
+					infinite: true,
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					dots: false,
+					arrows: false,
+					autoplay: true,
+					autoplaySpeed: 2000,
+				});
 
+				inside_images = data.inside_files.length
 
-			// 	data.outside_files.forEach((value) => {
-			// 		$('.avioes').slick('slickAdd', `<img src="${data.photos_path}/externo/${value}" />`);
-			// 	});
-
-			// 	outside_images = data.outside_files.length;
-
-			// 	var slideIndex = inside_images;
-			// 	for (i = 0; i < inside_images; i++) {
-			// 		$('.fotosdeaviao').slick('slickRemove', slideIndex - 1);
-			// 		if (slideIndex !== 0) {
-			// 			slideIndex--;
-			// 		}
-			// 	};
+				first_load = 0;
+			}
+			else {
+				var slideIndex = outside_images;
+				for (i = 0; i < outside_images; i++) {
+					$('.avioes').slick('slickRemove', slideIndex - 1);
+					if (slideIndex !== 0) {
+						slideIndex--;
+					}
+				};
 
 
-			// 	data.inside_files.forEach((value) => {
-			// 		$('.fotosdeaviao').slick('slickAdd', `<img src="${data.photos_path}/interno/${value}" />`);
-			// 	});
+				data.outside_files.forEach((value) => {
+					$('.avioes').slick('slickAdd', `<img src="${data.photos_path}/externo/${value}" />`);
+				});
 
-			// 	inside_images = data.inside_files.length;
-			// }
+				outside_images = data.outside_files.length;
+
+				var slideIndex = inside_images;
+				for (i = 0; i < inside_images; i++) {
+					$('.fotosdeaviao').slick('slickRemove', slideIndex - 1);
+					if (slideIndex !== 0) {
+						slideIndex--;
+					}
+				};
+
+
+				data.inside_files.forEach((value) => {
+					$('.fotosdeaviao').slick('slickAdd', `<img src="${data.photos_path}/interno/${value}" />`);
+				});
+
+				inside_images = data.inside_files.length;
+			}
 
 			$("#mapa_assentos").attr("src", data.photos_path + "/" + data.mapa_assentos);
 			$("#tbo").text(data.tbo)
