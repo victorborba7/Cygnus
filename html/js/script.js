@@ -46,7 +46,10 @@ function getAvailableAircrafts() {
 		url: url + "/available/aircraft/list?company_id=" + company_id,
 		success: function (data) {
 			if (data.length == 0) {
-				$(".aeronaves-disponiveis").css("display", "none")
+				$(".hide-empty").css("display", "none")
+				$(".show-empty").css("display", "block")
+			}else{
+				$(".show-empty").css("display", "none")
 			}
 			$('#aeronaves-disponiveis').empty();
 			data.forEach(el => {
