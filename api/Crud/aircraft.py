@@ -11,6 +11,9 @@ def indexContainingSubstring(the_list, substring):
               return i
     return -1
 
+def treatQuotes(s):
+    return s.replace("'", "\\'").replace('"', '\\"')
+
 #mypath = "C:/Users/victorvb2/Documents/Projetos/Cygnus/html"
 mypath = "/home/html"
 
@@ -42,10 +45,10 @@ async def createAircraft(req, internos, externos, mapa_assentos):
         insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
             first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
             wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, first_seen) \
-            values('{req['model']}', '{req['series']}', '{req['company_id']}', '{req['engine']}', '{req['max_takeoff_weight']}', \
-            '{req['first_year_production']}', '{req['tbo']}', '{req['max_capacity']}', '{req['max_cruise_speed']}', \
-            '{req['max_range']}', '{req['max_operating_altitude']}', '{req['wingspan']}', '{req['length']}', '{req['max_tail_height']}', '{req['min_takeoff_distance']}', \
-            '{req['description']}', '{req['description_en']}', '{int(req['first_seen'])}')"
+            values('{treatQuotes(req['model'])}', '{treatQuotes(req['series'])}', '{treatQuotes(req['company_id'])}', '{treatQuotes(req['engine'])}', '{treatQuotes(req['max_takeoff_weight'])}', \
+            '{treatQuotes(req['first_year_production'])}', '{treatQuotes(req['tbo'])}', '{treatQuotes(req['max_capacity'])}', '{treatQuotes(req['max_cruise_speed'])}', \
+            '{treatQuotes(req['max_range'])}', '{treatQuotes(req['max_operating_altitude'])}', '{treatQuotes(req['wingspan'])}', '{treatQuotes(req['length'])}', '{treatQuotes(req['max_tail_height'])}', '{treatQuotes(req['min_takeoff_distance'])}', \
+            '{treatQuotes(req['description'])}', '{treatQuotes(req['description_en'])}', '{int(req['first_seen'])}')"
         dbConnection = engine.connect()
         dbConnection.execute(insert)
         dbConnection.close()
@@ -57,7 +60,7 @@ async def createAircraft(req, internos, externos, mapa_assentos):
         req["photos_path"] = await saveImages(req, internos, externos, mapa_assentos)
         update = f"update aircraft \
             set \
-            photos_path = '{req['photos_path']}' \
+            photos_path = '{treatQuotes(req['photos_path'])}' \
             where id = {req['id']}"
         dbConnection = engine.connect()
         dbConnection.execute(update)
@@ -70,23 +73,23 @@ def updateAircraft(req):
     try:
         update = f"update aircraft \
             set \
-            model = '{req['model']}', \
-            series = '{req['series']}', \
-            company_id = '{req['company_id']}', \
-            engine = '{req['engine']}', \
-            max_takeoff_weight = '{req['max_takeoff_weight']}', \
-            first_year_production = '{req['first_year_production']}', \
-            tbo = '{req['tbo']}', \
-            max_capacity = '{req['max_capacity']}', \
-            max_cruise_speed = '{req['max_cruise_speed']}', \
-            max_range = '{req['max_range']}', \
-            max_operating_altitude = '{req['max_operating_altitude']}', \
-            wingspan = '{req['wingspan']}', \
-            length = '{req['length']}', \
-            max_tail_height = '{req['max_tail_height']}', \
-            min_takeoff_distance = '{req['min_takeoff_distance']}', \
-            description = '{req['description']}', \
-            description_en = '{req['description_en']}', \
+            model = '{treatQuotes(req['model'])}', \
+            series = '{treatQuotes(req['series'])}', \
+            company_id = '{treatQuotes(req['company_id'])}', \
+            engine = '{treatQuotes(req['engine'])}', \
+            max_takeoff_weight = '{treatQuotes(req['max_takeoff_weight'])}', \
+            first_year_production = '{treatQuotes(req['first_year_production'])}', \
+            tbo = '{treatQuotes(req['tbo'])}', \
+            max_capacity = '{treatQuotes(req['max_capacity'])}', \
+            max_cruise_speed = '{treatQuotes(req['max_cruise_speed'])}', \
+            max_range = '{treatQuotes(req['max_range'])}', \
+            max_operating_altitude = '{treatQuotes(req['max_operating_altitude'])}', \
+            wingspan = '{treatQuotes(req['wingspan'])}', \
+            length = '{treatQuotes(req['length'])}', \
+            max_tail_height = '{treatQuotes(req['max_tail_height'])}', \
+            min_takeoff_distance = '{treatQuotes(req['min_takeoff_distance'])}', \
+            description = '{treatQuotes(req['description'])}', \
+            description_en = '{treatQuotes(req['description_en'])}', \
             first_seen = {int(req['first_seen'])} \
             where id = {req['id']}"
         

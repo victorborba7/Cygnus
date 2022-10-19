@@ -10,6 +10,9 @@ def indexContainingSubstring(the_list, substring):
               return i
     return -1
 
+def treatQuotes(s):
+    return s.replace("'", "\\'").replace('"', '\\"')
+
 #mypath = "C:/Users/victorvb2/Documents/Projetos/Cygnus/html"
 mypath = "/home/html"
 
@@ -40,9 +43,9 @@ async def createAvailableAircraft(req, photos):
         insert = f"insert into available_aircraft(model, year, company_id, available, interior_description, \
             exterior_description, additional_equipment, airframe, engines, propeller, maintenance_inspection, \
             avionics) \
-	    values('{req['model']}', '{req['year']}', '{req['company_id']}', '{req['available']}', '{req['interior_description']}', \
-            '{req['exterior_description']}', '{req['additional_equipment']}', '{req['airframe']}', '{req['engines']}', \
-            '{req['propeller']}', '{req['maintenance_inspection']}', '{req['avionics']}')"
+	    values('{treatQuotes(req['model'])}', '{treatQuotes(req['year'])}', '{treatQuotes(req['company_id'])}', '{int(req['available'])}', '{treatQuotes(req['interior_description'])}', \
+            '{treatQuotes(req['exterior_description'])}', '{treatQuotes(req['additional_equipment'])}', '{treatQuotes(req['airframe'])}', '{treatQuotes(req['engines'])}', \
+            '{treatQuotes(req['propeller'])}', '{treatQuotes(req['maintenance_inspection'])}', '{treatQuotes(req['avionics'])}')"
         dbConnection = engine.connect()
         dbConnection.execute(insert)
         dbConnection.close()
@@ -54,7 +57,7 @@ async def createAvailableAircraft(req, photos):
         req["photos_path"] = await saveImagesA(req, photos)
         update = f"update available_aircraft \
             set \
-            photos_path = '{req['photos_path']}' \
+            photos_path = '{treatQuotes(req['photos_path'])}' \
             where id = {req['id']}"
         dbConnection = engine.connect()
         dbConnection.execute(update)
@@ -67,19 +70,19 @@ def updateAvailableAircraft(req):
     try:
         update = f"update available_aircraft \
             set \
-            model = '{req['model']}', \
-            year = '{req['year']}', \
-            company_id = '{req['company_id']}', \
-            engines = '{req['engines']}', \
+            model = '{treatQuotes(req['model'])}', \
+            year = '{treatQuotes(req['year'])}', \
+            company_id = '{treatQuotes(req['company_id'])}', \
+            engines = '{treatQuotes(req['engines'])}', \
             available = {req['available']}, \
-            interior_description = '{req['interior_description']}', \
-            exterior_description = '{req['exterior_description']}', \
-            additional_equipment = '{req['additional_equipment']}', \
-            airframe = '{req['airframe']}', \
-            engines = '{req['engines']}', \
-            propeller = '{req['propeller']}', \
-            maintenance_inspection = '{req['maintenance_inspection']}', \
-            avionics = '{req['avionics']}' \
+            interior_description = '{treatQuotes(req['interior_description'])}', \
+            exterior_description = '{treatQuotes(req['exterior_description'])}', \
+            additional_equipment = '{treatQuotes(req['additional_equipment'])}', \
+            airframe = '{treatQuotes(req['airframe'])}', \
+            engines = '{treatQuotes(req['engines'])}', \
+            propeller = '{treatQuotes(req['propeller'])}', \
+            maintenance_inspection = '{treatQuotes(req['maintenance_inspection'])}', \
+            avionics = '{treatQuotes(req['avionics'])}' \
             where id = {req['id']}"
         
         dbConnection = engine.connect()
