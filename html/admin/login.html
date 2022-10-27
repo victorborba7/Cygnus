@@ -160,7 +160,8 @@
             },
             error: function (data) {
                 console.info(data)
-                swal("Erro!", "Tente novamente mais tarde", "error");
+                $(".overlay").css("display", "none");
+                swal("Erro!", data.responseJSON.detail, "error");
             },
             complete: function () {
                 $(".overlay").css("display", "none");
