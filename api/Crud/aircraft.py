@@ -129,7 +129,7 @@ def updateAircraft(req):
 
         return True
     except Exception as e:
-        return e
+        return str(e)
 
 def deleteAircraft(id):
     try:
