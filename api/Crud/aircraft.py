@@ -33,22 +33,37 @@ def getAircraftById(id):
 
 def getAircrafts(company_id):
     dbConnection = engine.connect()
-    where = "where first_seen > 0"
+    where = "where first_seen > -1"
     if int(company_id) > 0:
         where = f"{where} and company_id = {company_id}"
-    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by first_seen asc", dbConnection)
+    df = pd.read_sql(f"select a.*, c.name as company_name from aircraft a join company c on a.company_id = c.id {where} order by c.name, a.first_seen asc", dbConnection)
     dbConnection.close()
     return df.to_dict("records")
 
 async def createAircraft(req, internos, externos, mapa_assentos):
     try:
+        select = f"select * from aircraft \
+            where company_id = {int(treatQuotes(req['company_id']))}"
+        dbConnection = engine.connect()
+        df = pd.read_sql(select)
+        dbConnection.close()
+        if len(df[df["first_seen"] == int(req['first_seen'])]) > 0:
+            for index, row in df.iterrows():
+                update = f"update aircraft \
+                    set \
+                    first_seen = {int(row['first_seen']) + 1} \
+                    where id = {row['id']}"
+                dbConnection = engine.connect()
+                dbConnection.execute(update)
+                dbConnection.close()
+                
         insert = f"insert into aircraft(model, series, company_id, engine, max_takeoff_weight, \
             first_year_production, tbo, max_capacity, max_cruise_speed, max_range, max_operating_altitude, \
             wingspan, length, max_tail_height, min_takeoff_distance, description, description_en, first_seen) \
-            values('{treatQuotes(req['model'])}', '{treatQuotes(req['series'])}', '{treatQuotes(req['company_id'])}', '{treatQuotes(req['engine'])}', '{treatQuotes(req['max_takeoff_weight'])}', \
+            values('{treatQuotes(req['model'])}', '{treatQuotes(req['series'])}', {treatQuotes(req['company_id'])}, '{treatQuotes(req['engine'])}', '{treatQuotes(req['max_takeoff_weight'])}', \
             '{treatQuotes(req['first_year_production'])}', '{treatQuotes(req['tbo'])}', '{treatQuotes(req['max_capacity'])}', '{treatQuotes(req['max_cruise_speed'])}', \
             '{treatQuotes(req['max_range'])}', '{treatQuotes(req['max_operating_altitude'])}', '{treatQuotes(req['wingspan'])}', '{treatQuotes(req['length'])}', '{treatQuotes(req['max_tail_height'])}', '{treatQuotes(req['min_takeoff_distance'])}', \
-            '{treatQuotes(req['description'])}', '{treatQuotes(req['description_en'])}', '{int(req['first_seen'])}')"
+            '{treatQuotes(req['description'])}', '{treatQuotes(req['description_en'])}', {int(req['first_seen'])})"
         dbConnection = engine.connect()
         dbConnection.execute(insert)
         dbConnection.close()
@@ -71,11 +86,26 @@ async def createAircraft(req, internos, externos, mapa_assentos):
 
 def updateAircraft(req):
     try:
+        select = f"select * from aircraft \
+            where company_id = {int(treatQuotes(req['company_id']))}"
+        dbConnection = engine.connect()
+        df = pd.read_sql(select)
+        dbConnection.close()
+        if len(df[df["first_seen"] == int(req['first_seen'])]) > 0:
+            for index, row in df.iterrows():
+                update = f"update aircraft \
+                    set \
+                    first_seen = {int(row['first_seen']) + 1} \
+                    where id = {row['id']}"
+                dbConnection = engine.connect()
+                dbConnection.execute(update)
+                dbConnection.close()
+        
         update = f"update aircraft \
             set \
             model = '{treatQuotes(req['model'])}', \
             series = '{treatQuotes(req['series'])}', \
-            company_id = '{treatQuotes(req['company_id'])}', \
+            company_id = {int(treatQuotes(req['company_id']))}, \
             engine = '{treatQuotes(req['engine'])}', \
             max_takeoff_weight = '{treatQuotes(req['max_takeoff_weight'])}', \
             first_year_production = '{treatQuotes(req['first_year_production'])}', \
