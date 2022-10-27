@@ -128,8 +128,8 @@ def updateAircraft(req):
         dbConnection.close()
 
         return True
-    except:
-        raise
+    except Exception as e:
+        return e
 
 def deleteAircraft(id):
     try:
