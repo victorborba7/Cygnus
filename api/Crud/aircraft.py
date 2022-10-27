@@ -46,7 +46,7 @@ async def createAircraft(req, internos, externos, mapa_assentos):
         select = f"select * from aircraft \
             where company_id = {int(treatQuotes(req['company_id']))} and first_seen >= {int(req['first_seen'])}"
         dbConnection = engine.connect()
-        df = pd.read_sql(select)
+        df = pd.read_sql(select, dbConnection)
         dbConnection.close()
         if len(df[df["first_seen"] == int(req['first_seen'])]) > 0:
             for index, row in df.iterrows():
@@ -82,15 +82,15 @@ async def createAircraft(req, internos, externos, mapa_assentos):
         dbConnection.execute(update)
         dbConnection.close()
         return True
-    except:
-        raise
+    except Exception as e:
+        logging.error(str(e))
 
 def updateAircraft(req):
     try:
         select = f"select * from aircraft \
             where company_id = {int(treatQuotes(req['company_id']))} and first_seen >= {int(req['first_seen'])}"
         dbConnection = engine.connect()
-        df = pd.read_sql(select)
+        df = pd.read_sql(select, dbConnection)
         dbConnection.close()
         
         if len(df[df["first_seen"] == int(req['first_seen'])]) > 0:
