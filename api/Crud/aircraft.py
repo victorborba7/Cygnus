@@ -4,6 +4,7 @@ import os
 import aiofiles
 import shutil
 from PIL import Image
+import logging
 
 def indexContainingSubstring(the_list, substring):
     for i, s in enumerate(the_list):
@@ -91,6 +92,7 @@ def updateAircraft(req):
         dbConnection = engine.connect()
         df = pd.read_sql(select)
         dbConnection.close()
+        
         if len(df[df["first_seen"] == int(req['first_seen'])]) > 0:
             for index, row in df.iterrows():
                 update = f"update aircraft \
@@ -129,7 +131,7 @@ def updateAircraft(req):
 
         return True
     except Exception as e:
-        return str(e)
+        logging.error(str(e))
 
 def deleteAircraft(id):
     try:

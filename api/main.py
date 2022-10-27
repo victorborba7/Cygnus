@@ -2,6 +2,8 @@ from fastapi import FastAPI, HTTPException, Request, Form, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Optional
 import json
+import logging
+logging.basicConfig(filename="log.txt", level=logging.ERROR)
 
 from Crud.user import *
 from Crud.company import *
