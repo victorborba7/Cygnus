@@ -43,7 +43,7 @@ def getAircrafts(company_id):
 async def createAircraft(req, internos, externos, mapa_assentos):
     try:
         select = f"select * from aircraft \
-            where company_id = {int(treatQuotes(req['company_id']))}"
+            where company_id = {int(treatQuotes(req['company_id']))} and first_seen >= {int(req['first_seen'])}"
         dbConnection = engine.connect()
         df = pd.read_sql(select)
         dbConnection.close()
@@ -87,7 +87,7 @@ async def createAircraft(req, internos, externos, mapa_assentos):
 def updateAircraft(req):
     try:
         select = f"select * from aircraft \
-            where company_id = {int(treatQuotes(req['company_id']))}"
+            where company_id = {int(treatQuotes(req['company_id']))} and first_seen >= {int(req['first_seen'])}"
         dbConnection = engine.connect()
         df = pd.read_sql(select)
         dbConnection.close()
