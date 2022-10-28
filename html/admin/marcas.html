@@ -361,7 +361,7 @@
                     clearFiedls();
                 },
                 error: function (data) {
-                    swal("Erro!", "Tente novamente mais tarde", "error");
+                    swal("Erro!", "Esta marca já está cadastrada", "error");
                 },
                 complete: function () {
                     $(".overlay").css("display", "none");
@@ -433,7 +433,8 @@
 
         function clearFiedls() {
             $("#name").val("")
-            updateThumbnail(document.getElementById("logo"), Array())
+            $(".drop-zone__thumbs").empty()
+            $("#logo").empty()
         }
 
         $("#save").click(function (e) {
