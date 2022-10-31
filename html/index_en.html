@@ -107,74 +107,89 @@
 
     <!--MOTOR HÉLICE E AVIÃO ESTACIONADO-->
 
-    <div class="row motor-helice-row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="row">
-                <div class=" fadetitulo col-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>Information: <span id="info-model"></span></h1>
+    <div class="row motor-helice-row justify-content-center">
+        <div class="col-10 p-5">
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="row informacao d-flex align-items-center justify-content-around flex-column">
+                        <h5 class="col-12">Motorization</h5>
+                        <p class="col-12" id="engine"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum take-off weight</h5>
+                        <p class="col-12" id="max_takeoff_weight"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Year of first production</h5>
+                        <p class="col-12" id="first_year_production"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">TBO (total engine hours)</h5>
+                        <p class="col-12" id="tbo"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum number of occupants</h5>
+                        <p class="col-12" id="max_capacity"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum cruising speed *</h5>
+                        <p class="col-12" id="max_cruise_speed"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum range</h5>
+                        <p class="col-12" id="max_range"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum operating altitude</h5>
+                        <p class="col-12" id="max_operating_altitude"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Wingspan (wing tip to wing)</h5>
+                        <p class="col-12" id="wingspan"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3 mb-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Length</h5>
+                        <p class="col-12" id="length"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Max tail height</h5>
+                        <p class="col-12" id="max_tail_height"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Minimum take-off distance</h5>
+                        <p class="col-12" id="min_takeoff_distance"></p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="aviaoestacionado-row col-6 col-sm-6 col-md-6 col-lg-6">
-            <!-- <img src="/images/aviao-no-chao.jpg" alt="Foto do Aviao Estacionado no Chão"> -->
-        </div>
-
-        <div class="col-5 col-sm-5 col-md-5 col-lg-5">
-
-            <div class="informacoes">
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Motorization</h5>
-                    <p class="col-3 text-left" id="engine"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Maximum take-off weight</h5>
-                    <p class="col-3 text-left" id="max_takeoff_weight"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Year of first production</h5>
-                    <p class="col-3 text-left" id="first_year_production"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">TBO (total engine hours)</h5>
-                    <p class="col-3 text-left" id="tbo"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Maximum number of occupants</h5>
-                    <p class="col-3 text-left" id="max_capacity"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Maximum cruising speed *</h5>
-                    <p class="col-3 text-left" id="max_cruise_speed"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Maximum range</h5>
-                    <p class="col-3 text-left" id="max_range"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Maximum operating altitude</h5>
-                    <p class="col-3 text-left" id="max_operating_altitude"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Wingspan (wing tip to wing)</h5>
-                    <p class="col-3 text-left" id="wingspan"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Length</h5>
-                    <p class="col-3 text-left" id="length"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Max tail height</h5>
-                    <p class="col-3 text-left" id="max_tail_height"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Minimum take-off distance</h5>
-                    <p class="col-3 text-left" id="min_takeoff_distance"></p>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
     <!--3 FOTOS AVIÃO-->

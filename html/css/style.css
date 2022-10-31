@@ -95,11 +95,11 @@ a:hover {
 }
 
 .home-direita h3 {
-    font-size: 30px;
+    font-size: 20px;
     color: dimgrey;
     margin-bottom: 60px;
     margin-top: 25px;
-    padding: 0px 280px 0px 0px;
+    padding: 0px 250px 0px 0px;
     font-weight: 500;
 }
 
@@ -253,55 +253,10 @@ a:hover {
 /*MOTOR HÉLICE E AVIÃO ESTACIONADO*/
 
 .motor-helice-row {
-    background: black;
+    background: rgb(187, 28, 53);
+    background: linear-gradient(0deg, rgba(187, 28, 53, 1) 0%, rgba(60, 0, 6, 1) 59%, rgba(50, 0, 6, 1) 90%, rgba(37, 0, 0, 1) 100%);
     color: white;
     text-align: center;
-}
-
-.motor-helice-row h1 {
-    color: white;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-weight: 700;
-}
-
-.motor-helice-row div {
-    padding: 0;
-    margin: 0;
-}
-
-.motor-helice-row h2 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    margin-top: 90px;
-    font-weight: 10;
-}
-
-.motor-helice-row h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    margin-top: 45px;
-    font-weight: 700;
-}
-
-.heliceimg {
-    width: 120px;
-}
-
-.motorimg {
-    width: 120px;
-}
-
-/* .aviaoestacionado-row img {
-    width: 110%;
-    height: 545px;
-    position: relative;
-    right: 0;
-    object-fit: cover !important;
-} */
-
-.aviaoestacionado-row {
-    height: 545px;
 }
 
 .fadetitulo {
@@ -324,17 +279,7 @@ a:hover {
     width: 200px;
 }
 
-.informacoes {
-    width: 100%;
-    margin-top: -100px !important;
-    padding: 30px 0px !important;
-    color: #000000;
-    background-color: #FFFFFF;
-    height: 100%;
-    border-radius: 30px;
-}
-
-.informacoes h5 {
+.motor-helice-row h5 {
     font-weight: 700;
 }
 
@@ -1024,11 +969,11 @@ label {
     }
 
     .home-direita h3 {
-        font-size: 25px;
+        font-size: 20px;
         color: dimgrey;
         margin-bottom: 60px;
         margin-top: 25px;
-        padding: 0px 280px 0px 0px;
+        padding: 0px 220px 0px 0px;
         font-weight: 500;
     }
 
