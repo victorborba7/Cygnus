@@ -126,12 +126,12 @@ async def removeCompany(request: str = Form(...)):
 
 
 @app.post("/aircraft/add")
-async def addAircraft(request: str = Form(...), internos: List[UploadFile] = File(...), externos: List[UploadFile] = File(...), mapa_assentos: UploadFile = File(...)):
+async def addAircraft(request: str = Form(...), internos: List[UploadFile] = File(...), externos: List[UploadFile] = File(...), mapa_assentos: Optional[UploadFile] = File(...)):
     req = json.loads(request)
     return {"success": await createAircraft(req, internos, externos, mapa_assentos)}
 
 @app.post("/aircraft/update")
-async def changeAircraft(request: str = Form(...), internos: List[UploadFile] = File(...), externos: List[UploadFile] = File(...), mapa_assentos: UploadFile = File(...)):
+async def changeAircraft(request: str = Form(...), internos: List[UploadFile] = File(...), externos: List[UploadFile] = File(...), mapa_assentos: Optional[UploadFile] = File(...)):
     req = json.loads(request)
     req["photos_path"] = await saveImages(req, internos, externos, mapa_assentos)
     return {"success": updateAircraft(req)}

@@ -38,7 +38,7 @@
             <div class="row pt-icones">
                 <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="PT-EN">
-                        <a id="portugues" class="idioma idioma-selected">PT</a>-<a id="english" class="idioma">EN</a>
+                        <a id="portugues" class="idioma">PT</a>-<a id="english" class="idioma idioma-selected">EN</a>
                     </div>
                 </div>
 
@@ -61,11 +61,10 @@
             <img id="logo" />
             <h2 id="model"></h2>
             <h1 id="series"></h1>
-            <h3 id="description_pt"></h3>
-            <h3 id="description_en" style="display: none;"></h3>
+            <h3 id="description_pt" style="display: none;"></h3>
+            <h3 id="description_en"></h3>
 
             <div class="row botoes-home">
-                
                 <div class="btn-homefaleconoscoA col-md-6 col-lg-6">
                     <a href="#form-contato" class="btn-homefaleconosco">Fale Conosco</a>
                 </div>
@@ -108,76 +107,89 @@
 
     <!--MOTOR HÉLICE E AVIÃO ESTACIONADO-->
 
-    <div class="row motor-helice-row">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="row">
-                <div class=" fadetitulo col-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>Informações: <span id="info-model"></span></h1>
+    <div class="row motor-helice-row justify-content-center">
+        <div class="col-10 p-5">
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="row informacao d-flex align-items-center justify-content-around flex-column">
+                        <h5 class="col-12">Motorização</h5>
+                        <p class="col-12" id="engine"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Peso máximo de decolagem</h5>
+                        <p class="col-12" id="max_takeoff_weight"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Ano de primeira produção</h5>
+                        <p class="col-12" id="first_year_production"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">TBO (horas totais do motor)</h5>
+                        <p class="col-12" id="tbo"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Nº Máximo de ocupantes</h5>
+                        <p class="col-12" id="max_capacity"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Velocidade de cruzeiro *</h5>
+                        <p class="col-12" id="max_cruise_speed"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Alcance máximo</h5>
+                        <p class="col-12" id="max_range"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Altitude máxima de operação</h5>
+                        <p class="col-12" id="max_operating_altitude"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Envergadura (ponta de uma asa a outra)</h5>
+                        <p class="col-12" id="wingspan"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3 mb-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Comprimento</h5>
+                        <p class="col-12" id="length"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Altura máxima da cauda</h5>
+                        <p class="col-12" id="max_tail_height"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Distância para decolagem</h5>
+                        <p class="col-12" id="min_takeoff_distance"></p>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="aviaoestacionado-row col-6 col-sm-6 col-md-6 col-lg-6">
-
-            <!-- <img src="/images/aviao-no-chao.jpg" alt="Foto do Aviao Estacionado no Chão"> -->
-
-        </div>
-
-        <div class="col-5 col-sm-5 col-md-5 col-lg-5">
-
-            <div class="informacoes d-flex flex-column align-items-end justify-content-between">
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Motorização</h5>
-                    <p class="col-3 text-left" id="engine"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Peso máximo de decolagem</h5>
-                    <p class="col-3 text-left" id="max_takeoff_weight"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Ano de primeira produção</h5>
-                    <p class="col-3 text-left" id="first_year_production"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">TBO (horas totais do motor)</h5>
-                    <p class="col-3 text-left" id="tbo"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Nº Máximo de ocupantes</h5>
-                    <p class="col-3 text-left" id="max_capacity"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Velocidade de cruzeiro *</h5>
-                    <p class="col-3 text-left" id="max_cruise_speed"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Alcance máximo</h5>
-                    <p class="col-3 text-left" id="max_range"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Altitude máxima de operação</h5>
-                    <p class="col-3 text-left" id="max_operating_altitude"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Envergadura (ponta de uma asa a outra)</h5>
-                    <p class="col-3 text-left" id="wingspan"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Comprimento</h5>
-                    <p class="col-3 text-left" id="length"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Altura máxima da cauda</h5>
-                    <p class="col-3 text-left" id="max_tail_height"></p>
-                </div>
-                <div class="informacao d-flex align-items-center justify-content-around row">
-                    <h5 class="col-6 text-left">Distância para decolagem</h5>
-                    <p class="col-3 text-left" id="min_takeoff_distance"></p>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
     <!--3 FOTOS AVIÃO-->
@@ -193,21 +205,25 @@
     </div>
 
 
+
     <!--RAIO X E BAGAGEIRO + BOTAO FALE CONOSCO-->
 
     <div class="row raiox-bagageiro">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="row">
-                <div class="fadetitulo-inverse col-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>Mapa de Assentos:</h1>
+        <div id="mapa-holder">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="fadetitulo-inverse col-12 col-sm-12 col-md-12 col-lg-12">
+                        <h1>Mapa de Assentos:</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
-            <img class="aviaoraiox" id="mapa_assentos" />
+
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
+                <img class="aviaoraiox" id="mapa_assentos">
+            </div>
         </div>
 
-        <div id="range-planes" class="col-12 col-sm-12 col-md-5 col-lg-5 row">
+        <div id="range-planes" class="col-12 col-sm-12 col-md-5 col-lg-5">
             <div class="col-md-12 text-center">
                 <h2>Compare o alcance:</h2>
             </div>
@@ -592,8 +608,7 @@
     <div class="row copyright-row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
-            <p>Feito com ♥ por <a href="https://jabutidesign.com.br" target="_blank">Jabuti Design®</a> , 2020 • JABUTI
-                DESIGN CNPJ: 38.860.596/0001-72 - São Paulo, SP</p>
+            <p>Made with ♥ by <a href="https://jabutidesign.com.br" target="_blank">Jabuti Design®</a>, 2020</p>
 
         </div>
     </div>

@@ -27,7 +27,11 @@ def getAircraftById(id):
         records["outside_files"] = os.listdir(mypath + df["photos_path"][0] + "/externo")
         records["inside_files"] = os.listdir(mypath + df["photos_path"][0] + "/interno")
         files = os.listdir(mypath + df["photos_path"][0])
-        records["mapa_assentos"] = files[indexContainingSubstring(files, "mapa_assentos")]
+        index_mapa_assentos = indexContainingSubstring(files, "mapa_assentos")
+        if index_mapa_assentos >= 0:
+            records["mapa_assentos"] = files[index_mapa_assentos]
+        else:
+            records["mapa_assentos"] = ""
         
         return records
     return False
@@ -41,7 +45,7 @@ def getAircrafts(company_id):
     dbConnection.close()
     return df.to_dict("records")
 
-async def createAircraft(req, internos, externos, mapa_assentos):
+async def createAircraft(req, internos, externos, mapa_assentos = None):
     try:
         select = f"select * from aircraft \
             where company_id = {int(treatQuotes(req['company_id']))} and first_seen >= {int(req['first_seen'])}"
@@ -143,26 +147,27 @@ def deleteAircraft(id):
     except:
         raise
 
-async def saveImages(req, internos, externos, mapa_assentos):
+async def saveImages(req, internos, externos, mapa_assentos = None):
     #Mapa assentos
-    strpath = f"{mypath}/images/{req['company_name']}/{req['id']}"
-    if os.path.exists(strpath):
-        shutil.rmtree(strpath, ignore_errors=True)
-    os.makedirs(strpath)
-    
-    count = 1
-    try:
-        filename, file_extension = os.path.splitext(mapa_assentos.filename)
-        filename = f"mapa_assentos{file_extension}"
-    
+    if mapa_assentos != None:
+        strpath = f"{mypath}/images/{req['company_name']}/{req['id']}"
+        if os.path.exists(strpath):
+            shutil.rmtree(strpath, ignore_errors=True)
+        os.makedirs(strpath)
         
-        async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
-            content = await mapa_assentos.read()  # async read
-            await out_file.write(content)  # async write
+        count = 1
+        try:
+            filename, file_extension = os.path.splitext(mapa_assentos.filename)
+            filename = f"mapa_assentos{file_extension}"
         
-        count+=1
-    finally:
-        mapa_assentos.file.close()
+            
+            async with aiofiles.open(f"{strpath}/{filename}", 'wb') as out_file:
+                content = await mapa_assentos.read()  # async read
+                await out_file.write(content)  # async write
+            
+            count+=1
+        finally:
+            mapa_assentos.file.close()
 
     #Fotos Internas,
     strpath = f"{mypath}/images/{req['company_name']}/{req['id']}/interno"

@@ -48,7 +48,7 @@ function getAvailableAircrafts() {
 			if (data.length == 0) {
 				$(".hide-empty").css("display", "none")
 				$(".show-empty").css("display", "block")
-			}else{
+			} else {
 				$(".show-empty").css("display", "none")
 			}
 			$('#aeronaves-disponiveis').empty();
@@ -248,7 +248,18 @@ function getAircraft() {
 			first_load = 0;
 
 
-			$("#mapa_assentos").attr("src", data.photos_path + "/" + data.mapa_assentos);
+			if (data.mapa_assentos != "") {
+				$("#mapa-holder").css("display", "block")
+				$("#mapa_assentos").attr("src", data.photos_path + "/" + data.mapa_assentos);
+				$("#range-planes").removeClass("col-md-12 col-lg-12")
+				$("#range-planes").addClass("col-md-5 col-lg-5")
+			}
+			else {
+				$("#mapa-holder").css("display", "none")
+				$("#range-planes").removeClass("col-md-5 col-lg-5")
+				$("#range-planes").addClass("col-md-12 col-lg-12")
+			}
+
 			$("#tbo").text(data.tbo)
 			$("#engine").text(data.engine)
 			$("#first_year_production").text(data.first_year_production)
