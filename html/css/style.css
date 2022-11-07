@@ -140,6 +140,11 @@ a:hover {
     margin-left: 2px;
 }
 
+#description_pt, #description_en {
+    overflow-y: auto;
+    height: 200px;
+}
+
 .btn-homefaleconosco {
     color: #dedee2;
     background: black;
