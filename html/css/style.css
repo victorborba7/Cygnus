@@ -142,7 +142,7 @@ a:hover {
 
 #description_pt, #description_en {
     overflow-y: auto;
-    height: 200px;
+    height: 150px;
 }
 
 .btn-homefaleconosco {
@@ -325,6 +325,10 @@ a:hover {
 
 
 /*BAGAGEIRO RAIOX*/
+.raiox-bagageiro {
+    justify-content: center;
+}
+
 .raiox-bagageiro div {
     margin: 0;
     padding: 0;
