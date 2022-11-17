@@ -326,7 +326,7 @@ a:hover {
 
 /*BAGAGEIRO RAIOX*/
 .raiox-bagageiro {
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .raiox-bagageiro div {
