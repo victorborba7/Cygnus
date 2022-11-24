@@ -323,7 +323,7 @@ a:hover {
 
 /*BAGAGEIRO RAIOX*/
 .raiox-bagageiro {
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .raiox-bagageiro div {
@@ -334,6 +334,7 @@ a:hover {
 .aviaoraiox {
     width: 100%;
     margin: 0 auto;
+    max-height: 850px !important;
 }
 
 .raiox-bagageiro h1 {
@@ -374,7 +375,7 @@ a:hover {
 
 #range-planes {
     border-radius: 30px;
-    padding: 20px !important;
+    padding: 25px 20px !important;
     margin-top: -100px;
     margin-bottom: -30px;
     background: rgb(0, 0, 0);
