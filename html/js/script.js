@@ -253,11 +253,13 @@ function getAircraft() {
 				$("#mapa_assentos").attr("src", data.photos_path + "/" + data.mapa_assentos);
 				$("#range-planes").removeClass("col-md-12 col-lg-12")
 				$("#range-planes").addClass("col-md-5 col-lg-5")
+				$("#mapa_assentos").css("display", "block");
 			}
 			else {
 				$("#mapa-holder").css("display", "none")
 				$("#range-planes").removeClass("col-md-5 col-lg-5")
 				$("#range-planes").addClass("col-md-12 col-lg-12")
+				$("#mapa_assentos").css("display", "none");
 			}
 
 			$("#tbo").text(data.tbo)
