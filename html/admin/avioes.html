@@ -137,7 +137,7 @@
                 </div>
                 <div class="col-md-3 col-6">
                     <label for="first_seen">Prioridade</label>
-                    <input type="number" id="first_seen" />
+                    <input type="number" id="first_seen" value="0" />
                 </div>
             </div>
             <div class="row fields">
@@ -528,6 +528,7 @@ let url = "http://162.240.67.88:8000";
         }
         function addAircraft () {
             $(".overlay").css("display", "block");
+            var first_seen = $("#first_seen").val() == "" ? 0 : $("#first_seen").val()
             obj = JSON.stringify({
                 model: $("#model").val(),
                 series: $("#series").val(),
@@ -547,7 +548,7 @@ let url = "http://162.240.67.88:8000";
                 min_takeoff_distance: $("#min_takeoff_distance").val(),
                 description: $("#description").val(),
                 description_en: $("#description_en").val(),
-                first_seen: $("#first_seen").val()
+                first_seen: first_seen
             })
 
 
@@ -587,6 +588,7 @@ let url = "http://162.240.67.88:8000";
 
         function editAircraft () {
             $(".overlay").css("display", "block");
+            var first_seen = $("#first_seen").val() == "" ? 0 : $("#first_seen").val()
             obj = JSON.stringify({
                 id: id,
                 model: $("#model").val(),
@@ -607,7 +609,7 @@ let url = "http://162.240.67.88:8000";
                 min_takeoff_distance: $("#min_takeoff_distance").val(),
                 description: $("#description").val(),
                 description_en: $("#description_en").val(),
-                first_seen: $("#first_seen").val()
+                first_seen: first_seen
             })
 
 

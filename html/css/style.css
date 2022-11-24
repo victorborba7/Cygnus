@@ -97,8 +97,7 @@ a:hover {
 .home-direita h3 {
     font-size: 20px;
     color: dimgrey;
-    margin-bottom: 60px;
-    margin-top: 25px;
+    margin-bottom: 25px;
     padding: 0px 250px 0px 0px;
     font-weight: 500;
 }
@@ -164,8 +163,6 @@ a:hover {
 
 .botoes-home {
     color: white;
-    margin-top: 100px;
-    margin-bottom: 45px;
     padding: 0px 334px 0px 0px;
 }
 

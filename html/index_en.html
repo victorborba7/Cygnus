@@ -65,11 +65,11 @@
             <h3 id="description_en"></h3>
 
             <div class="row botoes-home">
-                <div class="btn-homefaleconoscoA col-md-6 col-lg-6">
+                <div class="btn-homefaleconoscoA col-md-6 col-lg-4">
                     <a href="#form-contato" class="btn-homefaleconosco">Contact us</a>
                 </div>
 
-                <div class="btn-saibamaisA col-md-6 col-lg-6">
+                <div class="btn-saibamaisA col-md-6 col-lg-4">
                     <a href="https://cygnusaircrafts.com" class="btn-saibamais">Learn more</a>
                 </div>
 
@@ -112,19 +112,19 @@
             <div class="row py-3">
                 <div class="col-4">
                     <div class="row informacao d-flex align-items-center justify-content-around flex-column">
-                        <h5 class="col-12">Motorization</h5>
+                        <h5 class="col-12">Engine</h5>
                         <p class="col-12" id="engine"></p>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">Maximum take-off weight</h5>
+                        <h5 class="col-12">Maximum take-off weight (MTOW)</h5>
                         <p class="col-12" id="max_takeoff_weight"></p>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">Year of first production</h5>
+                        <h5 class="col-12">First production</h5>
                         <p class="col-12" id="first_year_production"></p>
                     </div>
                 </div>
@@ -132,19 +132,19 @@
             <div class="row py-3">
                 <div class="col-4">
                     <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">TBO (total engine hours)</h5>
+                        <h5 class="col-12">TBO (Time between overhaul) </h5>
                         <p class="col-12" id="tbo"></p>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">Maximum number of occupants</h5>
+                        <h5 class="col-12">Seats max</h5>
                         <p class="col-12" id="max_capacity"></p>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">Maximum cruising speed *</h5>
+                        <h5 class="col-12">Normal cruise speed (TAS)</h5>
                         <p class="col-12" id="max_cruise_speed"></p>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
             <div class="row py-3">
                 <div class="col-4">
                     <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">Maximum range</h5>
+                        <h5 class="col-12">Range</h5>
                         <p class="col-12" id="max_range"></p>
                     </div>
                 </div>
@@ -163,10 +163,10 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">Wingspan (wing tip to wing)</h5>
-                        <p class="col-12" id="wingspan"></p>
-                    </div>
+                  <div class="informacao d-flex align-items-center justify-content-around row">
+                      <h5 class="col-12">Take-off distance (Sea Level, ISA)</h5>
+                      <p class="col-12" id="min_takeoff_distance"></p>
+                  </div>
                 </div>
             </div>
             <div class="row py-3 mb-3">
@@ -183,10 +183,11 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <div class="informacao d-flex align-items-center justify-content-around row">
-                        <h5 class="col-12">Minimum take-off distance</h5>
-                        <p class="col-12" id="min_takeoff_distance"></p>
-                    </div>
+                  <div class="informacao d-flex align-items-center justify-content-around row">
+                      <h5 class="col-12">Wing Span</h5>
+                      <p class="col-12" id="wingspan"></p>
+                  </div>
+
                 </div>
             </div>
         </div>
@@ -197,7 +198,7 @@
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
                 <div class="fadetitulo col-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1 class="text-center">Intern pictures gallery:</h1>
+                    <h1 class="text-center">Internal pictures gallery:</h1>
                 </div>
             </div>
         </div>
@@ -211,7 +212,7 @@
         <div class="col-12">
             <div class="row">
                 <div class="fadetitulo-inverse col-12 col-sm-12 col-md-12 col-lg-12">
-                    <h1>Sitting map:</h1>
+                    <h1>Seat map:</h1>
                 </div>
             </div>
         </div>
@@ -223,7 +224,7 @@
 
         <div id="range-planes" class="col-12 col-sm-12 col-md-5 col-lg-5">
             <div class="col-md-12 text-center">
-                <h2>Compare range:</h2>
+                <h2>Range Comparison:</h2>
             </div>
             <div class="col-md-10 comparacao">
                 <div id="map" class="col-10 col-md-12"></div>
@@ -233,242 +234,262 @@
                     </select>
                     <label for="planes1">Choose a plane:</label>
                     <select class="col-10 col-md-12" name="planes1" id="planes1">
-                        <option value="0" selected>Planes...</option>
+                        <option value="0" selected>Planes 1</option>
                         <optgroup label="KING AIR">
-                            <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
-                            <option value="2" data-data='{"radius": "1682"}'>Beech King Air 260</option>
-                            <option value="3" data-data='{"radius": "1447"}'>Beech King Air 300</option>
-                            <option value="4" data-data='{"radius": "1408"}'>Beech King Air 350</option>
-                            <option value="5" data-data='{"radius": "1766"}'>Beech King Air 350i</option>
-                            <option value="6" data-data='{"radius": "899"}'>Beech King Air B200</option>
-                            <option value="7" data-data='{"radius": "939"}'>Beech King Air B200GT</option>
-                            <option value="8" data-data='{"radius": "821"}'>Beech King Air C90</option>
-                            <option value="9" data-data='{"radius": "626"}'>Beech King Air C90-B</option>
-                            <option value="10" data-data='{"radius": "722"}'>Beech King Air C90-GT</option>
-                            <option value="11" data-data='{"radius": "831"}'>Beech King Air C90-GTi</option>
-                            <option value="12" data-data='{"radius": "883"}'>Beech King Air C90-GTx</option>
+                            <option value="1" data-data='{"radius": "1403"}'>Beech-King-Air-250</option>
+                            <option value="2" data-data='{"radius": "1403"}'>Beech King Air 260</option>
+                            <option value="3" data-data='{"radius": "1795"}'>Beech King Air 300</option>
+                            <option value="4" data-data='{"radius": "1550"}'>Beech King Air 350</option>
+                            <option value="5" data-data='{"radius": "1550"}'>Beech King Air 350i</option>
+                            <option value="6" data-data='{"radius": "1763"}'>Beech King Air B200</option>
+                            <option value="7" data-data='{"radius": "1650"}'>Beech King Air B200GT</option>
+                            <option value="8" data-data='{"radius": "1120"}'>Beech King Air C90A</option>
+                            <option value="9" data-data='{"radius": "1049"}'>Beech King Air C90-B</option>
+                            <option value="10" data-data='{"radius": "1068"}'>Beech King Air C90-GT</option>
+                            <option value="11" data-data='{"radius": "1321"}'>Beech King Air C90-GTi</option>
+                            <option value="12" data-data='{"radius": "1026"}'>Beech King Air C90-GTx</option>
                         </optgroup>
                         <optgroup label="Bombardier">
-                            <option value="13" data-data='{"radius": "1048"}'>Beech Premier </option>
-                            <option value="14" data-data='{"radius": "1049"}'>Beech Premier IA</option>
-                            <option value="15" data-data='{"radius": "3149"}'>Bombardier CL 300</option>
-                            <option value="16" data-data='{"radius": "3227"}'>Bombardier CL 350</option>
-                            <option value="17" data-data='{"radius": "3130"}'>Bombardier CL 601</option>
-                            <option value="18" data-data='{"radius": "3032"}'>Bombardier CL 601-3A</option>
-                            <option value="19" data-data='{"radius": "3306"}'>Bombardier CL 601-3R</option>
-                            <option value="20" data-data='{"radius": "3669"}'>Bombardier CL 604</option>
-                            <option value="21" data-data='{"radius": "3667"}'>Bombardier CL 605</option>
-                            <option value="22" data-data='{"radius": "3668"}'>Bombardier CL 650</option>
-                            <option value="23" data-data='{"radius": "2490"}'>Bombardier CL 850</option>
-                            <option value="24" data-data='{"radius": "5086"}'>Bombardier Global 5000</option>
-                            <option value="25" data-data='{"radius": "5771"}'>Bombardier Global 5500</option>
-                            <option value="26" data-data='{"radius": "5869"}'>Bombardier Global 6000</option>
-                            <option value="27" data-data='{"radius": "6455"}'>Bombardier Global 6500</option>
-                            <option value="28" data-data='{"radius": "7531"}'>Bombardier Global 7500</option>
-                            <option value="29" data-data='{"radius": "5810"}'>Bombardier Global Express</option>
-                            <option value="30" data-data='{"radius": "5917"}'>Bombardier Global Express XRS</option>
+                            <option value="13" data-data='{"radius": "1340"}'>Beech Premier I</option>
+                            <option value="14" data-data='{"radius": "1340"}'>Beech Premier IA</option>
+                            <option value="15" data-data='{"radius": "3340"}'>Bombardier CL 300</option>
+                            <option value="16" data-data='{"radius": "3269"}'>Bombardier CL 350</option>
+                            <option value="17" data-data='{"radius": "3450"}'>Bombardier CL 601-1A</option>
+                            <option value="18" data-data='{"radius": "3000"}'>Bombardier CL 601-3A</option>
+                            <option value="19" data-data='{"radius": "3580"}'>Bombardier CL 601-3R</option>
+                            <option value="20" data-data='{"radius": "4119"}'>Bombardier CL 604</option>
+                            <option value="21" data-data='{"radius": "4123"}'>Bombardier CL 605</option>
+                            <option value="22" data-data='{"radius": "4044"}'>Bombardier CL 650</option>
+                            <option value="23" data-data='{"radius": "3096"}'>Bombardier CL 850</option>
+                            <option value="24" data-data='{"radius": "5350"}'>Bombardier Global 5000</option>
+                            <option value="25" data-data='{"radius": "6310"}'>Bombardier Global 5500</option>
+                            <option value="26" data-data='{"radius": "5560"}'>Bombardier Global 6000</option>
+                            <option value="27" data-data='{"radius": "6990"}'>Bombardier Global 6500</option>
+                            <option value="28" data-data='{"radius": "7800"}'>Bombardier Global 7500</option>
+                            <option value="28" data-data='{"radius": "7900"}'>Bombardier Global 8000</option>
+                            <option value="29" data-data='{"radius": "6125"}'>Bombardier Global Express</option>
+                            <option value="30" data-data='{"radius": "6226"}'>Bombardier Global Express XRS</option>
                         </optgroup>
                         <optgroup label="Citation">
-                            <option value="31" data-data='{"radius": "1574"}'>Citation Bravo </option>
-                            <option value="32" data-data='{"radius": "1038"}'>Citation M2</option>
-                            <option value="33" data-data='{"radius": "3071"}'>Citation X</option>
-                            <option value="34" data-data='{"radius": "3158"}'>Citation X+</option>
+                            <option value="31" data-data='{"radius": "1740"}'>Citation Bravo </option>
+                            <option value="32" data-data='{"radius": "1195"}'>Citation M2</option>
+                            <option value="32" data-data='{"radius": "1550"}'>Citation M2 GEN2</option>
+                            <option value="33" data-data='{"radius": "3125"}'>Citation X</option>
+                            <option value="34" data-data='{"radius": "3380"}'>Citation X+</option>
                             <option value="35" data-data='{"radius": "846"}'>Citation Jet</option>
-                            <option value="36" data-data='{"radius": "867"}'>CJ1</option>
-                            <option value="37" data-data='{"radius": "999"}'>CJ1+</option>
-                            <option value="38" data-data='{"radius": "1301"}'>CJ2</option>
-                            <option value="39" data-data='{"radius": "1420"}'>CJ2+</option>
-                            <option value="40" data-data='{"radius": "1709"}'>CJ3</option>
-                            <option value="41" data-data='{"radius": "1996"}'>CJ3+</option>
-                            <option value="42" data-data='{"radius": "1977"}'>CJ4</option>
-                            <option value="43" data-data='{"radius": "1658"}'>Citation Encore</option>
-                            <option value="44" data-data='{"radius": "1674"}'>Citation Encore+</option>
-                            <option value="45" data-data='{"radius": "1747"}'>Citation Excel</option>
-                            <option value="46" data-data='{"radius": "2726"}'>Citation Latitude</option>
-                            <option value="47" data-data='{"radius": "3423"}'>Citation Longitude</option>
-                            <option value="48" data-data='{"radius": "782"}'>Citation Mustang</option>
-                            <option value="49" data-data='{"radius": "2856"}'>Citation Sovereign-</option>
-                            <option value="50" data-data='{"radius": "3027"}'>Citation Sovereign+</option>
-                            <option value="51" data-data='{"radius": "1532"}'>Citation Ultra</option>
-                            <option value="52" data-data='{"radius": "1731"}'>Citation XLS</option>
-                            <option value="53" data-data='{"radius": "1854"}'>Citation XLS+</option>
+                            <option value="36" data-data='{"radius": "1161"}'>CJ1</option>
+                            <option value="37" data-data='{"radius": "1245"}'>CJ1+</option>
+                            <option value="38" data-data='{"radius": "1512"}'>CJ2</option>
+                            <option value="39" data-data='{"radius": "1613"}'>CJ2+</option>
+                            <option value="40" data-data='{"radius": "1875"}'>CJ3</option>
+                            <option value="41" data-data='{"radius": "1918"}'>CJ3+</option>
+                            <option value="42" data-data='{"radius": "1949"}'>CJ4</option>
+                            <option value="42" data-data='{"radius": "2109"}'>CJ4 GEN2</option>
+                            <option value="43" data-data='{"radius": "1667"}'>Citation Encore</option>
+                            <option value="44" data-data='{"radius": "1792"}'>Citation Encore+</option>
+                            <option value="45" data-data='{"radius": "1839"}'>Citation Excel</option>
+                            <option value="46" data-data='{"radius": "2700"}'>Citation Latitude</option>
+                            <option value="47" data-data='{"radius": "3500"}'>Citation Longitude</option>
+                            <option value="48" data-data='{"radius": "991"}'>Citation Mustang</option>
+                            <option value="49" data-data='{"radius": "3010"}'>Citation Sovereign-</option>
+                            <option value="50" data-data='{"radius": "3163"}'>Citation Sovereign+</option>
+                            <option value="51" data-data='{"radius": "1524"}'>Citation Ultra</option>
+                            <option value="52" data-data='{"radius": "1989"}'>Citation XLS</option>
+                            <option value="53" data-data='{"radius": "2018"}'>Citation XLS+</option>
                         </optgroup>
                         <optgroup label="Dassault Falcon">
-                            <option value="54" data-data='{"radius": "2778"}'>Dassault Falcon 2000</option>
-                            <option value="55" data-data='{"radius": "3796"}'>Dassault Falcon 2000EX</option>
-                            <option value="56" data-data='{"radius": "3795"}'>Dassault Falcon 2000EX EASy</option>
-                            <option value="57" data-data='{"radius": "3805"}'>Dassault Falcon 2000LX</option>
-                            <option value="58" data-data='{"radius": "3957"}'>Dassault Falcon 2000LXS</option>
-                            <option value="59" data-data='{"radius": "3452"}'>Dassault Falcon 2000S</option>
-                            <option value="60" data-data='{"radius": "3061"}'>Dassault Falcon 50</option>
-                            <option value="61" data-data='{"radius": "3159"}'>Dassault Falcon 50EX</option>
-                            <option value="62" data-data='{"radius": "5379"}'>Dassault Falcon 6X</option>
-                            <option value="63" data-data='{"radius": "5820"}'>Dassault Falcon 7X</option>
-                            <option value="64" data-data='{"radius": "6309"}'>Dassault Falcon 8X</option>
-                            <option value="65" data-data='{"radius": "3912"}'>Dassault Falcon 900B</option>
-                            <option value="66" data-data='{"radius": "3913"}'>Dassault Falcon 900C</option>
-                            <option value="67" data-data='{"radius": "3912"}'>Dassault Falcon 900DX</option>
-                            <option value="68" data-data='{"radius": "4401"}'>Dassault Falcon 900EX</option>
-                            <option value="69" data-data='{"radius": "4403"}'>Dassault Falcon 900EX EASy</option>
-                            <option value="70" data-data='{"radius": "4402"}'>Dassault Falcon 900LX</option>
+                            <option value="54" data-data='{"radius": "3130"}'>Dassault Falcon 2000</option>
+                            <option value="55" data-data='{"radius": "4045"}'>Dassault Falcon 2000EX</option>
+                            <option value="56" data-data='{"radius": "4045"}'>Dassault Falcon 2000EX EASy</option>
+                            <option value="57" data-data='{"radius": "4185"}'>Dassault Falcon 2000LX</option>
+                            <option value="58" data-data='{"radius": "4100"}'>Dassault Falcon 2000LXS</option>
+                            <option value="59" data-data='{"radius": "3638"}'>Dassault Falcon 2000S</option>
+                            <option value="60" data-data='{"radius": "3200"}'>Dassault Falcon 50</option>
+                            <option value="61" data-data='{"radius": "3388"}'>Dassault Falcon 50EX</option>
+                            <option value="62" data-data='{"radius": "5535"}'>Dassault Falcon 6X</option>
+                            <option value="63" data-data='{"radius": "5795"}'>Dassault Falcon 7X</option>
+                            <option value="64" data-data='{"radius": "6450"}'>Dassault Falcon 8X</option>
+                            <option value="65" data-data='{"radius": "4080"}'>Dassault Falcon 900B</option>
+                            <option value="66" data-data='{"radius": "4080"}'>Dassault Falcon 900C</option>
+                            <option value="67" data-data='{"radius": "4290"}'>Dassault Falcon 900DX</option>
+                            <option value="68" data-data='{"radius": "4725"}'>Dassault Falcon 900EX</option>
+                            <option value="69" data-data='{"radius": "4725"}'>Dassault Falcon 900EX EASy</option>
+                            <option value="70" data-data='{"radius": "4685"}'>Dassault Falcon 900LX</option>
                         </optgroup>
                         <optgroup label="Embraer">
-                            <option value="71" data-data='{"radius": "2840"}'>Embraer Legacy 450</option>
-                            <option value="72" data-data='{"radius": "3056"}'>Embraer Legacy 500</option>
-                            <option value="73" data-data='{"radius": "3354"}'>Embraer Legacy 600</option>
-                            <option value="74" data-data='{"radius": "3814"}'>Embraer Legacy 650</option>
-                            <option value="75" data-data='{"radius": "895"}'>Embraer Phenom 100</option>
-                            <option value="76" data-data='{"radius": "1927"}'>Embraer Phenom 300</option>
-                            <option value="77" data-data='{"radius": "3057"}'>Embraer Praetor 500</option>
-                            <option value="78" data-data='{"radius": "3930"}'>Embraer Praetor 600</option>
+                            <option value="71" data-data='{"radius": "2919"}'>Embraer Legacy 450</option>
+                            <option value="72" data-data='{"radius": "3167"}'>Embraer Legacy 500</option>
+                            <option value="73" data-data='{"radius": "3485"}'>Embraer Legacy 600</option>
+                            <option value="74" data-data='{"radius": "4123"}'>Embraer Legacy 650</option>
+                            <option value="74" data-data='{"radius": "3953"}'>Embraer Legacy 650E</option>
+                            <option value="74" data-data='{"radius": "3965"}'>Embraer Lineage 1000/1000E</option>
+                            <option value="75" data-data='{"radius": "1071"}'>Embraer Phenom 100</option>
+                            <option value="75" data-data='{"radius": "1178"}'>Embraer Phenom 100E</option>
+                            <option value="75" data-data='{"radius": "1113"}'>Embraer Phenom 100EV</option>
+                            <option value="76" data-data='{"radius": "2019"}'>Embraer Phenom 300</option>
+                            <option value="76" data-data='{"radius": "2033"}'>Embraer Phenom 300E</option>
+                            <option value="77" data-data='{"radius": "3412"}'>Embraer Praetor 500</option>
+                            <option value="78" data-data='{"radius": "4040"}'>Embraer Praetor 600</option>
                         </optgroup>
                         <optgroup label="Gulfstream">
-                            <option value="79" data-data='{"radius": "332"}'>Gulfstream G280</option>
-                            <option value="80" data-data='{"radius": "3408"}'>Gulfstream G300</option>
-                            <option value="81" data-data='{"radius": "3761"}'>Gulfstream G350</option>
-                            <option value="82" data-data='{"radius": "3795"}'>Gulfstream G400</option>
-                            <option value="83" data-data='{"radius": "4255"}'>Gulfstream G450</option>
-                            <option value="84" data-data='{"radius": "5086"}'>Gulfstream G500</option>
-                            <option value="85" data-data='{"radius": "4890"}'>Gulfstream G500 (Heritage)</option>
-                            <option value="86" data-data='{"radius": "6602"}'>Gulfstream G550</option>
-                            <option value="87" data-data='{"radius": "6064"}'>Gulfstream G600</option>
-                            <option value="88" data-data='{"radius": "6847"}'>Gulfstream G650</option>
-                            <option value="89" data-data='{"radius": "7336"}'>Gulfstream G650ER</option>
-                            <option value="90" data-data='{"radius": "7336"}'>Gulfstream G700</option>
-                            <option value="91" data-data='{"radius": "3717"}'>Gulfstream GIV</option>
-                            <option value="92" data-data='{"radius": "3797"}'>Gulfstream GIVSP</option>
-                            <option value="93" data-data='{"radius": "6603"}'>Gulfstream GV</option>
+                            <option value="91" data-data='{"radius": "4200"}'>Gulfstream GIV</option>
+                            <option value="92" data-data='{"radius": "4166"}'>Gulfstream GIVSP</option>
+                            <option value="93" data-data='{"radius": "6675"}'>Gulfstream GV</option>
+                            <option value="79" data-data='{"radius": "3700"}'>Gulfstream G280</option>
+                            <option value="80" data-data='{"radius": "3820"}'>Gulfstream G300</option>
+                            <option value="81" data-data='{"radius": "3900"}'>Gulfstream G350</option>
+                            <option value="82" data-data='{"radius": "4166"}'>Gulfstream G400</option>
+                            <option value="83" data-data='{"radius": "4425"}'>Gulfstream G450</option>
+                            <option value="84" data-data='{"radius": "5400"}'>Gulfstream G500</option>
+                            <option value="86" data-data='{"radius": "6954"}'>Gulfstream G550</option>
+                            <option value="87" data-data='{"radius": "6630"}'>Gulfstream G600</option>
+                            <option value="88" data-data='{"radius": "6890"}'>Gulfstream G650</option>
+                            <option value="89" data-data='{"radius": "7437"}'>Gulfstream G650ER</option>
+                            <option value="90" data-data='{"radius": "7500"}'>Gulfstream G700</option>
+                            <option value="90" data-data='{"radius": "8025"}'>Gulfstream G800</option>
+
                         </optgroup>
                         <optgroup label="Pilatus">
-                            <option value="94" data-data='{"radius": "1310"}'>Pilatus PC-12</option>
-                            <option value="95" data-data='{"radius": "1281"}'>Pilatus PC-12 NG</option>
-                            <option value="96" data-data='{"radius": "1741"}'>Pilatus PC-24</option>
+                            <option value="95" data-data='{"radius": "1845"}'>Pilatus PC-12 NG</option>
+                            <option value="96" data-data='{"radius": "1866"}'>Pilatus PC-12 NGX</option>
+                            <option value="96" data-data='{"radius": "2000"}'>Pilatus PC-24</option>
                         </optgroup>
                         <optgroup label="Piper">
-                            <option value="97" data-data='{"radius": "598"}'>Piper JetProp</option>
-                            <option value="98" data-data='{"radius": "479"}'>Piper Meridian</option>
-                            <option value="99" data-data='{"radius": "479"}'>Piper M-500</option>
-                            <option value="100" data-data='{"radius": "709"}'>Piper M-600</option>
+                            <option value="97" data-data='{"radius": "1100"}'>Piper JetProp</option>
+                            <option value="98" data-data='{"radius": "1091"}'>Piper Meridian</option>
+                            <option value="99" data-data='{"radius": "1326"}'>Piper M-500</option>
+                            <option value="100" data-data='{"radius": "1406"}'>Piper M-600</option>
+                            <option value="100" data-data='{"radius": "1658"}'>Piper M-600 SLS</option>
                         </optgroup>
                     </select>
                     <label for="planes2">Choose a plane:</label>
                     <select class="col-10 col-md-12" name="planes2" id="planes2">
-                        <option value="0" selected>Planes...</option>
+                        <option value="0" selected>Planes 2</option>
                         <optgroup label="KING AIR">
-                            <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
-                            <option value="2" data-data='{"radius": "1682"}'>Beech King Air 260</option>
-                            <option value="3" data-data='{"radius": "1447"}'>Beech King Air 300</option>
-                            <option value="4" data-data='{"radius": "1408"}'>Beech King Air 350</option>
-                            <option value="5" data-data='{"radius": "1766"}'>Beech King Air 350i</option>
-                            <option value="6" data-data='{"radius": "899"}'>Beech King Air B200</option>
-                            <option value="7" data-data='{"radius": "939"}'>Beech King Air B200GT</option>
-                            <option value="8" data-data='{"radius": "821"}'>Beech King Air C90</option>
-                            <option value="9" data-data='{"radius": "626"}'>Beech King Air C90-B</option>
-                            <option value="10" data-data='{"radius": "722"}'>Beech King Air C90-GT</option>
-                            <option value="11" data-data='{"radius": "831"}'>Beech King Air C90-GTi</option>
-                            <option value="12" data-data='{"radius": "883"}'>Beech King Air C90-GTx</option>
+                            <option value="1" data-data='{"radius": "1403"}'>Beech-King-Air-250</option>
+                            <option value="2" data-data='{"radius": "1403"}'>Beech King Air 260</option>
+                            <option value="3" data-data='{"radius": "1795"}'>Beech King Air 300</option>
+                            <option value="4" data-data='{"radius": "1550"}'>Beech King Air 350</option>
+                            <option value="5" data-data='{"radius": "1550"}'>Beech King Air 350i</option>
+                            <option value="6" data-data='{"radius": "1763"}'>Beech King Air B200</option>
+                            <option value="7" data-data='{"radius": "1650"}'>Beech King Air B200GT</option>
+                            <option value="8" data-data='{"radius": "1120"}'>Beech King Air C90A</option>
+                            <option value="9" data-data='{"radius": "1049"}'>Beech King Air C90-B</option>
+                            <option value="10" data-data='{"radius": "1068"}'>Beech King Air C90-GT</option>
+                            <option value="11" data-data='{"radius": "1321"}'>Beech King Air C90-GTi</option>
+                            <option value="12" data-data='{"radius": "1026"}'>Beech King Air C90-GTx</option>
                         </optgroup>
                         <optgroup label="Bombardier">
-                            <option value="13" data-data='{"radius": "1048"}'>Beech Premier </option>
-                            <option value="14" data-data='{"radius": "1049"}'>Beech Premier IA</option>
-                            <option value="15" data-data='{"radius": "3149"}'>Bombardier CL 300</option>
-                            <option value="16" data-data='{"radius": "3227"}'>Bombardier CL 350</option>
-                            <option value="17" data-data='{"radius": "3130"}'>Bombardier CL 601</option>
-                            <option value="18" data-data='{"radius": "3032"}'>Bombardier CL 601-3A</option>
-                            <option value="19" data-data='{"radius": "3306"}'>Bombardier CL 601-3R</option>
-                            <option value="20" data-data='{"radius": "3669"}'>Bombardier CL 604</option>
-                            <option value="21" data-data='{"radius": "3667"}'>Bombardier CL 605</option>
-                            <option value="22" data-data='{"radius": "3668"}'>Bombardier CL 650</option>
-                            <option value="23" data-data='{"radius": "2490"}'>Bombardier CL 850</option>
-                            <option value="24" data-data='{"radius": "5086"}'>Bombardier Global 5000</option>
-                            <option value="25" data-data='{"radius": "5771"}'>Bombardier Global 5500</option>
-                            <option value="26" data-data='{"radius": "5869"}'>Bombardier Global 6000</option>
-                            <option value="27" data-data='{"radius": "6455"}'>Bombardier Global 6500</option>
-                            <option value="28" data-data='{"radius": "7531"}'>Bombardier Global 7500</option>
-                            <option value="29" data-data='{"radius": "5810"}'>Bombardier Global Express</option>
-                            <option value="30" data-data='{"radius": "5917"}'>Bombardier Global Express XRS</option>
+                            <option value="13" data-data='{"radius": "1340"}'>Beech Premier I</option>
+                            <option value="14" data-data='{"radius": "1340"}'>Beech Premier IA</option>
+                            <option value="15" data-data='{"radius": "3340"}'>Bombardier CL 300</option>
+                            <option value="16" data-data='{"radius": "3269"}'>Bombardier CL 350</option>
+                            <option value="17" data-data='{"radius": "3450"}'>Bombardier CL 601-1A</option>
+                            <option value="18" data-data='{"radius": "3000"}'>Bombardier CL 601-3A</option>
+                            <option value="19" data-data='{"radius": "3580"}'>Bombardier CL 601-3R</option>
+                            <option value="20" data-data='{"radius": "4119"}'>Bombardier CL 604</option>
+                            <option value="21" data-data='{"radius": "4123"}'>Bombardier CL 605</option>
+                            <option value="22" data-data='{"radius": "4044"}'>Bombardier CL 650</option>
+                            <option value="23" data-data='{"radius": "3096"}'>Bombardier CL 850</option>
+                            <option value="24" data-data='{"radius": "5350"}'>Bombardier Global 5000</option>
+                            <option value="25" data-data='{"radius": "6310"}'>Bombardier Global 5500</option>
+                            <option value="26" data-data='{"radius": "5560"}'>Bombardier Global 6000</option>
+                            <option value="27" data-data='{"radius": "6990"}'>Bombardier Global 6500</option>
+                            <option value="28" data-data='{"radius": "7800"}'>Bombardier Global 7500</option>
+                            <option value="28" data-data='{"radius": "7900"}'>Bombardier Global 8000</option>
+                            <option value="29" data-data='{"radius": "6125"}'>Bombardier Global Express</option>
+                            <option value="30" data-data='{"radius": "6226"}'>Bombardier Global Express XRS</option>
                         </optgroup>
                         <optgroup label="Citation">
-                            <option value="31" data-data='{"radius": "1574"}'>Citation Bravo </option>
-                            <option value="32" data-data='{"radius": "1038"}'>Citation M2</option>
-                            <option value="33" data-data='{"radius": "3071"}'>Citation X</option>
-                            <option value="34" data-data='{"radius": "3158"}'>Citation X+</option>
+                            <option value="31" data-data='{"radius": "1740"}'>Citation Bravo </option>
+                            <option value="32" data-data='{"radius": "1195"}'>Citation M2</option>
+                            <option value="32" data-data='{"radius": "1550"}'>Citation M2 GEN2</option>
+                            <option value="33" data-data='{"radius": "3125"}'>Citation X</option>
+                            <option value="34" data-data='{"radius": "3380"}'>Citation X+</option>
                             <option value="35" data-data='{"radius": "846"}'>Citation Jet</option>
-                            <option value="36" data-data='{"radius": "867"}'>CJ1</option>
-                            <option value="37" data-data='{"radius": "999"}'>CJ1+</option>
-                            <option value="38" data-data='{"radius": "1301"}'>CJ2</option>
-                            <option value="39" data-data='{"radius": "1420"}'>CJ2+</option>
-                            <option value="40" data-data='{"radius": "1709"}'>CJ3</option>
-                            <option value="41" data-data='{"radius": "1996"}'>CJ3+</option>
-                            <option value="42" data-data='{"radius": "1977"}'>CJ4</option>
-                            <option value="43" data-data='{"radius": "1658"}'>Citation Encore</option>
-                            <option value="44" data-data='{"radius": "1674"}'>Citation Encore+</option>
-                            <option value="45" data-data='{"radius": "1747"}'>Citation Excel</option>
-                            <option value="46" data-data='{"radius": "2726"}'>Citation Latitude</option>
-                            <option value="47" data-data='{"radius": "3423"}'>Citation Longitude</option>
-                            <option value="48" data-data='{"radius": "782"}'>Citation Mustang</option>
-                            <option value="49" data-data='{"radius": "2856"}'>Citation Sovereign-</option>
-                            <option value="50" data-data='{"radius": "3027"}'>Citation Sovereign+</option>
-                            <option value="51" data-data='{"radius": "1532"}'>Citation Ultra</option>
-                            <option value="52" data-data='{"radius": "1731"}'>Citation XLS</option>
-                            <option value="53" data-data='{"radius": "1854"}'>Citation XLS+</option>
+                            <option value="36" data-data='{"radius": "1161"}'>CJ1</option>
+                            <option value="37" data-data='{"radius": "1245"}'>CJ1+</option>
+                            <option value="38" data-data='{"radius": "1512"}'>CJ2</option>
+                            <option value="39" data-data='{"radius": "1613"}'>CJ2+</option>
+                            <option value="40" data-data='{"radius": "1875"}'>CJ3</option>
+                            <option value="41" data-data='{"radius": "1918"}'>CJ3+</option>
+                            <option value="42" data-data='{"radius": "1949"}'>CJ4</option>
+                            <option value="42" data-data='{"radius": "2109"}'>CJ4 GEN2</option>
+                            <option value="43" data-data='{"radius": "1667"}'>Citation Encore</option>
+                            <option value="44" data-data='{"radius": "1792"}'>Citation Encore+</option>
+                            <option value="45" data-data='{"radius": "1839"}'>Citation Excel</option>
+                            <option value="46" data-data='{"radius": "2700"}'>Citation Latitude</option>
+                            <option value="47" data-data='{"radius": "3500"}'>Citation Longitude</option>
+                            <option value="48" data-data='{"radius": "991"}'>Citation Mustang</option>
+                            <option value="49" data-data='{"radius": "3010"}'>Citation Sovereign-</option>
+                            <option value="50" data-data='{"radius": "3163"}'>Citation Sovereign+</option>
+                            <option value="51" data-data='{"radius": "1524"}'>Citation Ultra</option>
+                            <option value="52" data-data='{"radius": "1989"}'>Citation XLS</option>
+                            <option value="53" data-data='{"radius": "2018"}'>Citation XLS+</option>
                         </optgroup>
                         <optgroup label="Dassault Falcon">
-                            <option value="54" data-data='{"radius": "2778"}'>Dassault Falcon 2000</option>
-                            <option value="55" data-data='{"radius": "3796"}'>Dassault Falcon 2000EX</option>
-                            <option value="56" data-data='{"radius": "3795"}'>Dassault Falcon 2000EX EASy</option>
-                            <option value="57" data-data='{"radius": "3805"}'>Dassault Falcon 2000LX</option>
-                            <option value="58" data-data='{"radius": "3957"}'>Dassault Falcon 2000LXS</option>
-                            <option value="59" data-data='{"radius": "3452"}'>Dassault Falcon 2000S</option>
-                            <option value="60" data-data='{"radius": "3061"}'>Dassault Falcon 50</option>
-                            <option value="61" data-data='{"radius": "3159"}'>Dassault Falcon 50EX</option>
-                            <option value="62" data-data='{"radius": "5379"}'>Dassault Falcon 6X</option>
-                            <option value="63" data-data='{"radius": "5820"}'>Dassault Falcon 7X</option>
-                            <option value="64" data-data='{"radius": "6309"}'>Dassault Falcon 8X</option>
-                            <option value="65" data-data='{"radius": "3912"}'>Dassault Falcon 900B</option>
-                            <option value="66" data-data='{"radius": "3913"}'>Dassault Falcon 900C</option>
-                            <option value="67" data-data='{"radius": "3912"}'>Dassault Falcon 900DX</option>
-                            <option value="68" data-data='{"radius": "4401"}'>Dassault Falcon 900EX</option>
-                            <option value="69" data-data='{"radius": "4403"}'>Dassault Falcon 900EX EASy</option>
-                            <option value="70" data-data='{"radius": "4402"}'>Dassault Falcon 900LX</option>
+                            <option value="54" data-data='{"radius": "3130"}'>Dassault Falcon 2000</option>
+                            <option value="55" data-data='{"radius": "4045"}'>Dassault Falcon 2000EX</option>
+                            <option value="56" data-data='{"radius": "4045"}'>Dassault Falcon 2000EX EASy</option>
+                            <option value="57" data-data='{"radius": "4185"}'>Dassault Falcon 2000LX</option>
+                            <option value="58" data-data='{"radius": "4100"}'>Dassault Falcon 2000LXS</option>
+                            <option value="59" data-data='{"radius": "3638"}'>Dassault Falcon 2000S</option>
+                            <option value="60" data-data='{"radius": "3200"}'>Dassault Falcon 50</option>
+                            <option value="61" data-data='{"radius": "3388"}'>Dassault Falcon 50EX</option>
+                            <option value="62" data-data='{"radius": "5535"}'>Dassault Falcon 6X</option>
+                            <option value="63" data-data='{"radius": "5795"}'>Dassault Falcon 7X</option>
+                            <option value="64" data-data='{"radius": "6450"}'>Dassault Falcon 8X</option>
+                            <option value="65" data-data='{"radius": "4080"}'>Dassault Falcon 900B</option>
+                            <option value="66" data-data='{"radius": "4080"}'>Dassault Falcon 900C</option>
+                            <option value="67" data-data='{"radius": "4290"}'>Dassault Falcon 900DX</option>
+                            <option value="68" data-data='{"radius": "4725"}'>Dassault Falcon 900EX</option>
+                            <option value="69" data-data='{"radius": "4725"}'>Dassault Falcon 900EX EASy</option>
+                            <option value="70" data-data='{"radius": "4685"}'>Dassault Falcon 900LX</option>
                         </optgroup>
                         <optgroup label="Embraer">
-                            <option value="71" data-data='{"radius": "2840"}'>Embraer Legacy 450</option>
-                            <option value="72" data-data='{"radius": "3056"}'>Embraer Legacy 500</option>
-                            <option value="73" data-data='{"radius": "3354"}'>Embraer Legacy 600</option>
-                            <option value="74" data-data='{"radius": "3814"}'>Embraer Legacy 650</option>
-                            <option value="75" data-data='{"radius": "895"}'>Embraer Phenom 100</option>
-                            <option value="76" data-data='{"radius": "1927"}'>Embraer Phenom 300</option>
-                            <option value="77" data-data='{"radius": "3057"}'>Embraer Praetor 500</option>
-                            <option value="78" data-data='{"radius": "3930"}'>Embraer Praetor 600</option>
+                            <option value="71" data-data='{"radius": "2919"}'>Embraer Legacy 450</option>
+                            <option value="72" data-data='{"radius": "3167"}'>Embraer Legacy 500</option>
+                            <option value="73" data-data='{"radius": "3485"}'>Embraer Legacy 600</option>
+                            <option value="74" data-data='{"radius": "4123"}'>Embraer Legacy 650</option>
+                            <option value="74" data-data='{"radius": "3953"}'>Embraer Legacy 650E</option>
+                            <option value="74" data-data='{"radius": "3965"}'>Embraer Lineage 1000/1000E</option>
+                            <option value="75" data-data='{"radius": "1071"}'>Embraer Phenom 100</option>
+                            <option value="75" data-data='{"radius": "1178"}'>Embraer Phenom 100E</option>
+                            <option value="75" data-data='{"radius": "1113"}'>Embraer Phenom 100EV</option>
+                            <option value="76" data-data='{"radius": "2019"}'>Embraer Phenom 300</option>
+                            <option value="76" data-data='{"radius": "2033"}'>Embraer Phenom 300E</option>
+                            <option value="77" data-data='{"radius": "3412"}'>Embraer Praetor 500</option>
+                            <option value="78" data-data='{"radius": "4040"}'>Embraer Praetor 600</option>
                         </optgroup>
                         <optgroup label="Gulfstream">
-                            <option value="79" data-data='{"radius": "332"}'>Gulfstream G280</option>
-                            <option value="80" data-data='{"radius": "3408"}'>Gulfstream G300</option>
-                            <option value="81" data-data='{"radius": "3761"}'>Gulfstream G350</option>
-                            <option value="82" data-data='{"radius": "3795"}'>Gulfstream G400</option>
-                            <option value="83" data-data='{"radius": "4255"}'>Gulfstream G450</option>
-                            <option value="84" data-data='{"radius": "5086"}'>Gulfstream G500</option>
-                            <option value="85" data-data='{"radius": "4890"}'>Gulfstream G500 (Heritage)</option>
-                            <option value="86" data-data='{"radius": "6602"}'>Gulfstream G550</option>
-                            <option value="87" data-data='{"radius": "6064"}'>Gulfstream G600</option>
-                            <option value="88" data-data='{"radius": "6847"}'>Gulfstream G650</option>
-                            <option value="89" data-data='{"radius": "7336"}'>Gulfstream G650ER</option>
-                            <option value="90" data-data='{"radius": "7336"}'>Gulfstream G700</option>
-                            <option value="91" data-data='{"radius": "3717"}'>Gulfstream GIV</option>
-                            <option value="92" data-data='{"radius": "3797"}'>Gulfstream GIVSP</option>
-                            <option value="93" data-data='{"radius": "6603"}'>Gulfstream GV</option>
+                            <option value="91" data-data='{"radius": "4200"}'>Gulfstream GIV</option>
+                            <option value="92" data-data='{"radius": "4166"}'>Gulfstream GIVSP</option>
+                            <option value="93" data-data='{"radius": "6675"}'>Gulfstream GV</option>
+                            <option value="79" data-data='{"radius": "3700"}'>Gulfstream G280</option>
+                            <option value="80" data-data='{"radius": "3820"}'>Gulfstream G300</option>
+                            <option value="81" data-data='{"radius": "3900"}'>Gulfstream G350</option>
+                            <option value="82" data-data='{"radius": "4166"}'>Gulfstream G400</option>
+                            <option value="83" data-data='{"radius": "4425"}'>Gulfstream G450</option>
+                            <option value="84" data-data='{"radius": "5400"}'>Gulfstream G500</option>
+                            <option value="86" data-data='{"radius": "6954"}'>Gulfstream G550</option>
+                            <option value="87" data-data='{"radius": "6630"}'>Gulfstream G600</option>
+                            <option value="88" data-data='{"radius": "6890"}'>Gulfstream G650</option>
+                            <option value="89" data-data='{"radius": "7437"}'>Gulfstream G650ER</option>
+                            <option value="90" data-data='{"radius": "7500"}'>Gulfstream G700</option>
+                            <option value="90" data-data='{"radius": "8025"}'>Gulfstream G800</option>
+
                         </optgroup>
                         <optgroup label="Pilatus">
-                            <option value="94" data-data='{"radius": "1310"}'>Pilatus PC-12</option>
-                            <option value="95" data-data='{"radius": "1281"}'>Pilatus PC-12 NG</option>
-                            <option value="96" data-data='{"radius": "1741"}'>Pilatus PC-24</option>
+                            <option value="95" data-data='{"radius": "1845"}'>Pilatus PC-12 NG</option>
+                            <option value="96" data-data='{"radius": "1866"}'>Pilatus PC-12 NGX</option>
+                            <option value="96" data-data='{"radius": "2000"}'>Pilatus PC-24</option>
                         </optgroup>
                         <optgroup label="Piper">
-                            <option value="97" data-data='{"radius": "598"}'>Piper JetProp</option>
-                            <option value="98" data-data='{"radius": "479"}'>Piper Meridian</option>
-                            <option value="99" data-data='{"radius": "479"}'>Piper M-500</option>
-                            <option value="100" data-data='{"radius": "709"}'>Piper M-600</option>
+                            <option value="97" data-data='{"radius": "1100"}'>Piper JetProp</option>
+                            <option value="98" data-data='{"radius": "1091"}'>Piper Meridian</option>
+                            <option value="99" data-data='{"radius": "1326"}'>Piper M-500</option>
+                            <option value="100" data-data='{"radius": "1406"}'>Piper M-600</option>
+                            <option value="100" data-data='{"radius": "1658"}'>Piper M-600 SLS</option>
                         </optgroup>
                     </select>
                 </div>
@@ -497,10 +518,8 @@
                     <h1>Contact<div class="red-bt"></div>
                     </h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                        commodo consequat.
+                        We are here to help you find the aircraft that fits your needs.  Feel free to contact us!
+
                     </p>
                     <!-- <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467689.79713799525!2d-46.87548274582955!3d-23.68216040473634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1580310481715!5m2!1spt-BR!2sbr"
@@ -559,11 +578,11 @@
         <div class="row justify-content-center flex-column flex-sm-row footer">
             <div class="col-2">
                 <h3>Cygnus Aircrafts</h3>
-                <p>Revendedor de aeronaves</p>
-                <p>São Paulo - Brasil e Florida - USA</p>
+                <p>Aircraft brokerage and management</p>
+                <p>Florida, USA and Sao Paulo, Brazil</p>
             </div>
             <div class="col-2">
-                <h3>Contato</h3>
+                <h3>Contact</h3>
                 <a>
                     <p>sales@cygnusaircrafts.com</p>
                 </a>
@@ -575,12 +594,12 @@
                 </a>
             </div>
             <div class="col-2">
-                <h3>Horário de atendimento</h3>
-                <p>Segunda à sexta:</p>
-                <p>das 9h até as 17h</p>
+                <h3>Office hours</h3>
+                <p>Monday to Friday:</p>
+                <p>from 9am to 5pm</p>
             </div>
             <div class="col-2">
-                <h3>Redes sociais</h3>
+                <h3>Social media</h3>
                 <div class="row icons-rs-footer justify-content-start" style="width: 100%;">
                     <div>
                         <a href="https://www.facebook.com/cygnusaircrafts" target="_blank"><img
@@ -599,7 +618,7 @@
     <div class="row copyright-row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
-            <p>Made with ♥ by <a href="https://jabutidesign.com.br" target="_blank">Jabuti Design®</a>, 2020</p>
+            <p></p>
 
         </div>
     </div>

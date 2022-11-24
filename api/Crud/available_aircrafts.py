@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import aiofiles
 import shutil
+import logging
 
 def indexContainingSubstring(the_list, substring):
     for i, s in enumerate(the_list):
@@ -63,8 +64,9 @@ async def createAvailableAircraft(req, photos):
         dbConnection.execute(update)
         dbConnection.close()
         return True
-    except:
-        raise
+    except Exception as e:
+        logging.error(str(e))
+        return False
 
 def updateAvailableAircraft(req):
     try:

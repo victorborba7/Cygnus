@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cygnus</title>
+</head>
+
+<body>
+
+    <!-- HOME -->
+    <div class="row home-row">
+
+        <div class="home-esquerda col-12 col-sm-12 col-md-7 col-lg-7">
+
+            <div class="logo-jett-aviao">
+                <img src="/images/logo-white.svg">
+            </div>
+
+            <div class="avioes"></div>
+        </div>
+
+        <div class="fundo-branco-home"></div>
+
+        <div class="home-direita col-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="row pt-icones">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="PT-EN">
+                        <a id="portugues" class="idioma">PT</a>-<a id="english" class="idioma idioma-selected">EN</a>
+                    </div>
+                </div>
+
+                <div class=" col-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="icones-sociais">
+                        <img src="/images/insta-ico-black.svg">
+                        <img src="/images/facebook-icon-black.svg">
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-sm-start justify-content-center mt-5">
+                <h4>Select a model below:</h4>
+            </div>
+            <div class="row justify-content-sm-start justify-content-center">
+                <div class="col-10 col-md-6">
+                    <select id="aircrafts" style="width: 100%;"></select>
+                </div>
+            </div>
+
+            <img id="logo" />
+            <h2 id="model"></h2>
+            <h1 id="series"></h1>
+            <h3 id="description_pt" style="display: none;"></h3>
+            <h3 id="description_en"></h3>
+
+            <div class="row botoes-home">
+                <div class="btn-homefaleconoscoA col-md-6 col-lg-6">
+                    <a href="#form-contato" class="btn-homefaleconosco">Contact us</a>
+                </div>
+
+                <div class="btn-saibamaisA col-md-6 col-lg-6">
+                    <a href="https://cygnusaircrafts.com" class="btn-saibamais">Learn more</a>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <!--ICONES DE STATUS-->
+
+    <div class="row status-row">
+
+        <div class="container">
+
+            <div class="row icones-status">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1 id="model-row"></h1>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!--FOTO AVIÃO VOANDO FADE RED-->
+
+    <!-- <div class="row aviaonoar-row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 ">
+            <img src="/images/aviao-fade-vermelho.jpg" alt="Avião Voando entre as Nuvens">
+        </div>
+    </div> -->
+
+    <!--MOTOR HÉLICE E AVIÃO ESTACIONADO-->
+
+    <div class="row motor-helice-row justify-content-center">
+        <div class="col-10 p-5">
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="row informacao d-flex align-items-center justify-content-around flex-column">
+                        <h5 class="col-12">Motorization</h5>
+                        <p class="col-12" id="engine"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum take-off weight</h5>
+                        <p class="col-12" id="max_takeoff_weight"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Year of first production</h5>
+                        <p class="col-12" id="first_year_production"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">TBO (total engine hours)</h5>
+                        <p class="col-12" id="tbo"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum number of occupants</h5>
+                        <p class="col-12" id="max_capacity"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum cruising speed *</h5>
+                        <p class="col-12" id="max_cruise_speed"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum range</h5>
+                        <p class="col-12" id="max_range"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Maximum operating altitude</h5>
+                        <p class="col-12" id="max_operating_altitude"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Wingspan (wing tip to wing)</h5>
+                        <p class="col-12" id="wingspan"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3 mb-3">
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Length</h5>
+                        <p class="col-12" id="length"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Max tail height</h5>
+                        <p class="col-12" id="max_tail_height"></p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="informacao d-flex align-items-center justify-content-around row">
+                        <h5 class="col-12">Minimum take-off distance</h5>
+                        <p class="col-12" id="min_takeoff_distance"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--3 FOTOS AVIÃO-->
+    <div class="intern-galley">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
+                <div class="fadetitulo col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1 class="text-center">Intern pictures gallery:</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row fotosdeaviao"></div>
+    </div>
+
+
+
+    <!--RAIO X E BAGAGEIRO + BOTAO FALE CONOSCO-->
+    <div class="row raiox-bagageiro">
+        <div class="col-12">
+            <div class="row">
+                <div class="fadetitulo-inverse col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1>Sitting map:</h1>
+                </div>
+            </div>
+        </div>
+        <div id="mapa-holder" class="col-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
+                <img class="aviaoraiox" id="mapa_assentos">
+            </div>
+        </div>
+
+        <div id="range-planes" class="col-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="col-md-12 text-center">
+                <h2>Compare range:</h2>
+            </div>
+            <div class="col-md-10 comparacao">
+                <div id="map" class="col-10 col-md-12"></div>
+                <div class="col-10 col-md-12 selects-planes mt-3">
+                    <label for="airports">Choose an airport:</label>
+                    <select id="airports" class="col-md-12">
+                    </select>
+                    <label for="planes1">Choose a plane:</label>
+                    <select class="col-10 col-md-12" name="planes1" id="planes1">
+                        <option value="0" selected>Planes...</option>
+                        <optgroup label="KING AIR">
+                            <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
+                            <option value="2" data-data='{"radius": "1682"}'>Beech King Air 260</option>
+                            <option value="3" data-data='{"radius": "1447"}'>Beech King Air 300</option>
+                            <option value="4" data-data='{"radius": "1408"}'>Beech King Air 350</option>
+                            <option value="5" data-data='{"radius": "1766"}'>Beech King Air 350i</option>
+                            <option value="6" data-data='{"radius": "899"}'>Beech King Air B200</option>
+                            <option value="7" data-data='{"radius": "939"}'>Beech King Air B200GT</option>
+                            <option value="8" data-data='{"radius": "821"}'>Beech King Air C90</option>
+                            <option value="9" data-data='{"radius": "626"}'>Beech King Air C90-B</option>
+                            <option value="10" data-data='{"radius": "722"}'>Beech King Air C90-GT</option>
+                            <option value="11" data-data='{"radius": "831"}'>Beech King Air C90-GTi</option>
+                            <option value="12" data-data='{"radius": "883"}'>Beech King Air C90-GTx</option>
+                        </optgroup>
+                        <optgroup label="Bombardier">
+                            <option value="13" data-data='{"radius": "1048"}'>Beech Premier </option>
+                            <option value="14" data-data='{"radius": "1049"}'>Beech Premier IA</option>
+                            <option value="15" data-data='{"radius": "3149"}'>Bombardier CL 300</option>
+                            <option value="16" data-data='{"radius": "3227"}'>Bombardier CL 350</option>
+                            <option value="17" data-data='{"radius": "3130"}'>Bombardier CL 601</option>
+                            <option value="18" data-data='{"radius": "3032"}'>Bombardier CL 601-3A</option>
+                            <option value="19" data-data='{"radius": "3306"}'>Bombardier CL 601-3R</option>
+                            <option value="20" data-data='{"radius": "3669"}'>Bombardier CL 604</option>
+                            <option value="21" data-data='{"radius": "3667"}'>Bombardier CL 605</option>
+                            <option value="22" data-data='{"radius": "3668"}'>Bombardier CL 650</option>
+                            <option value="23" data-data='{"radius": "2490"}'>Bombardier CL 850</option>
+                            <option value="24" data-data='{"radius": "5086"}'>Bombardier Global 5000</option>
+                            <option value="25" data-data='{"radius": "5771"}'>Bombardier Global 5500</option>
+                            <option value="26" data-data='{"radius": "5869"}'>Bombardier Global 6000</option>
+                            <option value="27" data-data='{"radius": "6455"}'>Bombardier Global 6500</option>
+                            <option value="28" data-data='{"radius": "7531"}'>Bombardier Global 7500</option>
+                            <option value="29" data-data='{"radius": "5810"}'>Bombardier Global Express</option>
+                            <option value="30" data-data='{"radius": "5917"}'>Bombardier Global Express XRS</option>
+                        </optgroup>
+                        <optgroup label="Citation">
+                            <option value="31" data-data='{"radius": "1574"}'>Citation Bravo </option>
+                            <option value="32" data-data='{"radius": "1038"}'>Citation M2</option>
+                            <option value="33" data-data='{"radius": "3071"}'>Citation X</option>
+                            <option value="34" data-data='{"radius": "3158"}'>Citation X+</option>
+                            <option value="35" data-data='{"radius": "846"}'>Citation Jet</option>
+                            <option value="36" data-data='{"radius": "867"}'>CJ1</option>
+                            <option value="37" data-data='{"radius": "999"}'>CJ1+</option>
+                            <option value="38" data-data='{"radius": "1301"}'>CJ2</option>
+                            <option value="39" data-data='{"radius": "1420"}'>CJ2+</option>
+                            <option value="40" data-data='{"radius": "1709"}'>CJ3</option>
+                            <option value="41" data-data='{"radius": "1996"}'>CJ3+</option>
+                            <option value="42" data-data='{"radius": "1977"}'>CJ4</option>
+                            <option value="43" data-data='{"radius": "1658"}'>Citation Encore</option>
+                            <option value="44" data-data='{"radius": "1674"}'>Citation Encore+</option>
+                            <option value="45" data-data='{"radius": "1747"}'>Citation Excel</option>
+                            <option value="46" data-data='{"radius": "2726"}'>Citation Latitude</option>
+                            <option value="47" data-data='{"radius": "3423"}'>Citation Longitude</option>
+                            <option value="48" data-data='{"radius": "782"}'>Citation Mustang</option>
+                            <option value="49" data-data='{"radius": "2856"}'>Citation Sovereign-</option>
+                            <option value="50" data-data='{"radius": "3027"}'>Citation Sovereign+</option>
+                            <option value="51" data-data='{"radius": "1532"}'>Citation Ultra</option>
+                            <option value="52" data-data='{"radius": "1731"}'>Citation XLS</option>
+                            <option value="53" data-data='{"radius": "1854"}'>Citation XLS+</option>
+                        </optgroup>
+                        <optgroup label="Dassault Falcon">
+                            <option value="54" data-data='{"radius": "2778"}'>Dassault Falcon 2000</option>
+                            <option value="55" data-data='{"radius": "3796"}'>Dassault Falcon 2000EX</option>
+                            <option value="56" data-data='{"radius": "3795"}'>Dassault Falcon 2000EX EASy</option>
+                            <option value="57" data-data='{"radius": "3805"}'>Dassault Falcon 2000LX</option>
+                            <option value="58" data-data='{"radius": "3957"}'>Dassault Falcon 2000LXS</option>
+                            <option value="59" data-data='{"radius": "3452"}'>Dassault Falcon 2000S</option>
+                            <option value="60" data-data='{"radius": "3061"}'>Dassault Falcon 50</option>
+                            <option value="61" data-data='{"radius": "3159"}'>Dassault Falcon 50EX</option>
+                            <option value="62" data-data='{"radius": "5379"}'>Dassault Falcon 6X</option>
+                            <option value="63" data-data='{"radius": "5820"}'>Dassault Falcon 7X</option>
+                            <option value="64" data-data='{"radius": "6309"}'>Dassault Falcon 8X</option>
+                            <option value="65" data-data='{"radius": "3912"}'>Dassault Falcon 900B</option>
+                            <option value="66" data-data='{"radius": "3913"}'>Dassault Falcon 900C</option>
+                            <option value="67" data-data='{"radius": "3912"}'>Dassault Falcon 900DX</option>
+                            <option value="68" data-data='{"radius": "4401"}'>Dassault Falcon 900EX</option>
+                            <option value="69" data-data='{"radius": "4403"}'>Dassault Falcon 900EX EASy</option>
+                            <option value="70" data-data='{"radius": "4402"}'>Dassault Falcon 900LX</option>
+                        </optgroup>
+                        <optgroup label="Embraer">
+                            <option value="71" data-data='{"radius": "2840"}'>Embraer Legacy 450</option>
+                            <option value="72" data-data='{"radius": "3056"}'>Embraer Legacy 500</option>
+                            <option value="73" data-data='{"radius": "3354"}'>Embraer Legacy 600</option>
+                            <option value="74" data-data='{"radius": "3814"}'>Embraer Legacy 650</option>
+                            <option value="75" data-data='{"radius": "895"}'>Embraer Phenom 100</option>
+                            <option value="76" data-data='{"radius": "1927"}'>Embraer Phenom 300</option>
+                            <option value="77" data-data='{"radius": "3057"}'>Embraer Praetor 500</option>
+                            <option value="78" data-data='{"radius": "3930"}'>Embraer Praetor 600</option>
+                        </optgroup>
+                        <optgroup label="Gulfstream">
+                            <option value="79" data-data='{"radius": "332"}'>Gulfstream G280</option>
+                            <option value="80" data-data='{"radius": "3408"}'>Gulfstream G300</option>
+                            <option value="81" data-data='{"radius": "3761"}'>Gulfstream G350</option>
+                            <option value="82" data-data='{"radius": "3795"}'>Gulfstream G400</option>
+                            <option value="83" data-data='{"radius": "4255"}'>Gulfstream G450</option>
+                            <option value="84" data-data='{"radius": "5086"}'>Gulfstream G500</option>
+                            <option value="85" data-data='{"radius": "4890"}'>Gulfstream G500 (Heritage)</option>
+                            <option value="86" data-data='{"radius": "6602"}'>Gulfstream G550</option>
+                            <option value="87" data-data='{"radius": "6064"}'>Gulfstream G600</option>
+                            <option value="88" data-data='{"radius": "6847"}'>Gulfstream G650</option>
+                            <option value="89" data-data='{"radius": "7336"}'>Gulfstream G650ER</option>
+                            <option value="90" data-data='{"radius": "7336"}'>Gulfstream G700</option>
+                            <option value="91" data-data='{"radius": "3717"}'>Gulfstream GIV</option>
+                            <option value="92" data-data='{"radius": "3797"}'>Gulfstream GIVSP</option>
+                            <option value="93" data-data='{"radius": "6603"}'>Gulfstream GV</option>
+                        </optgroup>
+                        <optgroup label="Pilatus">
+                            <option value="94" data-data='{"radius": "1310"}'>Pilatus PC-12</option>
+                            <option value="95" data-data='{"radius": "1281"}'>Pilatus PC-12 NG</option>
+                            <option value="96" data-data='{"radius": "1741"}'>Pilatus PC-24</option>
+                        </optgroup>
+                        <optgroup label="Piper">
+                            <option value="97" data-data='{"radius": "598"}'>Piper JetProp</option>
+                            <option value="98" data-data='{"radius": "479"}'>Piper Meridian</option>
+                            <option value="99" data-data='{"radius": "479"}'>Piper M-500</option>
+                            <option value="100" data-data='{"radius": "709"}'>Piper M-600</option>
+                        </optgroup>
+                    </select>
+                    <label for="planes2">Choose a plane:</label>
+                    <select class="col-10 col-md-12" name="planes2" id="planes2">
+                        <option value="0" selected>Planes...</option>
+                        <optgroup label="KING AIR">
+                            <option value="1" data-data='{"radius": "1682"}'>Beech-King-Air-250-19</option>
+                            <option value="2" data-data='{"radius": "1682"}'>Beech King Air 260</option>
+                            <option value="3" data-data='{"radius": "1447"}'>Beech King Air 300</option>
+                            <option value="4" data-data='{"radius": "1408"}'>Beech King Air 350</option>
+                            <option value="5" data-data='{"radius": "1766"}'>Beech King Air 350i</option>
+                            <option value="6" data-data='{"radius": "899"}'>Beech King Air B200</option>
+                            <option value="7" data-data='{"radius": "939"}'>Beech King Air B200GT</option>
+                            <option value="8" data-data='{"radius": "821"}'>Beech King Air C90</option>
+                            <option value="9" data-data='{"radius": "626"}'>Beech King Air C90-B</option>
+                            <option value="10" data-data='{"radius": "722"}'>Beech King Air C90-GT</option>
+                            <option value="11" data-data='{"radius": "831"}'>Beech King Air C90-GTi</option>
+                            <option value="12" data-data='{"radius": "883"}'>Beech King Air C90-GTx</option>
+                        </optgroup>
+                        <optgroup label="Bombardier">
+                            <option value="13" data-data='{"radius": "1048"}'>Beech Premier </option>
+                            <option value="14" data-data='{"radius": "1049"}'>Beech Premier IA</option>
+                            <option value="15" data-data='{"radius": "3149"}'>Bombardier CL 300</option>
+                            <option value="16" data-data='{"radius": "3227"}'>Bombardier CL 350</option>
+                            <option value="17" data-data='{"radius": "3130"}'>Bombardier CL 601</option>
+                            <option value="18" data-data='{"radius": "3032"}'>Bombardier CL 601-3A</option>
+                            <option value="19" data-data='{"radius": "3306"}'>Bombardier CL 601-3R</option>
+                            <option value="20" data-data='{"radius": "3669"}'>Bombardier CL 604</option>
+                            <option value="21" data-data='{"radius": "3667"}'>Bombardier CL 605</option>
+                            <option value="22" data-data='{"radius": "3668"}'>Bombardier CL 650</option>
+                            <option value="23" data-data='{"radius": "2490"}'>Bombardier CL 850</option>
+                            <option value="24" data-data='{"radius": "5086"}'>Bombardier Global 5000</option>
+                            <option value="25" data-data='{"radius": "5771"}'>Bombardier Global 5500</option>
+                            <option value="26" data-data='{"radius": "5869"}'>Bombardier Global 6000</option>
+                            <option value="27" data-data='{"radius": "6455"}'>Bombardier Global 6500</option>
+                            <option value="28" data-data='{"radius": "7531"}'>Bombardier Global 7500</option>
+                            <option value="29" data-data='{"radius": "5810"}'>Bombardier Global Express</option>
+                            <option value="30" data-data='{"radius": "5917"}'>Bombardier Global Express XRS</option>
+                        </optgroup>
+                        <optgroup label="Citation">
+                            <option value="31" data-data='{"radius": "1574"}'>Citation Bravo </option>
+                            <option value="32" data-data='{"radius": "1038"}'>Citation M2</option>
+                            <option value="33" data-data='{"radius": "3071"}'>Citation X</option>
+                            <option value="34" data-data='{"radius": "3158"}'>Citation X+</option>
+                            <option value="35" data-data='{"radius": "846"}'>Citation Jet</option>
+                            <option value="36" data-data='{"radius": "867"}'>CJ1</option>
+                            <option value="37" data-data='{"radius": "999"}'>CJ1+</option>
+                            <option value="38" data-data='{"radius": "1301"}'>CJ2</option>
+                            <option value="39" data-data='{"radius": "1420"}'>CJ2+</option>
+                            <option value="40" data-data='{"radius": "1709"}'>CJ3</option>
+                            <option value="41" data-data='{"radius": "1996"}'>CJ3+</option>
+                            <option value="42" data-data='{"radius": "1977"}'>CJ4</option>
+                            <option value="43" data-data='{"radius": "1658"}'>Citation Encore</option>
+                            <option value="44" data-data='{"radius": "1674"}'>Citation Encore+</option>
+                            <option value="45" data-data='{"radius": "1747"}'>Citation Excel</option>
+                            <option value="46" data-data='{"radius": "2726"}'>Citation Latitude</option>
+                            <option value="47" data-data='{"radius": "3423"}'>Citation Longitude</option>
+                            <option value="48" data-data='{"radius": "782"}'>Citation Mustang</option>
+                            <option value="49" data-data='{"radius": "2856"}'>Citation Sovereign-</option>
+                            <option value="50" data-data='{"radius": "3027"}'>Citation Sovereign+</option>
+                            <option value="51" data-data='{"radius": "1532"}'>Citation Ultra</option>
+                            <option value="52" data-data='{"radius": "1731"}'>Citation XLS</option>
+                            <option value="53" data-data='{"radius": "1854"}'>Citation XLS+</option>
+                        </optgroup>
+                        <optgroup label="Dassault Falcon">
+                            <option value="54" data-data='{"radius": "2778"}'>Dassault Falcon 2000</option>
+                            <option value="55" data-data='{"radius": "3796"}'>Dassault Falcon 2000EX</option>
+                            <option value="56" data-data='{"radius": "3795"}'>Dassault Falcon 2000EX EASy</option>
+                            <option value="57" data-data='{"radius": "3805"}'>Dassault Falcon 2000LX</option>
+                            <option value="58" data-data='{"radius": "3957"}'>Dassault Falcon 2000LXS</option>
+                            <option value="59" data-data='{"radius": "3452"}'>Dassault Falcon 2000S</option>
+                            <option value="60" data-data='{"radius": "3061"}'>Dassault Falcon 50</option>
+                            <option value="61" data-data='{"radius": "3159"}'>Dassault Falcon 50EX</option>
+                            <option value="62" data-data='{"radius": "5379"}'>Dassault Falcon 6X</option>
+                            <option value="63" data-data='{"radius": "5820"}'>Dassault Falcon 7X</option>
+                            <option value="64" data-data='{"radius": "6309"}'>Dassault Falcon 8X</option>
+                            <option value="65" data-data='{"radius": "3912"}'>Dassault Falcon 900B</option>
+                            <option value="66" data-data='{"radius": "3913"}'>Dassault Falcon 900C</option>
+                            <option value="67" data-data='{"radius": "3912"}'>Dassault Falcon 900DX</option>
+                            <option value="68" data-data='{"radius": "4401"}'>Dassault Falcon 900EX</option>
+                            <option value="69" data-data='{"radius": "4403"}'>Dassault Falcon 900EX EASy</option>
+                            <option value="70" data-data='{"radius": "4402"}'>Dassault Falcon 900LX</option>
+                        </optgroup>
+                        <optgroup label="Embraer">
+                            <option value="71" data-data='{"radius": "2840"}'>Embraer Legacy 450</option>
+                            <option value="72" data-data='{"radius": "3056"}'>Embraer Legacy 500</option>
+                            <option value="73" data-data='{"radius": "3354"}'>Embraer Legacy 600</option>
+                            <option value="74" data-data='{"radius": "3814"}'>Embraer Legacy 650</option>
+                            <option value="75" data-data='{"radius": "895"}'>Embraer Phenom 100</option>
+                            <option value="76" data-data='{"radius": "1927"}'>Embraer Phenom 300</option>
+                            <option value="77" data-data='{"radius": "3057"}'>Embraer Praetor 500</option>
+                            <option value="78" data-data='{"radius": "3930"}'>Embraer Praetor 600</option>
+                        </optgroup>
+                        <optgroup label="Gulfstream">
+                            <option value="79" data-data='{"radius": "332"}'>Gulfstream G280</option>
+                            <option value="80" data-data='{"radius": "3408"}'>Gulfstream G300</option>
+                            <option value="81" data-data='{"radius": "3761"}'>Gulfstream G350</option>
+                            <option value="82" data-data='{"radius": "3795"}'>Gulfstream G400</option>
+                            <option value="83" data-data='{"radius": "4255"}'>Gulfstream G450</option>
+                            <option value="84" data-data='{"radius": "5086"}'>Gulfstream G500</option>
+                            <option value="85" data-data='{"radius": "4890"}'>Gulfstream G500 (Heritage)</option>
+                            <option value="86" data-data='{"radius": "6602"}'>Gulfstream G550</option>
+                            <option value="87" data-data='{"radius": "6064"}'>Gulfstream G600</option>
+                            <option value="88" data-data='{"radius": "6847"}'>Gulfstream G650</option>
+                            <option value="89" data-data='{"radius": "7336"}'>Gulfstream G650ER</option>
+                            <option value="90" data-data='{"radius": "7336"}'>Gulfstream G700</option>
+                            <option value="91" data-data='{"radius": "3717"}'>Gulfstream GIV</option>
+                            <option value="92" data-data='{"radius": "3797"}'>Gulfstream GIVSP</option>
+                            <option value="93" data-data='{"radius": "6603"}'>Gulfstream GV</option>
+                        </optgroup>
+                        <optgroup label="Pilatus">
+                            <option value="94" data-data='{"radius": "1310"}'>Pilatus PC-12</option>
+                            <option value="95" data-data='{"radius": "1281"}'>Pilatus PC-12 NG</option>
+                            <option value="96" data-data='{"radius": "1741"}'>Pilatus PC-24</option>
+                        </optgroup>
+                        <optgroup label="Piper">
+                            <option value="97" data-data='{"radius": "598"}'>Piper JetProp</option>
+                            <option value="98" data-data='{"radius": "479"}'>Piper Meridian</option>
+                            <option value="99" data-data='{"radius": "479"}'>Piper M-500</option>
+                            <option value="100" data-data='{"radius": "709"}'>Piper M-600</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row faixa-black"></div>
+    </div>
+
+    <!--AERONAVES DISPONÍVEIS-->
+    <div class="aeronaves-disponiveis hide-empty">
+        <h1>INVENTORY:</h1>
+        <div id="aeronaves-disponiveis" class="slick-aeronaves-disponiveis"></div>
+        <div id="modal-holder" class="hidden"></div>
+    </div>
+    <div class="aeronaves-disponiveis show-empty">
+        <h1>Contact us to check our inventory</h1>
+    </div>
+
+    <!--CONTATO-->
+
+    <div id="form-contato" class="row formulario-contato-row contato-row">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+
+                    <h1>Contact<div class="red-bt"></div>
+                    </h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat.
+                    </p>
+                    <!-- <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467689.79713799525!2d-46.87548274582955!3d-23.68216040473634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce448183a461d1%3A0x9ba94b08ff335bae!2zU8OjbyBQYXVsbywgU1A!5e0!3m2!1spt-BR!2sbr!4v1580310481715!5m2!1spt-BR!2sbr"
+                        height="310" width="500px" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+                </div>
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                    <form name="sentMessage" id="contactForm">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Name" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="E-mail"
+                                    required />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Area code + Phone /Whatsapp</label>
+                                <input class="form-control required digits" type="tel" id="fone" size="30" value=""
+                                    placeholder="Area code + Phone /Whatsapp" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <div id="success"></div>
+                                <label for="comments">Message</label>
+                                <textarea class="form-control" id="mensagem" cols="3" rows="5"
+                                    placeholder="Message"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 text-right">
+                            <button class="btn btn-lg" id="whats-form"><img src="/images/whats-icon.svg"
+                                    class="whats-form-icon" />Send via Whatsapp<span
+                                    class="form-arrow">&#10095;&#10095;</span></button>
+                        </div>
+                        <div class="col-md-12 col-lg-12 text-right">
+                            <button name="submit" type="submit" class="btn btn-lg" id="submit">Send via E-mail<span
+                                    class="form-arrow">&#10095;&#10095;</span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--SOBRE NÓS-->
+
+    <footer style="background-color: #000000;">
+        <div class="row justify-content-center flex-column flex-sm-row footer">
+            <a class="col-2" href="#"><img src="images/logo-white.svg" class="logotipo"></a>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row justify-content-center flex-column flex-sm-row footer">
+            <div class="col-2">
+                <h3>Cygnus Aircrafts</h3>
+                <p>Revendedor de aeronaves</p>
+                <p>São Paulo - Brasil e Florida - USA</p>
+            </div>
+            <div class="col-2">
+                <h3>Contato</h3>
+                <a>
+                    <p>sales@cygnusaircrafts.com</p>
+                </a>
+                <a>
+                    <p>+1 (754) 704.8650</p>
+                </a>
+                <a>
+                    <p>+55 16 9.8178.4048</p>
+                </a>
+            </div>
+            <div class="col-2">
+                <h3>Horário de atendimento</h3>
+                <p>Segunda à sexta:</p>
+                <p>das 9h até as 17h</p>
+            </div>
+            <div class="col-2">
+                <h3>Redes sociais</h3>
+                <div class="row icons-rs-footer justify-content-start" style="width: 100%;">
+                    <div>
+                        <a href="https://www.facebook.com/cygnusaircrafts" target="_blank"><img
+                                src="images/icon-face.svg" alt="facebook"></a>
+                    </div>
+                    <div>
+                        <a href="https://www.instagram.com/cygnusaircrafts/" target="_blank"><img
+                                src="images/icon-insta.svg" alt="Instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--COPYRIGHT-->
+    <div class="row copyright-row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+
+            <p>Made with ♥ by <a href="https://jabutidesign.com.br" target="_blank">Jabuti Design®</a>, 2020</p>
+
+        </div>
+    </div>
+    <div class="overlay">
+        <div class="overlay__inner">
+            <div class="overlay__content"><span class="spinner"></span></div>
+        </div>
+    </div>
+    <script>
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3h30sxfVHplIH0Gl01OxKJIPVQOPpxG8&libraries=&v=weekly"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.min.js"
+        integrity="sha512-pF+DNRwavWMukUv/LyzDyDMn8U2uvqYQdJN0Zvilr6DDo/56xPDZdDoyPDYZRSL4aOKO/FGKXTpzDyQJ8je8Qw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/selectize.min.js"
+        integrity="sha512-JiDSvppkBtWM1f9nPRajthdgTCZV3wtyngKUqVHlAs0d5q72n5zpM3QMOLmuNws2vkYmmLn4r1KfnPzgC/73Mw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/airportsdb.js"></script>
+    <script src="/js/script.js"></script>
+    <script type="text/javascript"
+        id="zsiqchat">var $zoho = $zoho || {}; $zoho.salesiq = $zoho.salesiq || { widgetcode: "f5ded67cbcc7cecfa4d562adf86b812970999dab4d6bcbbc886af58d76372a6f", values: {}, ready: function () { } }; var d = document; s = d.createElement("script"); s.type = "text/javascript"; s.id = "zsiqscript"; s.defer = true; s.src = "https://salesiq.zoho.com/widget"; t = d.getElementsByTagName("script")[0]; t.parentNode.insertBefore(s, t);</script>
+
+</body>
+
+</html>

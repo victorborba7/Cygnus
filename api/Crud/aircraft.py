@@ -3,7 +3,6 @@ import pandas as pd
 import os
 import aiofiles
 import shutil
-from PIL import Image
 import logging
 
 def indexContainingSubstring(the_list, substring):
@@ -88,6 +87,7 @@ async def createAircraft(req, internos, externos, mapa_assentos = None):
         return True
     except Exception as e:
         logging.error(str(e))
+        return False
 
 def updateAircraft(req):
     try:
@@ -136,6 +136,7 @@ def updateAircraft(req):
         return True
     except Exception as e:
         logging.error(str(e))
+        return False
 
 def deleteAircraft(id):
     try:
@@ -144,8 +145,9 @@ def deleteAircraft(id):
         dbConnection.execute(delete)
         dbConnection.close()
         return True
-    except:
-        raise
+    except Exception as e:
+        logging.error(str(e))
+        return False
 
 async def saveImages(req, internos, externos, mapa_assentos = None):
     #Mapa assentos
