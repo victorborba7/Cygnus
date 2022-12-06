@@ -4,6 +4,8 @@ let company_id;
 let outside_images = 0;
 let inside_images = 0;
 let first_load = 1;
+let ficha = $("body").attr("id") == "en" ? "I'M INTERESTED" : "TENHO INTERESSE";
+let interesse = $("body").attr("id") == "en" ? "SPECIFICATIONS" : "FICHA TÉCNICA";
 
 //let url = "http://localhost:8000";
 let url = "http://162.240.67.88:8000";
@@ -71,8 +73,8 @@ function getAvailableAircrafts() {
 						<div class="card-body">
 							<h5 class="card-title">${el.model}</h5>
 							<div class="row">
-								<div class="col-12 mb-2"><button id="open${el.id}" class="btn btn-success middle">FICHA TÉCNICA</button></div>
-								<div class="col-12"><a href="#form-contato" id="interesse${el.id}" data-model="${el.model}" data-model="${el.year}" class="btn btn-danger middle">TENHO INTERESSE</a></div>
+								<div class="col-12 mb-2"><button id="open${el.id}" class="btn btn-success middle">${ficha}</button></div>
+								<div class="col-12"><a href="#form-contato" id="interesse${el.id}" data-model="${el.model}" data-model="${el.year}" class="btn btn-danger middle">${interesse}</a></div>
 							</div>
 						</div>
 					</div>
