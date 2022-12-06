@@ -80,6 +80,7 @@ function getAvailableAircrafts() {
 					</div>
 				<div>
 				`);
+				console.info(div3)
 
 				$('#modal-holder').append(`
 				<div id="modal${el.id}" class="d-flex flex-column justify-content-around modal" style="display: none !important">
@@ -150,7 +151,6 @@ function getAvailableAircrafts() {
 				})
 
 				$(`#open${el.id}`).click(function () {
-					console.info("123")
 					$(`#modal${el.id}`).attr('style', 'display:flex !important');
 
 					$(`#available_photos_ficha${el.id}`).slick({
