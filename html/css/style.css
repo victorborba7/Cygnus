@@ -515,6 +515,10 @@ input {
     height: 100px;
 }
 
+.info-especificacoes p::-webkit-scrollbar {
+    width: 3px;
+}
+
 .img-holder-ficha {
     display: flex !important;
     justify-content: center !important;
