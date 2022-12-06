@@ -139,7 +139,8 @@ function getAvailableAircrafts() {
 				`)
 
 				$(`#interesse${el.id}`).click(function () {
-					$("#mensagem").val(`Olá, quero mais informações sobre o modelo ${el.model} do ano ${el.year}`)
+					let mensagem = $("body").attr("id") == "en" ? `Hi, I would like to know more about ${el.model} from ${el.year}` : `Olá, quero mais informações sobre o modelo ${el.model} do ano ${el.year}`;
+					$("#mensagem").val(mensagem)
 				})
 
 				$(`#close${el.id}`).click(function () {
@@ -149,6 +150,7 @@ function getAvailableAircrafts() {
 				})
 
 				$(`#open${el.id}`).click(function () {
+					console.info("123")
 					$(`#modal${el.id}`).attr('style', 'display:flex !important');
 
 					$(`#available_photos_ficha${el.id}`).slick({
