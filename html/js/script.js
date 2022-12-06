@@ -4,8 +4,8 @@ let company_id;
 let outside_images = 0;
 let inside_images = 0;
 let first_load = 1;
-let ficha = $("body").attr("id") == "en" ? "I'M INTERESTED" : "TENHO INTERESSE";
-let interesse = $("body").attr("id") == "en" ? "SPECIFICATIONS" : "FICHA TÉCNICA";
+let interesse = $("body").attr("id") == "en" ? "I'M INTERESTED" : "TENHO INTERESSE";
+let ficha = $("body").attr("id") == "en" ? "SPECIFICATIONS" : "FICHA TÉCNICA";
 
 //let url = "http://localhost:8000";
 let url = "http://162.240.67.88:8000";
