@@ -80,7 +80,6 @@ function getAvailableAircrafts() {
 					</div>
 				<div>
 				`);
-				console.info(div3)
 
 				$('#modal-holder').append(`
 				<div id="modal${el.id}" class="d-flex flex-column justify-content-around modal" style="display: none !important">
@@ -88,13 +87,13 @@ function getAvailableAircrafts() {
 					<h2>${el.model}</h2>
 					<h3>${el.year}</h3>
 					<div class="row justify-content-center justify-content-sm-around">
-						<div class="col-12 col-md-8">
+						<div class="col-12 col-md-6">
 							<div class="row justify-content-around">
 								${div2}
 								${div3}
 							</div>
 						</div>
-						<div class="col-12 col-md-4 d-flex flex-column justify-content-around">
+						<div class="info-especificacoes col-12 col-md-6 d-flex flex-column justify-content-around">
 							<div class="row justify-content-around">
 								<div class="col-3">
 									<h4>Airframe</h4>

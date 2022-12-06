@@ -509,6 +509,12 @@ input {
     border: 1px solid #cccccc;
 }
 
+.info-especificacoes p {
+    font-size: 12px;
+    overflow: auto;
+    height: 100px;
+}
+
 .img-holder-ficha {
     display: flex !important;
     justify-content: center !important;
