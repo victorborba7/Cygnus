@@ -15,7 +15,7 @@ def treatQuotes(s):
     return s.replace("'", "\\'").replace('"', '\\"')
 
 #mypath = "C:/Users/victorvb2/Documents/Projetos/Cygnus/html"
-mypath = "/home/html"
+mypath = "/Cygnus/lp"
 
 def getAvailableAircraftById(id):
     dbConnection = engine.connect()
