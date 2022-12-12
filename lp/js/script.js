@@ -8,7 +8,7 @@ let interesse = $("body").attr("id") == "en" ? "I'M INTERESTED" : "TENHO INTERES
 let ficha = $("body").attr("id") == "en" ? "SPECIFICATIONS" : "FICHA TÉCNICA";
 
 //let url = "http://localhost:8000";
-let url = "http://162.240.67.88:8000/api";
+let url = "http://162.240.67.88/api";
 
 
 function getAircrafts() {
