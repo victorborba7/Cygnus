@@ -23,7 +23,10 @@ def getAvailableAircraftById(id):
     dbConnection.close()
     if len(df) > 0:
         records = df.to_dict("records")[0]
-        records["files"] = os.listdir(mypath + df["photos_path"][0])
+        try:
+            records["files"] = os.listdir(mypath + df["photos_path"][0])
+        except:
+            pass
         
         return records
     return False
@@ -36,7 +39,10 @@ def getAvailableAircrafts(company_id):
     df = pd.read_sql(f"select a.*, c.name as company_name from available_aircraft a join company c on a.company_id = c.id {where} order by c.name, a.model", dbConnection)
     dbConnection.close()
     if len(df) > 0 and where != "":
-        df["files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"]), axis=1)
+        try:
+            df["files"] = df.apply(lambda x: os.listdir(mypath + x["photos_path"]), axis=1)
+        except:
+            pass
     return df.to_dict("records")
 
 async def createAvailableAircraft(req, photos):

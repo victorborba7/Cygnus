@@ -23,14 +23,17 @@ def getAircraftById(id):
     dbConnection.close()
     if len(df) > 0:
         records = df.to_dict("records")[0]
-        records["outside_files"] = os.listdir(mypath + df["photos_path"][0] + "/externo")
-        records["inside_files"] = os.listdir(mypath + df["photos_path"][0] + "/interno")
-        files = os.listdir(mypath + df["photos_path"][0])
-        index_mapa_assentos = indexContainingSubstring(files, "mapa_assentos")
-        if index_mapa_assentos >= 0:
-            records["mapa_assentos"] = files[index_mapa_assentos]
-        else:
-            records["mapa_assentos"] = ""
+        try:
+            records["outside_files"] = os.listdir(mypath + df["photos_path"][0] + "/externo")
+            records["inside_files"] = os.listdir(mypath + df["photos_path"][0] + "/interno")
+            files = os.listdir(mypath + df["photos_path"][0])
+            index_mapa_assentos = indexContainingSubstring(files, "mapa_assentos")
+            if index_mapa_assentos >= 0:
+                records["mapa_assentos"] = files[index_mapa_assentos]
+            else:
+                records["mapa_assentos"] = ""
+        except:
+            pass
         
         return records
     return False
