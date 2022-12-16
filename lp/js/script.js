@@ -1,8 +1,6 @@
 var path = window.location.pathname.split("/")
 let company = path[path.length - 1];
 let company_id;
-let outside_images = 0;
-let inside_images = 0;
 let first_load = 1;
 let interesse = $("body").attr("id") == "en" ? "I'M INTERESTED" : "TENHO INTERESSE";
 let ficha = $("body").attr("id") == "en" ? "SPECIFICATIONS" : "FICHA TÉCNICA";
@@ -58,11 +56,14 @@ function getAvailableAircrafts() {
 				var div = "<div class='available_photos'>"
 				var div2 = `<div id="available_photos_ficha${el.id}" class='available_photos_ficha col-10'>`
 				var div3 = `<div id="available_photos_ficha_nav${el.id}" class='available_photos_ficha_nav col-8'>`
-				el.files.forEach(photo => {
-					div += `<img class="card-img-top" src="${el.photos_path}/${photo}" alt="Card imagem" />`
-					div2 += `<div class="img-holder-ficha"><img class="card-img-top-big" src="${el.photos_path}/${photo}" alt="Card imagem" /></div>`
-					div3 += `<img class="card-img-top-ficha" src="${el.photos_path}/${photo}" alt="Card imagem" />`
-				});
+
+				if (el.hasOwnProperty("files")) {
+					el.files.forEach(photo => {
+						div += `<img class="card-img-top" src="${el.photos_path}/${photo}" alt="Card imagem" />`
+						div2 += `<div class="img-holder-ficha"><img class="card-img-top-big" src="${el.photos_path}/${photo}" alt="Card imagem" /></div>`
+						div3 += `<img class="card-img-top-ficha" src="${el.photos_path}/${photo}" alt="Card imagem" />`
+					});
+				}
 				div += "</div>"
 				div2 += "</div>"
 				div3 += "</div>"
@@ -216,37 +217,36 @@ function getAircraft() {
 
 			$('.avioes').empty()
 			$('.fotosdeaviao').empty();
+			if (data.hasOwnProperty("outside_files")) {
+				data.outside_files.forEach((value) => {
+					$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
+				});
 
-			data.outside_files.forEach((value) => {
-				$(".avioes").append(`<img src="${data.photos_path}/externo/${value}" />`)
-			});
+				$('.avioes').slick({
+					infinite: true,
+					dots: true,
+					arrows: false,
+					autoplay: true,
+					autoplaySpeed: 2000,
+					cssEase: 'linear'
+				});
+			}
+			if (data.hasOwnProperty("outside_files")) {
 
-			$('.avioes').slick({
-				infinite: true,
-				dots: true,
-				arrows: false,
-				autoplay: true,
-				autoplaySpeed: 2000,
-				cssEase: 'linear'
-			});
+				data.inside_files.forEach((value) => {
+					$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
+				});
 
-			outside_images = data.outside_files.length
-
-			data.inside_files.forEach((value) => {
-				$(".fotosdeaviao").append(`<img src="${data.photos_path}/interno/${value}" class="borda" />`)
-			});
-
-			$('.fotosdeaviao').slick({
-				infinite: true,
-				slidesToShow: 4,
-				slidesToScroll: 1,
-				dots: false,
-				arrows: false,
-				autoplay: true,
-				autoplaySpeed: 2000,
-			});
-
-			inside_images = data.inside_files.length
+				$('.fotosdeaviao').slick({
+					infinite: true,
+					slidesToShow: 4,
+					slidesToScroll: 1,
+					dots: false,
+					arrows: false,
+					autoplay: true,
+					autoplaySpeed: 2000,
+				});
+			}
 
 			first_load = 0;
 
