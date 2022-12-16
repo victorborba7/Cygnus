@@ -211,8 +211,8 @@ function getAircraft() {
 		url: url + "/aircraft/get?id=" + $("#aircrafts option:selected").val(),
 		success: function (data) {
 			if (first_load == 0) {
-				$('.avioes').slick('unslick');
-				$('.fotosdeaviao').slick('unslick');
+				// $('.avioes').slick('unslick');
+				// $('.fotosdeaviao').slick('unslick');
 			}
 
 			$('.avioes').empty()
